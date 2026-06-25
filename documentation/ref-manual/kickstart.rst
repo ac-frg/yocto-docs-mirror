@@ -9,16 +9,6 @@ OpenEmbedded Kickstart (``.wks``) Reference
 Introduction
 ============
 
-The current Wic implementation supports only the basic kickstart
-partitioning commands: ``partition`` (or ``part`` for short) and
-``bootloader``.
-
-.. note::
-
-   Future updates will implement more commands and options. If you use
-   anything that is not specifically supported, results can be
-   unpredictable.
-
 This chapter provides a reference on the available kickstart commands.
 The information lists the commands, their syntax, and meanings.
 Kickstart commands are based on the Fedora kickstart versions but with
