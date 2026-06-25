@@ -75,6 +75,29 @@ system needs to meet the following requirements:
    going to run ``bitbake`` commands. See :ref:`dev-manual/start:Initializing
    the Build Environment` for more details.
 
+-  Make the ``wic`` command-line tool available in your shell:
+
+   #. Run the following command first:
+
+      .. code-block:: console
+
+         $ bitbake wic-native -c addto_recipe_sysroot
+
+   #. Check if you can use the ``wic`` utility using ``oe-run-native``:
+
+      .. code-block:: console
+
+         $ oe-run-native wic-native wic --help
+
+   #. Define a local alias for the above command:
+
+      .. code-block:: console
+
+         $ alias wic="oe-run-native wic-native wic"
+
+      This will make it possible to use ``wic`` from the :term:`OpenEmbedded
+      Build System` transparently below.
+
 -  You need to have the build artifacts already available, which
    typically means that you must have already created an image using the
    OpenEmbedded build system (e.g. ``core-image-minimal``). While it
