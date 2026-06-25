@@ -3534,8 +3534,7 @@ by rootfs image recipes. The build configuration should also use an
 on target hardware. Using ``systemd`` as init is recommended. Image builds
 should create an ESP partition for UEFI firmware and copy ``systemd-boot`` and
 UKI files there. Sample configuration for Wic images is provided in
-:oe_git:`scripts/lib/wic/canned-wks/efi-uki-bootdisk.wks.in
-</openembedded-core/tree/scripts/lib/wic/canned-wks/efi-uki-bootdisk.wks.in>`.
+:oecore_path:`meta/files/wic/efi-uki-bootdisk.wks.in`
 UKIs are generated using ``systemd`` reference implementation `ukify
 <https://www.freedesktop.org/software/systemd/man/latest/ukify.html>`__.
 This class uses a number of variables but tries to find sensible defaults for
