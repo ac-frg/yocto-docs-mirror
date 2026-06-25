@@ -71,16 +71,9 @@ Requirements
 In order to use the Wic utility with the OpenEmbedded Build system, your
 system needs to meet the following requirements:
 
--  The Linux distribution on your development host must support the
-   Yocto Project. See the ":ref:`system-requirements-supported-distros`"
-   section in the Yocto Project Reference Manual for the list of
-   distributions that support the Yocto Project.
-
--  The standard system utilities, such as ``cp``, must be installed on
-   your development host system.
-
--  You must have sourced the build environment setup script (i.e.
-   :ref:`structure-core-script`) found in the :term:`Build Directory`.
+-  You environment and :term:`Build Directory` must be ready, as if you were
+   going to run ``bitbake`` commands. See :ref:`dev-manual/start:Initializing
+   the Build Environment` for more details.
 
 -  You need to have the build artifacts already available, which
    typically means that you must have already created an image using the
