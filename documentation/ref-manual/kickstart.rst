@@ -232,3 +232,15 @@ supports the following options:
 -  ``--timeout``: Specifies the number of seconds before the
    bootloader times out and boots the default option.
 
+Directive: include
+==================
+
+The ``include`` directive can be used to include a WKS file into another. The
+only argument to this command is the path to the file to include, relative to
+the current file. For example:
+
+.. code-block:: shell
+
+   include common.wks.inc
+
+   bootloader --configfile="directdisk-bootloader-config.cfg"
