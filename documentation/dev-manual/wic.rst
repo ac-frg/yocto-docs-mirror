@@ -276,8 +276,8 @@ existing file provided by the Wic installation. As shipped, kickstart
 files can be found in the :ref:`overview-manual/development-environment:yocto project source repositories` in the
 following two locations::
 
-   meta-yocto/meta-yocto-bsp/wic
-   openembedded-core/scripts/lib/wic/canned-wks
+   meta-yocto/meta-yocto-bsp/files/wic
+   openembedded-core/files/wic
 
 Use the following command to list the available kickstart files::
 
@@ -482,7 +482,7 @@ file::
      NATIVE_SYSROOT:               /home/stephano/yocto/build/tmp-glibc/work/i586-oe-linux/wic-tools/1.0-r0/recipe-sysroot-native
 
    INFO: The image(s) were created using OE kickstart file:
-     /home/stephano/yocto/openembedded-core/scripts/lib/wic/canned-wks/mkefidisk.wks
+     /home/stephano/yocto/openembedded-core/files/wic/mkefidisk.wks
 
 The previous example shows the easiest way to create an image by running
 in cooked mode and supplying a kickstart file and the "-e" option to
@@ -527,7 +527,7 @@ This next example demonstrates that through modification of the
 As mentioned earlier, you can use the command ``wic list images`` to
 show the list of existing kickstart files. The directory in which the
 ``directdisk-gpt.wks`` file resides is
-``scripts/lib/image/canned-wks/``, which is located in
+``files/wic``, which is located in
 :term:`OpenEmbedded-Core (OE-Core)`.
 Because available files reside in this directory, you can create and add
 your own custom files to the directory. Subsequent use of the
@@ -542,8 +542,8 @@ The example begins by making a copy of the ``directdisk-gpt.wks`` file
 in the ``scripts/lib/image/canned-wks`` directory and then by changing
 the lines that specify the target disk from which to boot::
 
-   $ cp /home/stephano/yocto/openembedded-core/scripts/lib/wic/canned-wks/directdisk-gpt.wks \
-        /home/stephano/yocto/openembedded-core/scripts/lib/wic/canned-wks/directdisksdb-gpt.wks
+   $ cp /home/stephano/yocto/openembedded-core/files/wic/directdisk-gpt.wks \
+        /home/stephano/yocto/openembedded-core/files/wic/directdisksdb-gpt.wks
 
 Next, the example modifies the ``directdisksdb-gpt.wks`` file and
 changes all instances of "``--ondisk sda``" to "``--ondisk sdb``". The
@@ -580,7 +580,7 @@ Computing (nuc) :term:`MACHINE` the
      NATIVE_SYSROOT:               /home/stephano/yocto/build/tmp-glibc/work/i586-oe-linux/wic-tools/1.0-r0/recipe-sysroot-native
 
    INFO: The image(s) were created using OE kickstart file:
-     /home/stephano/yocto/openembedded-core/scripts/lib/wic/canned-wks/directdisksdb-gpt.wks
+     /home/stephano/yocto/openembedded-core/files/wic/directdisksdb-gpt.wks
 
 Continuing with the example, you can now directly ``dd`` the image to a
 USB stick, or whatever media for which you built your image, and boot
