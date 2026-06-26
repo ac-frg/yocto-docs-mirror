@@ -2276,6 +2276,11 @@ system and gives an overview of their function and contents.
       ":ref:`overview-manual/concepts:application development sdk`" sections all in the
       Yocto Project Overview and Concepts Manual.
 
+      .. warning::
+
+         Do not confuse this variable with the similarly-named
+         :term:`DEPLOYDIR` variable.
+
    :term:`DEPLOY_DIR_DEB`
       Points to the area that the OpenEmbedded build system uses to place
       Debian packages that are ready to be used outside of the build
@@ -2365,6 +2370,11 @@ system and gives an overview of their function and contents.
       deployed into :term:`DEPLOYDIR`, and the class will take care of copying
       them into :term:`DEPLOY_DIR_IMAGE`
       afterwards.
+
+      .. warning::
+
+         Do not confuse this variable with the similarly-named
+         :term:`DEPLOY_DIR` variable.
 
    :term:`DESCRIPTION`
       The package description used by package managers. If not set,
