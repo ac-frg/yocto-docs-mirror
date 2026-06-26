@@ -80,7 +80,7 @@ task runs with the current working directory set to
 Recipes implementing this task should inherit the
 :ref:`ref-classes-deploy` class and should write the output
 to ``${``\ :term:`DEPLOYDIR`\ ``}``, which is not to be
-confused with ``${DEPLOY_DIR}``. The :ref:`ref-classes-deploy` class sets up
+confused with ``${``\ :term:`DEPLOY_DIR`\ ``}``. The :ref:`ref-classes-deploy` class sets up
 :ref:`ref-tasks-deploy` as a shared state (sstate) task that can be accelerated
 through sstate use. The sstate mechanism takes care of copying the
 output from ``${DEPLOYDIR}`` to ``${DEPLOY_DIR_IMAGE}``.
