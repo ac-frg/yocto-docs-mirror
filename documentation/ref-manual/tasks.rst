@@ -591,7 +591,7 @@ Yocto Project Development Tasks Manual for more information about using
 --------------------------
 
 Lists the available features for an image recipe. These features can be set
-in the :term:`IMAGE_FEATURES` variable.
+through either the :term:`IMAGE_FEATURES` or :term:`EXTRA_IMAGE_FEATURES` variables.
 
 .. _ref-tasks-listtasks:
 
