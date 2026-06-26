@@ -432,7 +432,26 @@ Manually Called Tasks
 =====================
 
 These tasks are typically manually triggered (e.g. by using the
-``bitbake -c`` command-line option):
+``bitbake -c`` command-line option) because they are not normally
+part of any standard build workflow. As an example, consider the
+``listtasks`` task, which displays the tasks defined for a given
+recipe and would be invoked with:
+
+.. code-block:: console
+
+   $ bitbake -c listtasks recipename
+
+A typical definition of a manually-called task would look like::
+
+   addtask listtasks
+   do_listtasks[nostamp] = "1"
+   python do_listtasks() {
+      ... definition of task ...
+   }
+
+which defines that function as a task without building it into any
+task dependency chain, as well as setting the ``[nostamp]`` flag to
+ensure that it is run every time it is invoked.
 
 ``do_checkuri``
 ---------------
