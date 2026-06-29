@@ -11573,6 +11573,10 @@ system and gives an overview of their function and contents.
 
          do_compile[depends] += "trusted-firmware-a:do_deploy"
 
+   :term:`UBOOT_FIT_CONF_DESC`
+      The :term:`UBOOT_FIT_CONF_DESC` can be set to override the description
+      property of the configuration node of a U-Boot FIT image.
+
    :term:`UBOOT_FIT_CONF_FIRMWARE`
       Adds one image to the ``firmware`` property of the configuration node of
       the U-Boot Image Tree Source (ITS). Sets the ``firmware`` property to
