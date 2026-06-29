@@ -9,6 +9,33 @@ tasks to complete configuring, compiling, and packaging software. This
 chapter provides a reference of the tasks defined in the OpenEmbedded
 build system.
 
+To see the tasks defined (in alphabetical order) for a given recipe,
+you can run:
+
+.. code-block:: console
+
+   $ bitbake -c listtasks recipename
+   do_build                              Default task for a recipe - depends on all other normal tasks required to 'build' a recipe
+   do_checkuri                           Validates the SRC_URI value
+   do_clean                              Removes all output files for a target
+   do_cleanall                           Removes all output files, shared state cache, and downloaded source files for a target
+   do_cleansstate                        Removes all output files and shared state cache for a target
+   do_compile                            Compiles the source in the compilation directory
+   ...
+
+In addition, once a recipe has been built, you can examine the
+resulting task information in that recipe's ``${WORKDIR}/temp/``
+directory, which will consist of the following:
+
+-  for each task, a ``run`` file that represents the code that
+   was executed for that task
+
+-  for each task, a corresponding ``log`` file showing the result of
+   task execution
+
+-  a single ``log.task_order`` file showing the execution order
+   of all tasks for that recipe
+
 Normal Recipe Build Tasks
 =========================
 
