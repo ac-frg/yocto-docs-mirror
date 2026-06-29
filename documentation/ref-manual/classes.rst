@@ -2261,6 +2261,15 @@ environment for cross compilation.
 This class is internal to the :ref:`ref-classes-python-setuptools3_rust` class
 and is not meant to be used directly in recipes.
 
+.. _ref-classes-python_uv_build:
+
+``python_uv_build``
+===================
+
+The :ref:`ref-classes-python_uv_build` class can be inherited in Python recipes
+that are built with ``uv_build`` and which are `PEP-517
+<https://www.python.org/dev/peps/pep-0517/>`__ compliant.
+
 .. _ref-classes-python-setuptools3_rust:
 
 ``python-setuptools3_rust``
