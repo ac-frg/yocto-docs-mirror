@@ -78,6 +78,13 @@ And::
 Removed recipes
 ---------------
 
+-  ``libdazzle``, ``libhandy``: no longer a dependency of the ``epiphany`` recipe, moved to
+   `meta-gnome` (in `meta-openembedded`)
+   (:oecore_rev:`32d91b67b71de89e0e7cc7525371aec123655908`)
+
+-  ``libpcre``: obsolete project now replaced by ``libpcre2``
+   (:oecore_rev:`057cccd9576e1dd0f947fbfc390bc06b210f71cb`)
+
 Removed :term:`PACKAGECONFIG` options
 -------------------------------------
 
