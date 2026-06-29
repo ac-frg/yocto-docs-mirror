@@ -60,6 +60,21 @@ Or written more simply as::
 
 See (:oecore_rev:`b8da733ab12c64503a353d5ceb2eb63fed95d851`) for more details.
 
+Removal of ``oe.utils.all_distro_features()`` and ``oe.utils.any_distro_features()``
+------------------------------------------------------------------------------------
+
+The ``oe.utils.all_distro_features()`` and ``oe.utils.any_distro_features()``
+functions have been removed from :term:`OpenEmbedded-Core (OE-Core)`.
+
+Those can be replaced by ``bb.utils.contains()`` and ``bb.utils.contains_any()``
+calls::
+
+   oe.utils.all_distro_features("x y", ...) -> bb.utils.contains("DISTRO_FEATURES", "x y", ...)
+
+And::
+
+   oe.utils.any_distro_features("x y", ...) -> bb.utils.contains_any("DISTRO_FEATURES", "x y", ...)
+
 Removed recipes
 ---------------
 
