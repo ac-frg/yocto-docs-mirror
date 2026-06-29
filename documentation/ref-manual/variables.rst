@@ -3914,13 +3914,8 @@ system and gives an overview of their function and contents.
       ``groupadd``, see https://linux.die.net/man/8/groupadd.
 
    :term:`GROUPMEMS_PARAM`
-      When inheriting the :ref:`ref-classes-useradd` class,
-      this variable specifies for a package what parameters should be
-      passed to the ``groupmems`` command if you wish to modify the members
-      of a group when the package is installed.
-
-      For information on the standard Linux shell command ``groupmems``,
-      see https://linux.die.net/man/8/groupmems.
+      Deprecated in favor of :term:`USERMOD_PARAMS`. See
+      :ref:`ref-migration-6-1-groupmems` for more information.
 
    :term:`GRUB_GFXSERIAL`
       Configures the GNU GRand Unified Bootloader (GRUB) to have graphics
