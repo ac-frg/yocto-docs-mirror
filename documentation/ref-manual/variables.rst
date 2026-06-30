@@ -11416,7 +11416,7 @@ system and gives an overview of their function and contents.
 
          TUNE_PKGARCH:tune-core2-32 = "core2-32"
 
-   :term:`TUNECONFLICTS[feature]`
+   :term:`TUNECONFLICTS`
       Specifies CPU or Application Binary Interface (ABI) tuning features
       that conflict with feature.
 
@@ -11428,7 +11428,7 @@ system and gives an overview of their function and contents.
 
          TUNECONFLICTS[n32] = "o32 n64"
 
-   :term:`TUNEVALID[feature]`
+   :term:`TUNEVALID`
       Specifies a valid CPU or Application Binary Interface (ABI) tuning
       feature. The specified feature is stored as a flag. Valid features
       are specified in the machine include files (e.g.
