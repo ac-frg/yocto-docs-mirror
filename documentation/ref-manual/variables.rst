@@ -10978,6 +10978,12 @@ system and gives an overview of their function and contents.
       wish, for example, to separate the machine-specific and
       non-machine-specific parts of the command.
 
+   :term:`TEST_SERIALCONTROL_PS1`
+      For automated hardware testing with the :ref:`ref-classes-testexport`
+      class, the :term:`TEST_SERIALCONTROL_PS1` variable specifies a regex
+      string representing an empty prompt on the target terminal. For example:
+      ``root@target:.*#``.
+
    :term:`TEST_SERVER_IP`
       The IP address of the build machine (host machine). This IP address
       is usually automatically detected. However, if detection fails, this
