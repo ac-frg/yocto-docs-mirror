@@ -2704,11 +2704,11 @@ system and gives an overview of their function and contents.
    :term:`TUNE_PKGARCH`
       .. include:: variables/TUNE_PKGARCH.rst
 
-   :term:`TUNECONFLICTS[feature]`
-      .. include:: variables/TUNECONFLICTS[feature].rst
+   :term:`TUNECONFLICTS`
+      .. include:: variables/TUNECONFLICTS.rst
 
-   :term:`TUNEVALID[feature]`
-      .. include:: variables/TUNEVALID[feature].rst
+   :term:`TUNEVALID`
+      .. include:: variables/TUNEVALID.rst
 
    :term:`UBOOT_BINARY`
       .. include:: variables/UBOOT_BINARY.rst
