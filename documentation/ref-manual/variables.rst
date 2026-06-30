@@ -10983,6 +10983,11 @@ system and gives an overview of their function and contents.
 
          TEST_SERIALCONTROL_CMD = "picocom /dev/ttyUSB0 -b 115200"
 
+   :term:`TEST_SERIALCONTROL_CONNECT_TIMEOUT`
+      For automated hardware testing with the :ref:`ref-classes-testexport`
+      class, the :term:`TEST_SERIALCONTROL_CONNECT_TIMEOUT` variable specifies
+      the timeout in seconds for the initial connection to the target.
+
    :term:`TEST_SERIALCONTROL_EXTRA_ARGS`
       For automated hardware testing, specifies additional arguments to
       pass through to the command specified in
