@@ -42,7 +42,7 @@ one-to-one correspondence to packages, and they can go beyond simply
 controlling the installation of a package or packages. Sometimes a
 feature can influence how certain recipes are built. For example, a
 feature might determine whether a particular configure option is
-specified within the :ref:`ref-tasks-configure` task
+specified within the :term:`do_configure` task
 for a particular recipe.
 
 This feature list only represents features as shipped with the Yocto
@@ -106,7 +106,7 @@ your distribution. Features do not have a one-to-one correspondence to
 packages, and they can go beyond simply controlling the installation of
 a package or packages. In most cases, the presence or absence of a
 feature translates to the appropriate option supplied to the configure
-script during the :ref:`ref-tasks-configure` task for
+script during the :term:`do_configure` task for
 the recipes that optionally support the feature. Appropriate options
 must be supplied, and enabling/disabling :term:`PACKAGECONFIG` for the
 concerned packages is one way of supplying such options.

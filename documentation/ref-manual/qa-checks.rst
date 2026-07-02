@@ -89,7 +89,7 @@ line if preceded with "-Wl,").
    the target operating system or is intended to run on a separate
    processor within the device, you can add "arch" to
    :term:`INSANE_SKIP` for the package. Another
-   option is to check the :ref:`ref-tasks-compile` log
+   option is to check the :term:`do_compile` log
    and verify that the compiler options being used are correct.
 
 -  ``Bit size did not match (<file_bits>, expected <machine_bits>) in <file> [arch]``
@@ -105,7 +105,7 @@ line if preceded with "-Wl,").
    the target operating system or is intended to run on a separate
    processor within the device, you can add "arch" to
    :term:`INSANE_SKIP` for the package. Another
-   option is to check the :ref:`ref-tasks-compile` log
+   option is to check the :term:`do_compile` log
    and verify that the compiler options being used are correct.
 
 -  ``Endianness did not match (<file_endianness>, expected <machine_endianness>) in <file> [arch]``
@@ -121,7 +121,7 @@ line if preceded with "-Wl,").
    the target operating system or is intended to run on a separate
    processor within the device, you can add "arch" to
    :term:`INSANE_SKIP` for the package. Another
-   option is to check the :ref:`ref-tasks-compile` log
+   option is to check the :term:`do_compile` log
    and verify that the compiler options being used are correct.
 
 .. _qa-check-build-deps:
@@ -179,7 +179,7 @@ remove the warning.
 
 ``This autoconf log indicates errors, it looked at host include and/or library paths while determining system capabilities. Rerun configure task after fixing this. [configure-unsafe]``
 
-The log for the :ref:`ref-tasks-configure` task
+The log for the :term:`do_configure` task
 indicates that paths on the host were searched for files, which is
 not appropriate when cross-compiling. Look for "is unsafe for
 cross-compilation" or "CROSS COMPILE Badness" in the specified log
@@ -303,7 +303,7 @@ The specified package is installing files into a directory that is
 normally expected to be empty (such as ``/tmp``). These files may
 be more appropriately installed to a different location, or
 perhaps alternatively not installed at all, usually by updating the
-:ref:`ref-tasks-install` task/function.
+:term:`do_install` task/function.
 
 .. _qa-check-file-rdeps:
 
@@ -343,7 +343,7 @@ ID that matches the user running BitBake. A match usually indicates
 that the files are being installed with an incorrect UID/GID, since
 target IDs are independent from host IDs. For additional information,
 see the section describing the
-:ref:`ref-tasks-install` task.
+:term:`do_install` task.
 
 .. _qa-check-infodir:
 
@@ -353,7 +353,7 @@ see the section describing the
 ``The /usr/share/info/dir file is not meant to be shipped in a particular package. [infodir]``
 
 The ``/usr/share/info/dir`` should not be packaged. Add the following
-line to your :ref:`ref-tasks-install` task or to your
+line to your :term:`do_install` task or to your
 ``do_install:append`` within the recipe as follows::
 
    rm ${D}${infodir}/dir
@@ -366,7 +366,7 @@ line to your :ref:`ref-tasks-install` task or to your
 ``<recipename>: Files/directories were installed but not shipped in any package [installed-vs-shipped]``
 
 Files have been installed within the
-:ref:`ref-tasks-install` task but have not been
+:term:`do_install` task but have not been
 included in any package by way of the :term:`FILES`
 variable. Files that do not appear in any package cannot be present
 in an image later on in the build process. You need to do one of the
@@ -376,7 +376,7 @@ following:
    in (e.g. ``FILES:${``\ :term:`PN`\ ``}`` for the main
    package).
 
--  Delete the files at the end of the :ref:`ref-tasks-install` task if the
+-  Delete the files at the end of the :term:`do_install` task if the
    files are not needed in any package.
 
 .. _qa-check-incompatible-license:
@@ -479,7 +479,7 @@ The specified package contains mime type files (``.xml`` files in
 ``${datadir}/mime/packages``) and yet does not inherit the
 :ref:`ref-classes-mime` class which will ensure that these get
 properly installed. Either add ``inherit mime`` to the recipe or remove the
-files at the :ref:`ref-tasks-install` step if they are not needed.
+files at the :term:`do_install` step if they are not needed.
 
 .. _qa-check-mime-xdg:
 
@@ -492,7 +492,7 @@ The specified package contains a .desktop file with a 'MimeType' key
 present, but does not inherit the :ref:`ref-classes-mime-xdg`
 class that is required in order for that to be activated. Either add
 ``inherit mime`` to the recipe or remove the files at the
-:ref:`ref-tasks-install` step if they are not needed.
+:term:`do_install` step if they are not needed.
 
 .. _qa-check-missing-update-alternatives:
 
@@ -526,7 +526,7 @@ already in the variable's value.
 
 ``Fuzz detected: <patch output> [patch-fuzz]``
 
-This check looks for evidence of "fuzz" when applying patches within the :ref:`ref-tasks-patch`
+This check looks for evidence of "fuzz" when applying patches within the :term:`do_patch`
 task. Patch fuzz is a situation when the ``patch`` tool ignores some of the context
 lines in order to apply the patch. Consider this example:
 
@@ -868,7 +868,7 @@ load paths (rpaths) that contain build system paths such as
 :term:`TMPDIR`, which are incorrect for the target and
 could potentially be a security issue. Check for bad ``-rpath``
 options being passed to the linker in your
-:ref:`ref-tasks-compile` log. Depending on the build
+:term:`do_compile` log. Depending on the build
 system used by the software being built, there might be a configure
 option to disable rpath usage completely within the build of the
 software.
@@ -978,8 +978,8 @@ the build of the software.
 
 If ``usrmerge`` is in :term:`DISTRO_FEATURES`, this check will ensure that no package
 installs files to root (``/bin``, ``/sbin``, ``/lib``, ``/lib64``) directories. If you are seeing this
-message, it indicates that the :ref:`ref-tasks-install` step (or perhaps the build process that
-:ref:`ref-tasks-install` is calling into, e.g. ``make install`` is using hardcoded paths instead
+message, it indicates that the :term:`do_install` step (or perhaps the build process that
+:term:`do_install` is calling into, e.g. ``make install`` is using hardcoded paths instead
 of the variables set up for this (``bindir``, ``sbindir``, etc.), and should be
 changed so that it does.
 

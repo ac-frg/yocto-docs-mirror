@@ -64,7 +64,7 @@ you can use as references.
 If you are creating a new kernel recipe, normal recipe-writing rules
 apply for setting up a :term:`SRC_URI`. Thus, you need to specify any
 necessary patches and set :term:`S` to point at the source code. You need to
-create a :ref:`ref-tasks-configure` task that configures the unpacked kernel with
+create a :term:`do_configure` task that configures the unpacked kernel with
 a ``defconfig`` file. You can do this by using a ``make defconfig``
 command or, more commonly, by copying in a suitable ``defconfig`` file
 and then running ``make oldconfig``. By making use of ``inherit kernel``

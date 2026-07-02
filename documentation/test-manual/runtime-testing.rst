@@ -481,7 +481,7 @@ Class methods are as follows:
 
 -  *hasPackage(pkg):* Returns "True" if ``pkg`` is in the installed
    package list of the image, which is based on the manifest file that
-   is generated during the :ref:`ref-tasks-rootfs` task.
+   is generated during the :term:`do_rootfs` task.
 
 -  *hasFeature(feature):* Returns "True" if the feature is in
    :term:`IMAGE_FEATURES` or

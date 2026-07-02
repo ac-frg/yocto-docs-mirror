@@ -69,7 +69,7 @@ New Features / Enhancements in 3.4
 
 -  SDK-related enhancements:
 
-   -  Enable :ref:`ref-tasks-populate_sdk` with multilibs
+   -  Enable :term:`do_populate_sdk` with multilibs
    -  New ``SDKPATHINSTALL`` variable decouples default install path from
       built in path to avoid rebuilding :ref:`ref-classes-nativesdk`
       components on e.g. :term:`DISTRO_VERSION` changes

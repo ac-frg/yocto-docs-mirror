@@ -283,10 +283,10 @@ with a number. The number used depends on the state of the PR Service:
       change in the source code (``SRCREV``).
 
    -  ``r0.X`` changed from ``r0.0`` to ``r0.1``. This is because the hash of
-      the :ref:`ref-tasks-package` task changed.
+      the :term:`do_package` task changed.
 
       The reason for this change can be many. To understand why the hash of the
-      :ref:`ref-tasks-package` task changed, you can run the following command:
+      :term:`do_package` task changed, you can run the following command:
 
       .. code-block:: console
 
@@ -351,7 +351,7 @@ The previous example specifies a number of things in the call to
 ``do_split_packages``.
 
 -  A directory within the files installed by your recipe through
-   :ref:`ref-tasks-install` in which to search.
+   :term:`do_install` in which to search.
 
 -  A regular expression used to match module files in that directory. In
    the example, note the parentheses () that mark the part of the

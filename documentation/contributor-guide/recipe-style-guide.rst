@@ -159,7 +159,7 @@ general order when possible:
 -  ``inherit ...``
 -  :term:`PACKAGECONFIG`
 -  Build class specific variables such as :term:`EXTRA_OECONF`
--  Tasks such as :ref:`ref-tasks-configure`
+-  Tasks such as :term:`do_configure`
 -  :term:`PACKAGE_ARCH`
 -  :term:`PACKAGES`
 -  :term:`FILES`
@@ -178,15 +178,15 @@ this default order. Examples include:
 Tasks should be ordered based on the order they generally execute. For commonly
 used tasks this would be:
 
--  :ref:`ref-tasks-fetch`
--  :ref:`ref-tasks-unpack`
--  :ref:`ref-tasks-patch`
--  :ref:`ref-tasks-prepare_recipe_sysroot`
--  :ref:`ref-tasks-configure`
--  :ref:`ref-tasks-compile`
--  :ref:`ref-tasks-install`
--  :ref:`ref-tasks-populate_sysroot`
--  :ref:`ref-tasks-package`
+-  :term:`do_fetch`
+-  :term:`do_unpack`
+-  :term:`do_patch`
+-  :term:`do_prepare_recipe_sysroot`
+-  :term:`do_configure`
+-  :term:`do_compile`
+-  :term:`do_install`
+-  :term:`do_populate_sysroot`
+-  :term:`do_package`
 
 Custom tasks should be sorted similarly.
 

@@ -92,7 +92,7 @@ The following changes have been made to the package QA checks:
 
 -  An additional QA check has been added to check if
    ``/usr/share/info/dir`` is being installed. Your recipe should delete
-   this file within :ref:`ref-tasks-install` if "make
+   this file within :term:`do_install` if "make
    install" is installing it.
 
 -  If you are using the :ref:`ref-classes-buildhistory` class, the check for the
@@ -208,7 +208,7 @@ postinstall scripts.
 Images Now Rebuild Only on Changes Instead of Every Time
 --------------------------------------------------------
 
-The :ref:`ref-tasks-rootfs` and other related image
+The :term:`do_rootfs` and other related image
 construction tasks are no longer marked as "nostamp". Consequently, they
 will only be re-executed when their inputs have changed. Previous
 versions of the OpenEmbedded build system always rebuilt the image when

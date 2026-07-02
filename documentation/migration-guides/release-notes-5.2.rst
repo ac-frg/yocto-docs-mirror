@@ -33,7 +33,7 @@ New Features / Enhancements in |yocto-ver|
 
    -  :ref:`ref-classes-meson`: :term:`MESON_INSTALL_TAGS` to allow passing
       install tags (``--tags``) to the ``meson install`` command during the
-      :ref:`ref-tasks-install` task.
+      :term:`do_install` task.
 
    -  ``cve-check``: ``NVD_DB_VERSION`` to allow choosing the
       CVE feed when using the ``cve-check`` class.
@@ -51,7 +51,7 @@ New Features / Enhancements in |yocto-ver|
 
 -  Kernel-related changes:
 
-   -  :ref:`ref-classes-cml1`: in :ref:`ref-tasks-diffconfig`, do not override
+   -  :ref:`ref-classes-cml1`: in :term:`do_diffconfig`, do not override
       ``.config`` with ``.config.orig``. This applies to other recipes using the
       class :ref:`ref-classes-cml1`.
 
@@ -208,10 +208,10 @@ New Features / Enhancements in |yocto-ver|
       ``GO_MOD_CACHE_DIR`` to enable the use of the Go module fetchers for
       downloading and unpacking module dependencies to the module cache.
 
-   -  Make the :ref:`ref-tasks-compile` task run before
-      :ref:`ref-tasks-populate_lic` in the :ref:`ref-classes-go-mod` class so
-      license files are found by :ref:`ref-tasks-populate_lic` after the ``go
-      install`` command is run in :ref:`ref-tasks-compile`.
+   -  Make the :term:`do_compile` task run before
+      :term:`do_populate_lic` in the :ref:`ref-classes-go-mod` class so
+      license files are found by :term:`do_populate_lic` after the ``go
+      install`` command is run in :term:`do_compile`.
 
 -  Rust changes:
 
@@ -477,7 +477,7 @@ New Features / Enhancements in |yocto-ver|
       bugfix in gcc (https://gcc.gnu.org/bugzilla/show_bug.cgi?id=81170).
 
    -  ``openssh``: be more restrictive on private key file permissions by
-      setting them from the :ref:`ref-tasks-install` task.
+      setting them from the :term:`do_install` task.
 
 -  ``cve-check`` changes:
 

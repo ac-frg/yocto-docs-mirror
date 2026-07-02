@@ -159,15 +159,15 @@ The following changes have occurred to the QA check process:
    see the ":doc:`/ref-manual/qa-checks`" chapter.
 
 -  Package QA checks are now performed during a new
-   :ref:`ref-tasks-package_qa` task rather than being
-   part of the :ref:`ref-tasks-package` task. This allows
+   :term:`do_package_qa` task rather than being
+   part of the :term:`do_package` task. This allows
    more parallel execution. This change is unlikely to be an issue
    except for highly customized recipes that disable packaging tasks
    themselves by marking them as ``noexec``. For those packages, you
-   will need to disable the :ref:`ref-tasks-package_qa` task as well.
+   will need to disable the :term:`do_package_qa` task as well.
 
 -  Files being overwritten during the
-   :ref:`ref-tasks-populate_sysroot` task now
+   :term:`do_populate_sysroot` task now
    trigger an error instead of a warning. Recipes should not be
    overwriting files written to the sysroot by other recipes. If you
    have these types of recipes, you need to alter them so that they do

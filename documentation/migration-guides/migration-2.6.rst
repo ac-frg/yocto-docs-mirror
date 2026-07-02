@@ -121,7 +121,7 @@ For names of recipes removed because of this repository change, see the
 
 Previously, it was possible for Python recipes that inherited the
 ``distutils`` and ``distutils3`` classes to fetch code
-during the :ref:`ref-tasks-configure` task to satisfy
+during the :term:`do_configure` task to satisfy
 dependencies mentioned in ``setup.py`` if those dependencies were not
 provided in the sysroot (i.e. recipes providing the dependencies were
 missing from :term:`DEPENDS`).
@@ -137,7 +137,7 @@ Fetching these types of dependencies that are not provided in the
 sysroot negatively affects the ability to reproduce builds. This type of
 fetching is now explicitly disabled. Consequently, any missing
 dependencies in Python recipes that use these classes now result in an
-error during the :ref:`ref-tasks-configure` task.
+error during the :term:`do_configure` task.
 
 .. _migration-2.6-linux-yocto-configuration-audit-issues-now-correctly-reported:
 
@@ -361,7 +361,7 @@ want to explicitly defer a postinstall to first boot on the target
 rather than at root filesystem creation time, use ``pkg_postinst_ontarget()`` or
 call ``postinst_intercept delay_to_first_boot`` from ``pkg_postinst()``.
 Any failure of a ``pkg_postinst()`` script (including exit 1) triggers
-an error during the :ref:`ref-tasks-rootfs` task.
+an error during the :term:`do_rootfs` task.
 
 For more information on post-installation behavior, see the
 ":ref:`dev-manual/new-recipe:post-installation scripts`"

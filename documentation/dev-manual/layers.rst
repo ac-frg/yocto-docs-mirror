@@ -609,8 +609,8 @@ important as it ensures that items in the list remain colon-separated.
 The end result of this ``.bbappend`` file is that on a Raspberry Pi, where
 ``rpi`` will exist in the list of :term:`OVERRIDES`, the file
 ``meta-raspberrypi/recipes-bsp/formfactor/formfactor/rpi/machconfig`` will be
-used during :ref:`ref-tasks-fetch` and the test for a non-zero file size in
-:ref:`ref-tasks-install` will return true, and the file will be installed.
+used during :term:`do_fetch` and the test for a non-zero file size in
+:term:`do_install` will return true, and the file will be installed.
 
 Installing Additional Files Using Your Layer
 --------------------------------------------
@@ -667,7 +667,7 @@ file is in the layer at ``recipes-graphics/xorg-xserver``::
 Building off of the previous example, we once again are setting the
 :term:`FILESEXTRAPATHS` variable.  In this case we are also using
 :term:`SRC_URI` to list additional source files to use when ``rpi`` is found in
-the list of :term:`OVERRIDES`.  The :ref:`ref-tasks-install` task will then perform a
+the list of :term:`OVERRIDES`.  The :term:`do_install` task will then perform a
 check for an additional :term:`MACHINE_FEATURES` that if set will cause these
 additional files to be installed.  These additional files are listed in
 :term:`FILES` so that they will be packaged.

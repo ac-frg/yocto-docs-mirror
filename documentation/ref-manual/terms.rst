@@ -605,9 +605,9 @@ universal, the list includes them just in case:
 
    :term:`Task`
       A per-recipe unit of execution for BitBake (e.g.
-      :ref:`ref-tasks-compile`,
-      :ref:`ref-tasks-fetch`,
-      :ref:`ref-tasks-patch`, and so forth).
+      :term:`do_compile`,
+      :term:`do_fetch`,
+      :term:`do_patch`, and so forth).
       One of the major benefits of the build system is that, since each
       recipe will typically spawn the execution of numerous tasks,
       it is entirely possible that many tasks can execute in parallel,

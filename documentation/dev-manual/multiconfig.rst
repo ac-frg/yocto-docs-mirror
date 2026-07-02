@@ -127,9 +127,9 @@ multiple configuration build. For example, suppose that in order to
 build a ``core-image-sato`` image for an "x86" multiconfig, the root
 filesystem of an "arm" multiconfig must exist. This dependency is
 essentially that the
-:ref:`ref-tasks-image` task in the
+:term:`do_image` task in the
 ``core-image-sato`` recipe depends on the completion of the
-:ref:`ref-tasks-rootfs` task of the
+:term:`do_rootfs` task of the
 ``core-image-minimal`` recipe.
 
 To enable dependencies in a multiple configuration build, you must
@@ -145,8 +145,8 @@ to be added to the recipe that builds the ``core-image-sato`` image::
    do_image[mcdepends] = "mc:x86:arm:core-image-minimal:do_rootfs"
 
 In this example, the `from_multiconfig` is "x86". The `to_multiconfig` is "arm". The
-task on which the :ref:`ref-tasks-image` task in the recipe depends is the
-:ref:`ref-tasks-rootfs` task from the ``core-image-minimal`` recipe associated
+task on which the :term:`do_image` task in the recipe depends is the
+:term:`do_rootfs` task from the ``core-image-minimal`` recipe associated
 with the "arm" multiconfig.
 
 Once you set up this dependency, you can build the "x86" multiconfig
@@ -156,7 +156,7 @@ using a BitBake command as follows::
 
 This command executes all the tasks needed to create the
 ``core-image-sato`` image for the "x86" multiconfig. Because of the
-dependency, BitBake also executes through the :ref:`ref-tasks-rootfs` task for the
+dependency, BitBake also executes through the :term:`do_rootfs` task for the
 "arm" multiconfig build.
 
 Having a recipe depend on the root filesystem of another build might not
@@ -188,10 +188,10 @@ Suggested best practices
 -  Recipes that are used to transfer the output from a multiconfig build to
    another should use ``do_task[mcdepends]`` to trigger the build of the
    component, and then transfer the item to the current configuration in
-   :ref:`ref-tasks-install` and :ref:`ref-tasks-deploy`, assuming the value of
+   :term:`do_install` and :term:`do_deploy`, assuming the value of
    the deployed item based on :term:`TMPDIR`.
 
-   The :ref:`ref-tasks-install` and :ref:`ref-tasks-deploy` tasks should look
+   The :term:`do_install` and :term:`do_deploy` tasks should look
    like this::
 
       do_install() {
@@ -276,8 +276,8 @@ dependency in ``my-parent-firmware.bb`` with::
 
    do_compile[mcdepends] = "mc::baremetal-firmware:my-firmware:do_deploy"
 
-The above will ensure that when the :ref:`ref-tasks-compile` task of
-``my-parent-firmware`` is triggered, the :ref:`ref-tasks-deploy` task of
+The above will ensure that when the :term:`do_compile` task of
+``my-parent-firmware`` is triggered, the :term:`do_deploy` task of
 ``my-firmware`` will already have run successfully.
 
 Using the output of ``my-firmware``
@@ -302,7 +302,7 @@ cache <overview-manual/concepts:shared state cache>`.
 Additionally, ``<machine>`` should be replaced by the :term:`MACHINE` for which
 we are building in the baremetal-firmware context.
 
-We can then add a :ref:`ref-tasks-install` task to ``my-parent-firmware``::
+We can then add a :term:`do_install` task to ``my-parent-firmware``::
 
    do_install() {
        install -Dm 0644 ${FIRMWARE_FILE} ${D}/lib/firmware/my-firmware.elf

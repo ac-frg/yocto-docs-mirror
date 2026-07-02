@@ -20,7 +20,7 @@ New Features / Enhancements in 5.1
       after the new sources have been unpacked in the
       ``scripts/lib/devtool/upgrade.py`` upgrade() method.
 
-   -  :term:`UNPACKDIR`: allow change of the :ref:`ref-tasks-unpack` task
+   -  :term:`UNPACKDIR`: allow change of the :term:`do_unpack` task
       directory.
 
 -  Kernel-related changes:
@@ -75,8 +75,8 @@ New Features / Enhancements in 5.1
 
    -  Included ``nativesdk-python3-pip`` in :term:`buildtools` by default.
 
-   -  :ref:`ref-classes-nativesdk` now have :ref:`ref-tasks-package_qa` run when
-      calling :ref:`ref-tasks-populate_sdk`.
+   -  :ref:`ref-classes-nativesdk` now have :term:`do_package_qa` run when
+      calling :term:`do_populate_sdk`.
 
    -  A new 7zip archive type can be used to create the SDK by setting
       :term:`SDK_ARCHIVE_TYPE` to ``7zip``.
@@ -329,7 +329,7 @@ New Features / Enhancements in 5.1
       one, which does not depend on libsystemd and is standalone.
 
    -  ``cmake`` now uses the ``${COREBASE}/scripts/git`` wrapper instead of the
-      host's, which is required during :ref:`ref-tasks-install` to call git
+      host's, which is required during :term:`do_install` to call git
       while disabling fakeroot, and avoid "dubious ownership" git errors.
 
    -  Default compiler option changes:
@@ -353,7 +353,7 @@ New Features / Enhancements in 5.1
    -  openssl: strip the test suite after building, reducing the build tree of
       50% after installation.
 
-   -  u-boot: Refactor some of the :ref:`ref-tasks-configure` tasks into new
+   -  u-boot: Refactor some of the :term:`do_configure` tasks into new
       functions, making it easier to modify using a bbappend.
 
    -  The ``musl`` recipe now shows an error if used with
@@ -366,7 +366,7 @@ New Features / Enhancements in 5.1
       packages, was modified to avoid files being overridden by other packages when
       they share common files. Instead, prompt an error.
 
-   -  The :ref:`ref-tasks-savedefconfig` was moved from the u-boot and kernel
+   -  The :term:`do_savedefconfig` was moved from the u-boot and kernel
       recipes to the :ref:`ref-classes-cml1` class, so that more kbuild-based
       recipes can use it.
 

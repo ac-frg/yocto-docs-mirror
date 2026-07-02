@@ -6,7 +6,7 @@ Using a Development Shell
 When debugging certain commands or even when just editing packages,
 ``devshell`` can be a useful tool. When you invoke ``devshell``, all
 tasks up to and including
-:ref:`ref-tasks-patch` are run for the
+:term:`do_patch` are run for the
 specified target. Then, a new terminal is opened and you are placed in
 ``${``\ :term:`S`\ ``}``, the source
 directory. In the new terminal, all the OpenEmbedded build-related

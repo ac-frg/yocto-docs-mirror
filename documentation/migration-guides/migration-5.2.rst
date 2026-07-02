@@ -171,7 +171,7 @@ c++/binutils)" </openembedded-core/commit/?id=4ccc3bc8266c>` in
 -  The :ref:`ref-classes-autotools` class now requires any recipe that inherits
    the class to have a ``configure`` script. The configuration script location
    is stored in the :term:`CONFIGURE_SCRIPT` variable. The
-   :ref:`ref-tasks-configure` task will fail if the script is missing.
+   :term:`do_configure` task will fail if the script is missing.
 
 :term:`UBOOT_ENTRYPOINT` changes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -32,7 +32,7 @@ Consider the following:
    the :term:`PACKAGE_WRITE_DEPS` variable.
    Specifying these dependencies ensures that these tools are available
    if these scripts need to be run on the build host during the
-   :ref:`ref-tasks-rootfs` task.
+   :term:`do_rootfs` task.
 
    As an example, see the ``dbus`` recipe. You will see that this recipe
    has a ``pkg_postinst`` that calls ``systemctl`` if "systemd" is in
@@ -196,7 +196,7 @@ The following changes took place for BitBake:
    when the "protocol" parameter is set to "svn+ssh". You can only use
    the new parameter to specify the ``ssh`` program used by SVN. The SVN
    fetcher passes the new parameter through the ``SVN_SSH`` environment
-   variable during the :ref:`ref-tasks-fetch` task.
+   variable during the :term:`do_fetch` task.
 
    See the
    ":ref:`bitbake-user-manual/bitbake-user-manual-fetching:subversion (svn) fetcher (\`\`svn://\`\`)`"

@@ -54,7 +54,7 @@ splitting out of debug symbols during packaging).
    even if the recipes do not produce architecture-specific output.
 
    Configuring such recipes for all architectures causes the
-   :ref:`do_package_write_* <ref-tasks-package_write_deb>` tasks to
+   :term:`do_package_write_* <do_package_write_deb>` tasks to
    have different signatures for the machines with different tunings.
    Additionally, unnecessary rebuilds occur every time an image for a
    different :term:`MACHINE` is built even when the recipe never changes.
@@ -115,18 +115,18 @@ support is either not present or is broken.
 It's useful to have some idea of how the tasks defined by the
 :ref:`autotools* <ref-classes-autotools>` classes work and what they do behind the scenes.
 
--  :ref:`ref-tasks-configure` --- regenerates the
+-  :term:`do_configure` --- regenerates the
    configure script (using ``autoreconf``) and then launches it with a
    standard set of arguments used during cross-compilation. You can pass
    additional parameters to ``configure`` through the :term:`EXTRA_OECONF`
    or :term:`PACKAGECONFIG_CONFARGS`
    variables.
 
--  :ref:`ref-tasks-compile` --- runs ``make`` with
+-  :term:`do_compile` --- runs ``make`` with
    arguments that specify the compiler and linker. You can pass
    additional arguments through the :term:`EXTRA_OEMAKE` variable.
 
--  :ref:`ref-tasks-install` --- runs ``make install`` and
+-  :term:`do_install` --- runs ``make install`` and
    passes in ``${``\ :term:`D`\ ``}`` as ``DESTDIR``.
 
 .. _ref-classes-barebox:
@@ -147,8 +147,8 @@ will raise an error.
 The :ref:`ref-classes-barebox` class supports config fragments and internally
 includes the :ref:`ref-classes-cml1` class to provide `Kconfig
 <https://docs.kernel.org/kbuild/kconfig-language.html>`__ support for
-barebox, enabling tasks such as :ref:`ref-tasks-menuconfig` and
-:ref:`ref-tasks-diffconfig`.
+barebox, enabling tasks such as :term:`do_menuconfig` and
+:term:`do_diffconfig`.
 
 The generated barebox binaries are deployed to
 :term:`DEPLOY_DIR_IMAGE` as well as installed to ``BAREBOX_INSTALL_PATH``
@@ -198,7 +198,7 @@ software that includes bash-completion data.
 ===============
 
 The :ref:`ref-classes-bin-package` class is a helper class for recipes, that
-disables the :ref:`ref-tasks-configure` and :ref:`ref-tasks-compile` tasks and
+disables the :term:`do_configure` and :term:`do_compile` tasks and
 copies the content of the :term:`S` directory into the :term:`D` directory. This
 is useful for installing binary packages (e.g. RPM packages) by passing the
 package in the :term:`SRC_URI` variable and inheriting this class.
@@ -434,7 +434,7 @@ recipe can set the :term:`OECMAKE_GENERATOR` variable to ``Unix Makefiles`` to
 use GNU make instead.
 
 If you need to install custom CMake toolchain files supplied by the application
-being built, you should install them (during :ref:`ref-tasks-install`) to the
+being built, you should install them (during :term:`do_install`) to the
 preferred CMake Module directory: ``${D}${datadir}/cmake/modules/``.
 
 .. _ref-classes-cmake-qemu:
@@ -629,11 +629,11 @@ The :ref:`ref-classes-deploy` class handles deploying files to the
 :term:`DEPLOY_DIR_IMAGE` directory. The main
 function of this class is to allow the deploy step to be accelerated by
 shared state. Recipes that inherit this class should define their own
-:ref:`ref-tasks-deploy` function to copy the files to be
+:term:`do_deploy` function to copy the files to be
 deployed to :term:`DEPLOYDIR`, and use ``addtask`` to
 add the task at the appropriate place, which is usually after
-:ref:`ref-tasks-compile` or
-:ref:`ref-tasks-install`. The class then takes care of
+:term:`do_compile` or
+:term:`do_install`. The class then takes care of
 staging the files from :term:`DEPLOYDIR` to :term:`DEPLOY_DIR_IMAGE`.
 
 .. _ref-classes-devicetree:
@@ -649,7 +649,7 @@ in-tree device tree compilation process. This includes the ability to include
 sources from the kernel such as SoC ``dtsi`` files as well as C header files,
 such as ``gpio.h``.
 
-The :ref:`ref-tasks-compile` task will compile two kinds of files:
+The :term:`do_compile` task will compile two kinds of files:
 
 - Regular device tree sources with a ``.dts`` extension.
 
@@ -689,7 +689,7 @@ recipe inheriting this class::
 ``devshell``
 ============
 
-The :ref:`ref-classes-devshell` class adds the :ref:`ref-tasks-devshell` task. Distribution
+The :ref:`ref-classes-devshell` class adds the :term:`do_devshell` task. Distribution
 policy dictates whether to include this class. See the ":ref:`dev-manual/development-shell:using a development shell`"
 section in the Yocto Project Development Tasks Manual for more
 information about using :ref:`ref-classes-devshell`.
@@ -978,7 +978,7 @@ These files can then updated automatically with the ``do_update_modules`` task.
 
 The :ref:`ref-classes-go-vendor` class implements support for offline builds,
 also known as Go vendoring. In such a scenario, the module dependencias are
-downloaded during the :ref:`ref-tasks-fetch` task rather than when modules are
+downloaded during the :term:`do_fetch` task rather than when modules are
 imported, thus being coherent with Yocto's concept of fetching every source
 beforehand.
 
@@ -1300,7 +1300,7 @@ code to build all kernel trees. All needed headers are staged into the
 using the :ref:`ref-classes-module` class.
 
 If a file named ``defconfig`` is listed in :term:`SRC_URI`, then by default
-:ref:`ref-tasks-configure` copies it as ``.config`` in the build directory,
+:term:`do_configure` copies it as ``.config`` in the build directory,
 so it is automatically used as the kernel configuration for the build. This
 copy is not performed in case ``.config`` already exists there: this allows
 recipes to produce a configuration by other means in
@@ -1707,7 +1707,7 @@ This class is enabled by default since it is inherited by the
 The :ref:`ref-classes-module` class provides support for building out-of-tree Linux
 kernel modules. The class inherits the :ref:`ref-classes-module-base` and
 :ref:`ref-classes-kernel-module-split` classes, and implements the
-:ref:`ref-tasks-compile` and :ref:`ref-tasks-install` tasks. The class provides
+:term:`do_compile` and :term:`do_install` tasks. The class provides
 everything needed to build and package a kernel module.
 
 For general information on out-of-tree Linux kernel modules, see the
@@ -2145,7 +2145,7 @@ Previously, this class was called the ``task`` class.
 =========
 
 The :ref:`ref-classes-patch` class provides all functionality for applying patches
-during the :ref:`ref-tasks-patch` task.
+during the :term:`do_patch` task.
 
 This class is enabled by default because it is inherited by the
 :ref:`ref-classes-base` class.
@@ -2319,7 +2319,7 @@ files.
 
 The :ref:`ref-classes-populate-sdk` class provides support for SDK-only recipes. For
 information on advantages gained when building a cross-development
-toolchain using the :ref:`ref-tasks-populate_sdk`
+toolchain using the :term:`do_populate_sdk`
 task, see the ":ref:`sdk-manual/appendix-obtain:building an sdk installer`"
 section in the Yocto Project Application Development and the Extensible
 Software Development Kit (eSDK) manual.
@@ -2375,7 +2375,7 @@ For more information on the cross-development toolchain generation, see
 the ":ref:`overview-manual/concepts:cross-development toolchain generation`"
 section in the Yocto Project Overview and Concepts Manual. For
 information on advantages gained when building a cross-development
-toolchain using the :ref:`ref-tasks-populate_sdk`
+toolchain using the :term:`do_populate_sdk`
 task, see the
 ":ref:`sdk-manual/appendix-obtain:building an sdk installer`"
 section in the Yocto Project Application Development and the Extensible
@@ -2471,7 +2471,7 @@ packages leveraging the `pytest <https://docs.pytest.org>`__ unit test framework
 
 Within the recipe, the :term:`PTEST_PYTEST_DIR` variable specifies the path to
 the directory containing the tests that will be installed in :term:`D` by the
-:ref:`ref-tasks-install_ptest_base` task, as well as a specific ``run-ptest``
+:term:`do_install_ptest_base` task, as well as a specific ``run-ptest``
 script for this task.
 
 .. _ref-classes-python3-dir:
@@ -2558,7 +2558,7 @@ both the :ref:`ref-classes-cross` and :ref:`ref-classes-native` classes.
 ==================
 
 The :ref:`ref-classes-remove-libtool` class adds a post function to the
-:ref:`ref-tasks-install` task to remove all ``.la`` files
+:term:`do_install` task to remove all ``.la`` files
 installed by ``libtool``. Removing these files results in them being
 absent from both the sysroot and target packages.
 
@@ -2815,7 +2815,7 @@ uses these build systems, the recipe needs to inherit the
 
    .. note::
 
-      The :ref:`ref-classes-setuptools3` class :ref:`ref-tasks-compile` task now calls
+      The :ref:`ref-classes-setuptools3` class :term:`do_compile` task now calls
       ``setup.py bdist_wheel`` to build the ``wheel`` binary archive format
       (See `PEP-427 <https://www.python.org/dev/peps/pep-0427/>`__).
 
@@ -2826,7 +2826,7 @@ uses these build systems, the recipe needs to inherit the
 
    .. note::
 
-     The :ref:`ref-classes-setuptools3` class :ref:`ref-tasks-install` task now
+     The :ref:`ref-classes-setuptools3` class :term:`do_install` task now
      installs the ``wheel`` binary archive. In current versions of
      ``setuptools`` the legacy ``setup.py install`` method is deprecated. If
      the ``setup.py`` cannot be used with wheels, for example it creates files
@@ -2907,12 +2907,12 @@ section in the Yocto Project Overview and Concepts Manual.
 The :ref:`ref-classes-staging` class installs files into individual recipe work
 directories for sysroots. The class contains the following key tasks:
 
--  The :ref:`ref-tasks-populate_sysroot` task,
+-  The :term:`do_populate_sysroot` task,
    which is responsible for handing the files that end up in the recipe
    sysroots.
 
 -  The
-   :ref:`ref-tasks-prepare_recipe_sysroot`
+   :term:`do_prepare_recipe_sysroot`
    task (a "partner" task to the ``populate_sysroot`` task), which
    installs the files into the individual recipe work directories (i.e.
    :term:`WORKDIR`).
@@ -2923,8 +2923,8 @@ in two stages:
 -  *Stage One:* The first stage addresses recipes that have files they
    want to share with other recipes that have dependencies on the
    originating recipe. Normally these dependencies are installed through
-   the :ref:`ref-tasks-install` task into
-   ``${``\ :term:`D`\ ``}``. The :ref:`ref-tasks-populate_sysroot` task
+   the :term:`do_install` task into
+   ``${``\ :term:`D`\ ``}``. The :term:`do_populate_sysroot` task
    copies a subset of these files into ``${SYSROOT_DESTDIR}``. This
    subset of files is controlled by the
    :term:`SYSROOT_DIRS`,
@@ -2953,7 +2953,7 @@ in two stages:
    something from another recipe and declare a dependency on that recipe
    through the :term:`DEPENDS` variable. The recipe will
    have a
-   :ref:`ref-tasks-prepare_recipe_sysroot`
+   :term:`do_prepare_recipe_sysroot`
    task and when this task executes, it creates the ``recipe-sysroot``
    and ``recipe-sysroot-native`` in the recipe work directory (i.e.
    :term:`WORKDIR`). The OpenEmbedded build system
@@ -3053,7 +3053,7 @@ The functionality for this class is disabled unless you have "systemd"
 in :term:`DISTRO_FEATURES`.
 
 Under this class, the recipe or Makefile (i.e. whatever the recipe is
-calling during the :ref:`ref-tasks-install` task)
+calling during the :term:`do_install` task)
 installs unit files into
 ``${``\ :term:`D`\ ``}${systemd_unitdir}/system``. If the unit
 files being installed go into packages other than the main package, you
@@ -3763,7 +3763,7 @@ information.
 
 The :ref:`ref-classes-utility-tasks` class provides support for various
 "utility" type tasks that are applicable to all recipes, such as
-:ref:`ref-tasks-clean` and :ref:`ref-tasks-listtasks`.
+:term:`do_clean` and :term:`do_listtasks`.
 
 This class is enabled by default because it is inherited by the
 :ref:`ref-classes-base` class.

@@ -46,7 +46,7 @@ Follow these general steps:
    you added to the patch.
 
 #. *Test Your Changes:* Once you have modified the source code, the
-   easiest way to test your changes is by calling the :ref:`ref-tasks-compile`
+   easiest way to test your changes is by calling the :term:`do_compile`
    task as shown in the following example::
 
       $ bitbake -c compile -f package
@@ -58,7 +58,7 @@ Follow these general steps:
    .. note::
 
       All the modifications you make to the temporary source code disappear
-      once you run the :ref:`ref-tasks-clean` or :ref:`ref-tasks-cleanall`
+      once you run the :term:`do_clean` or :term:`do_cleanall`
       tasks using BitBake (i.e. ``bitbake -c clean package`` and
       ``bitbake -c cleanall package``). Modifications will also disappear if
       you use the :ref:`ref-classes-rm-work` feature as described in

@@ -125,7 +125,7 @@ system and gives an overview of their function and contents.
 
          Finally, if the file referenced has not been renamed, the
          alternatives system will rename it to avoid the need to rename
-         alternative files in the :ref:`ref-tasks-install`
+         alternative files in the :term:`do_install`
          task while retaining support for the command if necessary.
 
       For more information on the alternatives system, see the
@@ -1607,7 +1607,7 @@ system and gives an overview of their function and contents.
       If set to "1" within a recipe, :term:`CLEANBROKEN` specifies that the
       ``make clean`` command does not work for the software being built.
       Consequently, the OpenEmbedded build system will not try to run
-      ``make clean`` during the :ref:`ref-tasks-configure`
+      ``make clean`` during the :term:`do_configure`
       task, which is the default behavior.
 
    :term:`COMBINED_FEATURES`
@@ -2137,7 +2137,7 @@ system and gives an overview of their function and contents.
    :term:`D`
       The destination directory. The location in the :term:`Build Directory`
       where components are installed by the
-      :ref:`ref-tasks-install` task. This location defaults
+      :term:`do_install` task. This location defaults
       to::
 
          ${WORKDIR}/image
@@ -2246,9 +2246,9 @@ system and gives an overview of their function and contents.
       The practical effect of the previous assignment is that all files
       installed by bar will be available in the appropriate staging sysroot,
       given by the :term:`STAGING_DIR* <STAGING_DIR_HOST>` variables, by the time
-      the :ref:`ref-tasks-configure` task for ``foo`` runs. This mechanism is
-      implemented by having :ref:`ref-tasks-configure` depend on the
-      :ref:`ref-tasks-populate_sysroot` task of each recipe listed in
+      the :term:`do_configure` task for ``foo`` runs. This mechanism is
+      implemented by having :term:`do_configure` depend on the
+      :term:`do_populate_sysroot` task of each recipe listed in
       :term:`DEPENDS`, through a
       ``[``\ :ref:`deptask <bitbake-user-manual/bitbake-user-manual-metadata:variable flags>`\ ``]``
       declaration in the :ref:`ref-classes-base` class.
@@ -2337,7 +2337,7 @@ system and gives an overview of their function and contents.
 
       The :ref:`ref-classes-package_deb` class uses the
       :term:`DEPLOY_DIR_DEB` variable to make sure the
-      :ref:`ref-tasks-package_write_deb` task
+      :term:`do_package_write_deb` task
       writes Debian packages into the appropriate folder. For more
       information on how packaging works, see the
       ":ref:`overview-manual/concepts:package feeds`" section
@@ -2376,7 +2376,7 @@ system and gives an overview of their function and contents.
          DEPLOY_DIR_IPK = "${DEPLOY_DIR}/ipk"
 
       The :ref:`ref-classes-package_ipk` class uses the :term:`DEPLOY_DIR_IPK`
-      variable to make sure the :ref:`ref-tasks-package_write_ipk` task
+      variable to make sure the :term:`do_package_write_ipk` task
       writes IPK packages into the appropriate folder. For more information
       on how packaging works, see the
       ":ref:`overview-manual/concepts:package feeds`" section
@@ -2395,7 +2395,7 @@ system and gives an overview of their function and contents.
 
       The :ref:`ref-classes-package_rpm` class uses the
       :term:`DEPLOY_DIR_RPM` variable to make sure the
-      :ref:`ref-tasks-package_write_rpm` task
+      :term:`do_package_write_rpm` task
       writes RPM packages into the appropriate folder. For more information
       on how packaging works, see the
       ":ref:`overview-manual/concepts:package feeds`" section
@@ -2494,7 +2494,7 @@ system and gives an overview of their function and contents.
       In most cases, the presence or absence of a feature in
       :term:`DISTRO_FEATURES` is translated to the appropriate option supplied
       to the configure script during the
-      :ref:`ref-tasks-configure` task for recipes that
+      :term:`do_configure` task for recipes that
       optionally support the feature. For example, specifying "x11" in
       :term:`DISTRO_FEATURES`, causes every piece of software built for the
       target that can optionally support X11 to have its X11 support
@@ -2792,7 +2792,7 @@ system and gives an overview of their function and contents.
 
          The shared libraries resolver's functionality results in part from
          the internal function ``package_do_shlibs``, which is part of the
-         :ref:`ref-tasks-package` task. You should be aware that the shared
+         :term:`do_package` task. You should be aware that the shared
          libraries resolver might implicitly define some dependencies between
          packages.
 
@@ -2894,7 +2894,7 @@ system and gives an overview of their function and contents.
       For recipes inheriting the :ref:`ref-classes-autotools`
       class, you can use :term:`EXTRA_AUTORECONF` to specify extra options to
       pass to the ``autoreconf`` command that is executed during the
-      :ref:`ref-tasks-configure` task.
+      :term:`do_configure` task.
 
       The default value is "--exclude=autopoint".
 
@@ -3327,7 +3327,7 @@ system and gives an overview of their function and contents.
       in the Yocto Project Overview and Concepts Manual and the
       ":ref:`dev-manual/new-recipe:patching code`" section in
       the Yocto Project Development Tasks Manual. See the
-      :ref:`ref-tasks-patch` task as well.
+      :term:`do_patch` task as well.
 
    :term:`FILESYSTEM_PERMS_TABLES`
       Allows you to define your own file permissions settings tables as part
@@ -4607,7 +4607,7 @@ system and gives an overview of their function and contents.
 
    :term:`IMAGE_ROOTFS`
       The location of the root filesystem while it is under construction
-      (i.e. during the :ref:`ref-tasks-rootfs` task). This
+      (i.e. during the :term:`do_rootfs` task). This
       variable is not configurable. Do not change it.
 
    :term:`IMAGE_ROOTFS_ALIGNMENT`
@@ -4898,7 +4898,7 @@ system and gives an overview of their function and contents.
       Prevents the OpenEmbedded build system from splitting out debug
       information during packaging. By default, the build system splits out
       debugging information during the
-      :ref:`ref-tasks-package` task. For more information on
+      :term:`do_package` task. For more information on
       how debug information is split out, see the
       :term:`PACKAGE_DEBUG_SPLIT_STYLE`
       variable.
@@ -4987,7 +4987,7 @@ system and gives an overview of their function and contents.
       section in the Yocto Project Development Tasks Manual.
 
    :term:`INITRAMFS_DEPLOY_DIR_IMAGE`
-      Indicates the deploy directory used by :ref:`ref-tasks-bundle_initramfs`
+      Indicates the deploy directory used by :term:`do_bundle_initramfs`
       where the :term:`INITRAMFS_IMAGE` will be fetched from. This variable is
       set by default to ``${DEPLOY_DIR_IMAGE}`` in the
       :ref:`ref-classes-kernel` class and it's only meant to be changed when
@@ -5049,7 +5049,7 @@ system and gives an overview of their function and contents.
       Controls whether or not the image recipe specified by
       :term:`INITRAMFS_IMAGE` is run through an
       extra pass
-      (:ref:`ref-tasks-bundle_initramfs`) during
+      (:term:`do_bundle_initramfs`) during
       kernel compilation in order to build a single binary that contains
       both the kernel image and the initial RAM filesystem (:term:`Initramfs`)
       image. This makes use of the
@@ -5319,7 +5319,7 @@ system and gives an overview of their function and contents.
       -  1: report the problems as warnings and trigger an error if
          :term:`KMETA_AUDIT_WERROR` is set.
 
-      -  2: if the :ref:`ref-tasks-kernel_configme` has failed to generate a
+      -  2: if the :term:`do_kernel_configme` has failed to generate a
          ``.config`` file, print the content of the ``merge_config_build.log``
          file containing the errors, instead of just providing the path to
          that file.
@@ -5390,7 +5390,7 @@ system and gives an overview of their function and contents.
 
       A ``defconfig`` file compatible with ``alldefconfig`` mode can be
       generated using the
-      :ref:`ref-tasks-savedefconfig`
+      :term:`do_savedefconfig`
       task and placed into the Linux kernel ``${WORKDIR}`` through your
       meta-layer. Explicitely set :term:`KCONFIG_MODE`::
 
@@ -5606,7 +5606,7 @@ system and gives an overview of their function and contents.
       Specifies the maximum allowable size of the kernel image file in kibibytes.
       If this variable is set, the sizes of all of the kernel image files listed
       in :term:`KERNEL_IMAGETYPES` are checked against this value during the
-      :ref:`ref-tasks-sizecheck` task. That task will warn about any of the
+      :term:`do_sizecheck` task. That task will warn about any of the
       kernel images that exceed the maximum, and will fail only if all images
       are too large.
 
@@ -5627,7 +5627,7 @@ system and gives an overview of their function and contents.
    :term:`KERNEL_IMAGE_STRIP_EXTRA_SECTIONS`
       If this variable is set, it should contain the sections to be
       stripped from the ``vmlinux`` image by the kernel-related
-      :ref:`ref-tasks-strip` task. As a simple example::
+      :term:`do_strip` task. As a simple example::
 
          KERNEL_IMAGE_STRIP_EXTRA_SECTIONS = ".comment .note.* .debug"
 
@@ -6367,7 +6367,7 @@ system and gives an overview of their function and contents.
 
    :term:`MESON_TARGET`
       A variable for the :ref:`ref-classes-meson` class, allowing to choose
-      a Meson target to build in :ref:`ref-tasks-compile`.  Otherwise, the
+      a Meson target to build in :term:`do_compile`.  Otherwise, the
       default targets are built.
 
    :term:`METADATA_BRANCH`
@@ -7310,7 +7310,7 @@ system and gives an overview of their function and contents.
       use :term:`PACKAGECONFIG_CONFARGS` to pass :term:`PACKAGECONFIG` options
       to ``configure`` and ``cmake``, respectively. If you are using
       :term:`PACKAGECONFIG` but not a class that handles the
-      :ref:`ref-tasks-configure` task, then you need to use
+      :term:`do_configure` task, then you need to use
       :term:`PACKAGECONFIG_CONFARGS` appropriately.
 
    :term:`PACKAGEGROUP_DISABLE_COMPLEMENTARY`
@@ -7326,7 +7326,7 @@ system and gives an overview of their function and contents.
 
          ${PN}-src ${PN}-dbg ${PN}-staticdev ${PN}-dev ${PN}-doc ${PN}-locale ${PACKAGE_BEFORE_PN} ${PN}
 
-      During packaging, the :ref:`ref-tasks-package` task
+      During packaging, the :term:`do_package` task
       goes through :term:`PACKAGES` and uses the :term:`FILES`
       variable corresponding to each package to assign files to the
       package. If a file matches the :term:`FILES` variable for more than one
@@ -7335,7 +7335,7 @@ system and gives an overview of their function and contents.
 
       Packages in the variable's list that are empty (i.e. where none of
       the patterns in ``FILES:``\ pkg match any files installed by the
-      :ref:`ref-tasks-install` task) are not generated,
+      :term:`do_install` task) are not generated,
       unless generation is forced through the
       :term:`ALLOW_EMPTY` variable.
 
@@ -7350,7 +7350,7 @@ system and gives an overview of their function and contents.
       produced, then the other package will be broken. Thus, if you attempt
       to include that package in an image, you will get a dependency
       failure from the packaging system during the
-      :ref:`ref-tasks-rootfs` task.
+      :term:`do_rootfs` task.
 
       Typically, if there is a chance that such a situation can occur and
       the package that is not created is valid without the dependency being
@@ -7376,7 +7376,7 @@ system and gives an overview of their function and contents.
 
       Extra options passed to the build tool command (``make``,
       ``ninja`` or more specific build engines, like the Go language one)
-      during the :ref:`ref-tasks-compile` task, to specify parallel compilation
+      during the :term:`do_compile` task, to specify parallel compilation
       on the local build host. This variable is usually in the form "-j x",
       where x represents the maximum number of parallel threads such engines
       can run.
@@ -7394,7 +7394,7 @@ system and gives an overview of their function and contents.
       .. note::
 
          If the software being built experiences dependency issues during
-         the :ref:`ref-tasks-compile` task that result in race conditions, you can clear
+         the :term:`do_compile` task that result in race conditions, you can clear
          the :term:`PARALLEL_MAKE` variable within the recipe as a workaround. For
          information on addressing race conditions, see the
          ":ref:`dev-manual/debugging:debugging parallel make races`"
@@ -7417,7 +7417,7 @@ system and gives an overview of their function and contents.
    :term:`PARALLEL_MAKEINST`
       Extra options passed to the build tool install command
       (``make install``, ``ninja install`` or more specific ones)
-      during the :ref:`ref-tasks-install` task in order to specify
+      during the :term:`do_install` task in order to specify
       parallel installation. This variable defaults to the value of
       :term:`PARALLEL_MAKE`.
 
@@ -7429,7 +7429,7 @@ system and gives an overview of their function and contents.
          way to ensure this is to use the ``oe_runmake`` function.
 
          If the software being built experiences dependency issues during
-         the :ref:`ref-tasks-install` task that result in race conditions, you can
+         the :term:`do_install` task that result in race conditions, you can
          clear the :term:`PARALLEL_MAKEINST` variable within the recipe as a
          workaround. For information on addressing race conditions, see the
          ":ref:`dev-manual/debugging:debugging parallel make races`"
@@ -7449,7 +7449,7 @@ system and gives an overview of their function and contents.
 
    :term:`PATCHTOOL`
       Specifies the utility used to apply patches for a recipe during the
-      :ref:`ref-tasks-patch` task. You can specify one of
+      :term:`do_patch` task. You can specify one of
       three utilities: "patch", "quilt", or "git". The default utility used
       is "quilt" except for the quilt-native recipe itself. Because the
       quilt tool is not available at the time quilt-native is being
@@ -7519,7 +7519,7 @@ system and gives an overview of their function and contents.
    :term:`PKGDATA_DIR`
       Points to a shared, global-state directory that holds data generated
       during the packaging process. During the packaging process, the
-      :ref:`ref-tasks-packagedata` task packages data
+      :term:`do_packagedata` task packages data
       for each recipe and installs it into this shared area.
       This directory defaults to the following, which you should not
       change::
@@ -7545,14 +7545,14 @@ system and gives an overview of their function and contents.
 
    :term:`PKGDESTWORK`
       Points to a temporary work area where the
-      :ref:`ref-tasks-package` task saves package metadata.
+      :term:`do_package` task saves package metadata.
       The :term:`PKGDESTWORK` location defaults to the following::
 
          ${WORKDIR}/pkgdata
 
       Do not change this default.
 
-      The :ref:`ref-tasks-packagedata` task copies the
+      The :term:`do_packagedata` task copies the
       package metadata from :term:`PKGDESTWORK` to
       :term:`PKGDATA_DIR` to make it available globally.
 
@@ -8262,7 +8262,7 @@ system and gives an overview of their function and contents.
       The practical effect of the above :term:`RDEPENDS` assignment is that
       ``bar`` and ``baz`` will be declared as dependencies inside the
       package ``foo`` when it is written out by one of the
-      :ref:`do_package_write_* <ref-tasks-package_write_deb>` tasks.
+      :term:`do_package_write_* <do_package_write_deb>` tasks.
       Exactly how this is done depends on which package format is used,
       which is determined by
       :term:`PACKAGE_CLASSES`. When the
@@ -8272,9 +8272,9 @@ system and gives an overview of their function and contents.
       To ensure that the packages ``bar`` and ``baz`` get built, the
       previous :term:`RDEPENDS` assignment also causes a task dependency to be
       added. This dependency is from the recipe's
-      :ref:`ref-tasks-build` (not to be confused with
-      :ref:`ref-tasks-compile`) task to the
-      :ref:`do_package_write_* <ref-tasks-package_write_deb>` task of the recipes that build ``bar`` and
+      :term:`do_build` (not to be confused with
+      :term:`do_compile`) task to the
+      :term:`do_package_write_* <do_package_write_deb>` task of the recipes that build ``bar`` and
       ``baz``.
 
       The names of the packages you list within :term:`RDEPENDS` must be the
@@ -9004,10 +9004,10 @@ system and gives an overview of their function and contents.
       A list of shared state tasks added to the extensible SDK. By default,
       the following tasks are added:
 
-      - :ref:`ref-tasks-populate_lic`
-      - :ref:`ref-tasks-package_qa`
-      - :ref:`ref-tasks-populate_sysroot`
-      - :ref:`ref-tasks-deploy`
+      - :term:`do_populate_lic`
+      - :term:`do_package_qa`
+      - :term:`do_populate_sysroot`
+      - :term:`do_deploy`
 
       Despite the default value of "" for the
       :term:`SDK_RECRDEP_TASKS` variable, the above four tasks are always added
@@ -10302,7 +10302,7 @@ system and gives an overview of their function and contents.
       Used for constructing directory trees used during staging.
 
       For information on how staging for recipe-specific sysroots occurs,
-      see the :ref:`ref-tasks-populate_sysroot`
+      see the :term:`do_populate_sysroot`
       task, the ":ref:`dev-manual/devtool:sharing files between recipes`"
       section in the Yocto Project Development Tasks Manual, the
       ":ref:`overview-manual/concepts:configuration, compilation, and staging`"
@@ -10314,7 +10314,7 @@ system and gives an overview of their function and contents.
          Recipes should never write files directly under the :term:`STAGING_DIR`
          directory because the OpenEmbedded build system manages the
          directory automatically. Instead, files should be installed to
-         ``${``\ :term:`D`\ ``}`` within your recipe's :ref:`ref-tasks-install`
+         ``${``\ :term:`D`\ ``}`` within your recipe's :term:`do_install`
          task and then the OpenEmbedded build system will stage a subset of
          those files into the sysroot.
 
@@ -10323,9 +10323,9 @@ system and gives an overview of their function and contents.
       for the system on which the component is built to run
       (the system that hosts the component).
       For most recipes, this sysroot is populated by their
-      :ref:`ref-tasks-populate_sysroot` task (when sharing files
+      :term:`do_populate_sysroot` task (when sharing files
       between recipes). Exceptions include native recipes, for which the files from
-      :ref:`ref-tasks-populate_sysroot` task are instead copied to
+      :term:`do_populate_sysroot` task are instead copied to
       :term:`STAGING_DIR_NATIVE`. Depending on the type of recipe and the build target,
       :term:`STAGING_DIR_HOST` can have the following values:
 
@@ -10349,9 +10349,9 @@ system and gives an overview of their function and contents.
 
             Thus, the emphasis is that the ``STAGING_DIR*`` variables
             should be viewed as input variables by tasks such as
-            :ref:`ref-tasks-configure`,
-            :ref:`ref-tasks-compile`, and
-            :ref:`ref-tasks-install`. Having the real system root
+            :term:`do_configure`,
+            :term:`do_compile`, and
+            :term:`do_install`. Having the real system root
             (the :term:`build host`'s root) play the role of :term:`STAGING_DIR_HOST`
             makes conceptual sense for native recipes, as they make use
             of the :term:`build host`'s headers and libraries.
@@ -10513,11 +10513,11 @@ system and gives an overview of their function and contents.
       Points to the temporary directory under the work directory (default
       "``${``\ :term:`WORKDIR`\ ``}/sysroot-destdir``")
       where the files populated into the sysroot are assembled during the
-      :ref:`ref-tasks-populate_sysroot` task.
+      :term:`do_populate_sysroot` task.
 
    :term:`SYSROOT_DIRS`
       Directories that are staged into the sysroot by the
-      :ref:`ref-tasks-populate_sysroot` task. By
+      :term:`do_populate_sysroot` task. By
       default, the following directories are staged::
 
          SYSROOT_DIRS = " \
@@ -10560,7 +10560,7 @@ system and gives an overview of their function and contents.
 
    :term:`SYSROOT_DIRS_IGNORE`
       Directories that are not staged into the sysroot by the
-      :ref:`ref-tasks-populate_sysroot` task. You
+      :term:`do_populate_sysroot` task. You
       can use this variable to exclude certain subdirectories of
       directories listed in :term:`SYSROOT_DIRS` from
       staging. By default, the following directories are not staged::
@@ -10583,7 +10583,7 @@ system and gives an overview of their function and contents.
 
    :term:`SYSROOT_DIRS_NATIVE`
       Extra directories staged into the sysroot by the
-      :ref:`ref-tasks-populate_sysroot` task for
+      :term:`do_populate_sysroot` task for
       ``-native`` recipes, in addition to those specified in
       :term:`SYSROOT_DIRS`. By default, the following
       extra directories are staged::
@@ -12099,7 +12099,7 @@ system and gives an overview of their function and contents.
    :term:`UNKNOWN_CONFIGURE_OPT_IGNORE`
       Specifies a list of options that, if reported by the configure script
       as being invalid, should not generate a warning during the
-      :ref:`ref-tasks-configure` task. Normally, invalid
+      :term:`do_configure` task. Normally, invalid
       configure options are simply not passed to the configure script (e.g.
       should be removed from :term:`EXTRA_OECONF` or
       :term:`PACKAGECONFIG_CONFARGS`).
@@ -12116,7 +12116,7 @@ system and gives an overview of their function and contents.
    :term:`UNPACKDIR`
       This variable, used by the :ref:`ref-classes-base` class,
       specifies where fetched sources should be unpacked by the
-      :ref:`ref-tasks-unpack` task.
+      :term:`do_unpack` task.
 
    :term:`UPDATERCPN`
       For recipes inheriting the

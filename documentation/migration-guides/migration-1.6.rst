@@ -117,7 +117,7 @@ will need to add ``2>&1`` (or something similar) to the end of your
 ``task-``\ taskname overrides have been adjusted so that tasks whose
 names contain underscores have the underscores replaced by hyphens for
 the override so that they now function properly. For example, the task
-override for :ref:`ref-tasks-populate_sdk` is
+override for :term:`do_populate_sdk` is
 ``task-populate-sdk``.
 
 .. _migration-1.6-variable-changes:

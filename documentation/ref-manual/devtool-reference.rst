@@ -523,7 +523,7 @@ The target is the address of the target machine, which must be running
 an SSH server (i.e. ``user@hostname[:destdir]``).
 
 This command deploys all files installed during the
-:ref:`ref-tasks-install` task. Furthermore, you do not
+:term:`do_install` task. Furthermore, you do not
 need to have package management enabled within the target machine. If
 you do, the package manager is bypassed.
 

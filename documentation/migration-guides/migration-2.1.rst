@@ -107,15 +107,15 @@ class, ``ac_cv_sizeof_off_t`` is no longer cached in the site files for
 as was previously assumed. Rather, the value changes based on whether
 large file support is enabled. For most software that uses ``autoconf``,
 this change should not be a problem. However, if you have a recipe that
-bypasses the standard :ref:`ref-tasks-configure` task
+bypasses the standard :term:`do_configure` task
 from the :ref:`ref-classes-autotools` class and the software the recipe is building
 uses a very old version of ``autoconf``, the recipe might be incapable
-of determining the correct size of ``off_t`` during :ref:`ref-tasks-configure`.
+of determining the correct size of ``off_t`` during :term:`do_configure`.
 
 The best course of action is to patch the software as necessary to allow
 the default implementation from the :ref:`ref-classes-autotools` class to work such
 that ``autoreconf`` succeeds and produces a working configure script,
-and to remove the overridden :ref:`ref-tasks-configure` task such that the default
+and to remove the overridden :term:`do_configure` task such that the default
 implementation does get used.
 
 .. _migration-2.1-image-generation-split-out-from-filesystem-generation:
@@ -123,19 +123,19 @@ implementation does get used.
 Image Generation is Now Split Out from Filesystem Generation
 ------------------------------------------------------------
 
-Previously, for image recipes the :ref:`ref-tasks-rootfs`
+Previously, for image recipes the :term:`do_rootfs`
 task assembled the filesystem and then from that filesystem generated
 images. With this Yocto Project release, image generation is split into
-separate :ref:`ref-tasks-image` tasks for clarity both in
+separate :term:`do_image` tasks for clarity both in
 operation and in the code.
 
 For most cases, this change does not present any problems. However, if
-you have made customizations that directly modify the :ref:`ref-tasks-rootfs` task
-or that mention :ref:`ref-tasks-rootfs`, you might need to update those changes.
-In particular, if you had added any tasks after :ref:`ref-tasks-rootfs`, you
+you have made customizations that directly modify the :term:`do_rootfs` task
+or that mention :term:`do_rootfs`, you might need to update those changes.
+In particular, if you had added any tasks after :term:`do_rootfs`, you
 should make edits so that those tasks are after the
-:ref:`ref-tasks-image-complete` task rather than
-after :ref:`ref-tasks-rootfs` so that your added tasks run at the correct
+:term:`do_image_complete` task rather than
+after :term:`do_rootfs` so that your added tasks run at the correct
 time.
 
 A minor part of this restructuring is that the post-processing definitions and

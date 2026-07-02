@@ -275,7 +275,7 @@ Why don't other recipes find the files provided by my ``*-native`` recipe?
 
 Files provided by your native recipe could be missing from the native
 sysroot, your recipe could also be installing to the wrong place, or you
-could be getting permission errors during the :ref:`ref-tasks-install`
+could be getting permission errors during the :term:`do_install`
 task in your recipe.
 
 This situation happens when the build system used by a package does not

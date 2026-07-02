@@ -323,7 +323,7 @@ New Features / Enhancements in 4.2
    -  ``sstatesig``: emit more helpful error message when not finding sstate manifest
    -  :ref:`ref-classes-pypi`.bbclass: Set :term:`SRC_URI` downloadfilename with an optional prefix
    -  ``poky-bleeding`` distro: update and rework
-   -  :ref:`package.bbclass <ref-classes-package>`: check if package names conflict via ``PKG:${PN}`` override in :ref:`do_package <ref-tasks-package>`
+   -  :ref:`package.bbclass <ref-classes-package>`: check if package names conflict via ``PKG:${PN}`` override in :term:`do_package`
    -  ``cve-update-nvd2-native``: new NVD CVE database fetcher using the 2.0 API
    -  :ref:`ref-classes-mirrors` class: use shallow tarball for ``binutils-native``/``nativesdk-binutils``
    -  ``meta/conf``: move default configuration templates into ``meta/conf/templates/default``

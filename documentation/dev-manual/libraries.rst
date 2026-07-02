@@ -28,7 +28,7 @@ the built library.
 The :term:`PACKAGES` and
 :term:`FILES:* <FILES>` variables in the
 ``meta/conf/bitbake.conf`` configuration file define how files installed
-by the :ref:`ref-tasks-install` task are packaged. By default, the :term:`PACKAGES`
+by the :term:`do_install` task are packaged. By default, the :term:`PACKAGES`
 variable includes ``${PN}-staticdev``, which represents all static
 library files.
 

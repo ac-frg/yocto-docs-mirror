@@ -268,11 +268,11 @@ located. For a graphical representation of source locations, see the
 ":ref:`overview-manual/concepts:sources`" section in
 the Yocto Project Overview and Concepts Manual.
 
-The :ref:`ref-tasks-fetch` task uses the prefix of each entry in the
+The :term:`do_fetch` task uses the prefix of each entry in the
 :term:`SRC_URI` variable value to determine which
 :ref:`fetcher <bitbake-user-manual/bitbake-user-manual-fetching:fetchers>`
 to use to get your source files. It is the :term:`SRC_URI` variable that triggers
-the fetcher. The :ref:`ref-tasks-patch` task uses the variable after source is
+the fetcher. The :term:`do_patch` task uses the variable after source is
 fetched to apply patches. The OpenEmbedded build system uses
 :term:`FILESOVERRIDES` for scanning directory locations for local files in
 :term:`SRC_URI`.
@@ -296,7 +296,7 @@ where the source comes from a single tarball. Notice the use of the
 Files mentioned in :term:`SRC_URI` whose names end in a typical archive
 extension (e.g. ``.tar``, ``.tar.gz``, ``.tar.bz2``, ``.zip``, and so
 forth), are automatically extracted during the
-:ref:`ref-tasks-unpack` task. For
+:term:`do_unpack` task. For
 another example that specifies these types of files, see the
 ":ref:`dev-manual/new-recipe:building an autotooled package`" section.
 
@@ -404,7 +404,7 @@ Unpacking Code
 ==============
 
 During the build, the
-:ref:`ref-tasks-unpack` task unpacks
+:term:`do_unpack` task unpacks
 the source with ``${``\ :term:`S`\ ``}``
 pointing to where it is unpacked.
 
@@ -429,7 +429,7 @@ Sometimes it is necessary to patch code after it has been fetched. Any
 files mentioned in :term:`SRC_URI` whose names end in ``.patch`` or
 ``.diff`` or compressed versions of these suffixes (e.g. ``diff.gz``,
 ``patch.bz2``, etc.) are treated as patches. The
-:ref:`ref-tasks-patch` task
+:term:`do_patch` task
 automatically applies these patches.
 
 The build system should be able to apply patches with the "-p1" option
@@ -537,7 +537,7 @@ your software is built:
 
    When using Autotools, your recipe needs to inherit the
    :ref:`ref-classes-autotools` class and it does not have to
-   contain a :ref:`ref-tasks-configure` task. However, you might still want to
+   contain a :term:`do_configure` task. However, you might still want to
    make some adjustments. For example, you can set :term:`EXTRA_OECONF` or
    :term:`PACKAGECONFIG_CONFARGS` to pass any needed configure options that
    are specific to the recipe.
@@ -548,7 +548,7 @@ your software is built:
 
    When you use CMake, your recipe needs to inherit the
    :ref:`ref-classes-cmake` class and it does not have to contain a
-   :ref:`ref-tasks-configure` task. You can make some adjustments by setting
+   :term:`do_configure` task. You can make some adjustments by setting
    :term:`EXTRA_OECMAKE` to pass any needed configure options that are
    specific to the recipe.
 
@@ -556,13 +556,13 @@ your software is built:
 
       If you need to install one or more custom CMake toolchain files
       that are supplied by the application you are building, install the
-      files to ``${D}${datadir}/cmake/Modules`` during :ref:`ref-tasks-install`.
+      files to ``${D}${datadir}/cmake/Modules`` during :term:`do_install`.
 
 -  *Other:* If your source files do not have a ``configure.ac`` or
    ``CMakeLists.txt`` file, then your software is built using some
    method other than Autotools or CMake. If this is the case, you
    normally need to provide a
-   :ref:`ref-tasks-configure` task
+   :term:`do_configure` task
    in your recipe unless, of course, there is nothing to configure.
 
    Even if your software is not being built by Autotools or CMake, you
@@ -651,8 +651,8 @@ out-of-tree modules. Your recipe will also need the following::
 Compilation
 ===========
 
-During a build, the :ref:`ref-tasks-compile` task happens after source is fetched,
-unpacked, and configured. If the recipe passes through :ref:`ref-tasks-compile`
+During a build, the :term:`do_compile` task happens after source is fetched,
+unpacked, and configured. If the recipe passes through :term:`do_compile`
 successfully, nothing needs to be done.
 
 However, if the compile step fails, you need to diagnose the failure.
@@ -714,7 +714,7 @@ Here are some common issues that cause failures.
 Installing
 ==========
 
-During :ref:`ref-tasks-install`, the task copies the built files along with their
+During :term:`do_install`, the task copies the built files along with their
 hierarchy to locations that would mirror their locations on the target
 device. The installation process copies files from the
 ``${``\ :term:`S`\ ``}``,
@@ -732,14 +732,14 @@ the software being built:
 -  *Autotools and CMake:* If the software your recipe is building uses
    Autotools or CMake, the OpenEmbedded build system understands how to
    install the software. Consequently, you do not have to have a
-   :ref:`ref-tasks-install` task as part of your recipe. You just need to make
+   :term:`do_install` task as part of your recipe. You just need to make
    sure the install portion of the build completes with no issues.
    However, if you wish to install additional files not already being
    installed by ``make install``, you should do this using a
    ``do_install:append`` function using the install command as described
    in the "Manual" bulleted item later in this list.
 
--  *Other (using* ``make install``\ *)*: You need to define a :ref:`ref-tasks-install`
+-  *Other (using* ``make install``\ *)*: You need to define a :term:`do_install`
    function in your recipe. The function should call
    ``oe_runmake install`` and will likely need to pass in the
    destination directory as well. How you pass that path is dependent on
@@ -749,7 +749,7 @@ the software being built:
    For an example recipe using ``make install``, see the
    ":ref:`dev-manual/new-recipe:building a makefile-based package`" section.
 
--  *Manual:* You need to define a :ref:`ref-tasks-install` function in your
+-  *Manual:* You need to define a :term:`do_install` function in your
    recipe. The function must first use ``install -d`` to create the
    directories under
    ``${``\ :term:`D`\ ``}``. Once the
@@ -772,17 +772,17 @@ installed correctly.
       might need to replace hard-coded paths in an initscript with
       values of variables provided by the build system, such as
       replacing ``/usr/bin/`` with ``${bindir}``. If you do perform such
-      modifications during :ref:`ref-tasks-install`, be sure to modify the
+      modifications during :term:`do_install`, be sure to modify the
       destination file after copying rather than before copying.
       Modifying after copying ensures that the build system can
-      re-execute :ref:`ref-tasks-install` if needed.
+      re-execute :term:`do_install` if needed.
 
    -  ``oe_runmake install``, which can be run directly or can be run
       indirectly by the :ref:`ref-classes-autotools` and
       :ref:`ref-classes-cmake` classes, runs ``make install`` in parallel.
       Sometimes, a Makefile can have missing dependencies between targets that
       can result in race conditions. If you experience intermittent failures
-      during :ref:`ref-tasks-install`, you might be able to work around them by
+      during :term:`do_install`, you might be able to work around them by
       disabling parallel Makefile installs by adding the following to the
       recipe::
 
@@ -793,7 +793,7 @@ installed correctly.
    -  If you need to install one or more custom CMake toolchain files
       that are supplied by the application you are building, install the
       files to ``${D}${datadir}/cmake/Modules`` during
-      :ref:`ref-tasks-install`.
+      :term:`do_install`.
 
 Enabling System Services
 ========================
@@ -805,7 +805,7 @@ additional definitions in your recipe.
 If you are adding services and the service initialization script or the
 service file itself is not installed, you must provide for that
 installation in your recipe using a ``do_install:append`` function. If
-your recipe already has a :ref:`ref-tasks-install` function, update the function
+your recipe already has a :term:`do_install` function, update the function
 near its end rather than adding an additional ``do_install:append``
 function.
 
@@ -850,10 +850,10 @@ Successful packaging is a combination of automated processes performed
 by the OpenEmbedded build system and some specific steps you need to
 take. The following list describes the process:
 
--  *Splitting Files*: The :ref:`ref-tasks-package` task splits the files produced
+-  *Splitting Files*: The :term:`do_package` task splits the files produced
    by the recipe into logical components. Even software that produces a
    single binary might still have debug symbols, documentation, and
-   other logical components that should be split out. The :ref:`ref-tasks-package`
+   other logical components that should be split out. The :term:`do_package`
    task ensures that files are split up and packaged correctly.
 
 -  *Running QA Checks*: The :ref:`ref-classes-insane` class adds a
@@ -935,15 +935,15 @@ recipe has two sysroots in its work directory, one for target files
 Recipes should never populate the sysroot directly (i.e. write files
 into sysroot). Instead, files should be installed into standard
 locations during the
-:ref:`ref-tasks-install` task within
+:term:`do_install` task within
 the ``${``\ :term:`D`\ ``}`` directory. The
 reason for this limitation is that almost all files that populate the
 sysroot are cataloged in manifests in order to ensure the files can be
 removed later when a recipe is either modified or removed. Thus, the
 sysroot is able to remain free from stale files.
 
-A subset of the files installed by the :ref:`ref-tasks-install` task are
-used by the :ref:`ref-tasks-populate_sysroot` task as defined by the
+A subset of the files installed by the :term:`do_install` task are
+used by the :term:`do_populate_sysroot` task as defined by the
 :term:`SYSROOT_DIRS` variable to automatically populate the sysroot. It
 is possible to modify the list of directories that populate the sysroot.
 The following example shows how you could add the ``/opt`` directory to
@@ -957,7 +957,7 @@ the list of directories within a recipe::
    that are not included in the target filesystem, allowing them to share
    these artifacts without needing to use the :term:`DEPLOY_DIR`.
 
-For a more complete description of the :ref:`ref-tasks-populate_sysroot`
+For a more complete description of the :term:`do_populate_sysroot`
 task and its associated functions, see the
 :ref:`staging <ref-classes-staging>` class.
 
@@ -1101,7 +1101,7 @@ target. You can use ``pkg_postinst_ontarget()`` or call
 ``postinst_intercept delay_to_first_boot`` from ``pkg_postinst()``. Any
 failure of a ``pkg_postinst()`` script (including exit 1) triggers an
 error during the
-:ref:`ref-tasks-rootfs` task.
+:term:`do_rootfs` task.
 
 If you have recipes that use ``pkg_postinst`` function and they require
 the use of non-standard native tools that have dependencies during
@@ -1155,8 +1155,8 @@ Building a Single .c File Package
 
 Building an application from a single file that is stored locally (e.g. under
 ``files``) requires a recipe that has the file listed in the :term:`SRC_URI`
-variable. Additionally, you need to manually write the :ref:`ref-tasks-compile`
-and :ref:`ref-tasks-install` tasks. The :term:`S` variable defines the
+variable. Additionally, you need to manually write the :term:`do_compile`
+and :term:`do_install` tasks. The :term:`S` variable defines the
 directory containing the source code, which is set to :term:`UNPACKDIR` in this
 case --- the directory BitBake uses for the build::
 
@@ -1187,13 +1187,13 @@ Building a Makefile-Based Package
 ---------------------------------
 
 Applications built with GNU ``make`` require a recipe that has the source archive
-listed in :term:`SRC_URI`. You do not need to add a :ref:`ref-tasks-compile`
+listed in :term:`SRC_URI`. You do not need to add a :term:`do_compile`
 step since by default BitBake starts the ``make`` command to compile the
 application. If you need additional ``make`` options, you should store them in
 the :term:`EXTRA_OEMAKE` or :term:`PACKAGECONFIG_CONFARGS` variables. BitBake
 passes these options into the GNU ``make`` invocation. Note that a
-:ref:`ref-tasks-install` task is still required. Otherwise, BitBake runs an
-empty :ref:`ref-tasks-install` task by default.
+:term:`do_install` task is still required. Otherwise, BitBake runs an
+empty :term:`do_install` task by default.
 
 Some applications might require extra parameters to be passed to the
 compiler. For example, the application might need an additional header
@@ -1345,9 +1345,9 @@ locations for build artifacts.  In most cases, the
 :ref:`ref-classes-bin-package` class handles "skipping" the configure and
 compile steps as well as sets things up to grab packages from the appropriate
 area. In particular, this class sets ``noexec`` on both the
-:ref:`ref-tasks-configure` and :ref:`ref-tasks-compile` tasks, sets
+:term:`do_configure` and :term:`do_compile` tasks, sets
 ``FILES:${PN}`` to "/" so that it picks up all files, and sets up a
-:ref:`ref-tasks-install` task, which effectively copies all files from ``${S}``
+:term:`do_install` task, which effectively copies all files from ``${S}``
 to ``${D}``. The :ref:`ref-classes-bin-package` class works well when the files
 extracted into ``${S}`` are already laid out in the way they should be laid out
 on the target. For more information on these variables, see the :term:`FILES`,
@@ -1374,15 +1374,15 @@ If you cannot use the :ref:`ref-classes-bin-package` class, you need to be sure 
 doing the following:
 
 -  Create a recipe where the
-   :ref:`ref-tasks-configure` and
-   :ref:`ref-tasks-compile` tasks do
+   :term:`do_configure` and
+   :term:`do_compile` tasks do
    nothing: It is usually sufficient to just not define these tasks in
    the recipe, because the default implementations do nothing unless a
    Makefile is found in
    ``${``\ :term:`S`\ ``}``.
 
    If ``${S}`` might contain a Makefile, or if you inherit some class
-   that replaces :ref:`ref-tasks-configure` and :ref:`ref-tasks-compile` with custom
+   that replaces :term:`do_configure` and :term:`do_compile` with custom
    versions, then you can use the
    ``[``\ :ref:`noexec <bitbake-user-manual/bitbake-user-manual-metadata:variable flags>`\ ``]``
    flag to turn the tasks into no-ops, as follows::
@@ -1391,11 +1391,11 @@ doing the following:
       do_compile[noexec] = "1"
 
    Unlike :ref:`bitbake-user-manual/bitbake-user-manual-metadata:deleting a task`,
-   using the flag preserves the dependency chain from the :ref:`ref-tasks-fetch`,
-   :ref:`ref-tasks-unpack`, and :ref:`ref-tasks-patch` tasks to the
-   :ref:`ref-tasks-install` task.
+   using the flag preserves the dependency chain from the :term:`do_fetch`,
+   :term:`do_unpack`, and :term:`do_patch` tasks to the
+   :term:`do_install` task.
 
--  Make sure your :ref:`ref-tasks-install` task installs the binaries
+-  Make sure your :term:`do_install` task installs the binaries
    appropriately.
 
 -  Ensure that you set up :term:`FILES`
