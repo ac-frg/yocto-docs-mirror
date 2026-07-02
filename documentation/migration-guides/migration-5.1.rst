@@ -23,15 +23,15 @@ supported, and an error will be issued. The recipe should be changed to::
     S = "${UNPACKDIR}"
 
 Any :term:`WORKDIR` references where files from :term:`SRC_URI` are referenced
-should be changed to :term:`S`. These are commonly in :ref:`ref-tasks-configure`,
-:ref:`ref-tasks-compile`, :ref:`ref-tasks-install` and :term:`LIC_FILES_CHKSUM`.
+should be changed to :term:`S`. These are commonly in :term:`do_configure`,
+:term:`do_compile`, :term:`do_install` and :term:`LIC_FILES_CHKSUM`.
 
 :term:`WORKDIR` references in recipes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 :term:`WORKDIR` references in other recipes need auditing. If they reference
 files from :term:`SRC_URI`, they likely need changing to :term:`UNPACKDIR`.
-These are commonly in :ref:`ref-tasks-compile` and :ref:`ref-tasks-install`
+These are commonly in :term:`do_compile` and :term:`do_install`
 for things like service or configuration files. One unusual case is
 ``${WORKDIR}/${BP}`` which should probably be set to ``${S}``.
 
@@ -42,17 +42,17 @@ usually left as they are.
 General notes
 ^^^^^^^^^^^^^
 
-Files from :ref:`ref-tasks-unpack` now unpack to ``WORKDIR/sources-unpack/``
+Files from :term:`do_unpack` now unpack to ``WORKDIR/sources-unpack/``
 rather than ``WORKDIR/``.
 
 If :term:`S` is set to a subdirectory under :term:`WORKDIR` and that
-subdirectory exists in ``sources-unpack`` after :ref:`ref-tasks-unpack` runs,
+subdirectory exists in ``sources-unpack`` after :term:`do_unpack` runs,
 it is moved to :term:`WORKDIR`. This means that ``S = "${WORKDIR}/${BP}"``,
 ``S = "${WORKDIR}/git"`` and also deeper paths continue to work as expected
 without changes. We cannot use symlinks to do this as it breaks autotools
 based recipes. Keeping all sources under ``sources-unpack`` wasn't considered
 as it meant more invasive recipes changes. The key objective was separating the
-:ref:`ref-tasks-unpack` task output from :term:`WORKDIR`.
+:term:`do_unpack` task output from :term:`WORKDIR`.
 
 Previously, :term:`S` was always created but after the recent changes it is no
 longer the case. This means the check in ``do_unpack_qa`` triggers where
@@ -102,7 +102,7 @@ See :ref:`all supported distributions <system-requirements-supported-distros>`.
 Go language changes
 ~~~~~~~~~~~~~~~~~~~
 
--  After dropping the custom :ref:`ref-tasks-unpack` from the
+-  After dropping the custom :term:`do_unpack` from the
    :ref:`ref-classes-go` class, go recipes should now add
    ``destsuffix=${GO_SRCURI_DESTSUFFIX}`` to their :term:`SRC_URI` to extract
    them in the appropriate path. An example would be::

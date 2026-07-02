@@ -336,7 +336,7 @@ New Features / Enhancements in |yocto-ver|
    -  ``resulttool``: Add :ref:`ref-classes-ptest` support to the JUnit output
       format (:oecore_rev:`2abe2d701c98cbf3a81f211252157de523742b0b`)
 
-   -  :ref:`ref-tasks-testimage`: Print last lines of kernel log on test fail
+   -  :term:`do_testimage`: Print last lines of kernel log on test fail
       (:oecore_rev:`fea3c445a9ccb803468b83ea4e8fa92fe442b8e0`)
 
    -  ``reproducible``: Use the `jQuery` CDN instead of ``jquery-native``
@@ -460,7 +460,7 @@ New Features / Enhancements in |yocto-ver|
          (:bitbake_rev:`92fd721941fd17d1febc7205739e9f9ce1bb3aee`)
 
    -  The ``unpack()`` function (the one containing the logic of the
-      :ref:`ref-tasks-unpack` task), can now take an ``update`` argument to
+      :term:`do_unpack` task), can now take an ``update`` argument to
       allow updating a Git repository in-place rather than deleting it and
       re-creating it. An alias function named ``unpack_update()`` was created
       for this unpack mode. See :ref:`bitbake:bb-the-unpack-update` for more
@@ -572,7 +572,7 @@ New Features / Enhancements in |yocto-ver|
 -  :ref:`ref-classes-insane` / :ref:`ref-classes-sanity` classes related changes:
 
    -  Reject :term:`TMPDIR` containing redundant slashes to avoid errors in
-      executions of :ref:`ref-tasks-populate_sysroot`
+      executions of :term:`do_populate_sysroot`
       (:oecore_rev:`3e72ebe9ed4e2e5f34eb89cd460e75a9242e296f`)
 
    -  :ref:`ref-classes-sanity`: Warn when the
@@ -745,7 +745,7 @@ New Features / Enhancements in |yocto-ver|
       (:oecore_rev:`5f346802198f14d4c315783dea6a55743e34a2e8`)
 
    -  ``gobject-introspection``: Disable cache for the scanner during
-      the :ref:`ref-tasks-compile` task (``GI_SCANNER_DISABLE_CACHE=1``), to fix
+      the :term:`do_compile` task (``GI_SCANNER_DISABLE_CACHE=1``), to fix
       an intermittent build failure
       (:oecore_rev:`2b55dd12fc9593beba20d684c8b143483e212bc6`)
 

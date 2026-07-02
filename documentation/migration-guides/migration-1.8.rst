@@ -75,7 +75,7 @@ area and to place build artifacts separately in the source code tree. In theory,
 migration paths have been provided for most common usages in kernel recipes but
 this might not work in all cases. In particular, users need to ensure that
 ``${S}`` (source files) and ``${B}`` (build artifacts) are used correctly in
-functions such as :ref:`ref-tasks-configure` and :ref:`ref-tasks-install`. For
+functions such as :term:`do_configure` and :term:`do_install`. For
 kernel recipes that do not inherit from :ref:`ref-classes-kernel-yocto` or
 include ``linux-yocto.inc``, you might wish to refer to the ``linux.inc`` file
 in the ``meta-oe`` layer for the kinds of changes you need to make. For reference,
@@ -85,7 +85,7 @@ where the ``linux.inc`` file in ``meta-oe`` was updated.
 
 Recipes that rely on the kernel source code and do not inherit the
 :ref:`module <ref-classes-module>` classes might need to add explicit
-dependencies on the :ref:`ref-tasks-shared_workdir` kernel task, for example::
+dependencies on the :term:`do_shared_workdir` kernel task, for example::
 
    do_configure[depends] += "virtual/kernel:do_shared_workdir"
 
@@ -124,11 +124,11 @@ Rebuild Improvements
 
 Changes have been made to the :ref:`ref-classes-base`,
 :ref:`ref-classes-autotools`, and :ref:`ref-classes-cmake` classes to clean out
-generated files when the :ref:`ref-tasks-configure` task needs to be
+generated files when the :term:`do_configure` task needs to be
 re-executed.
 
 One of the improvements is to attempt to run "make clean" during the
-:ref:`ref-tasks-configure` task if a ``Makefile`` exists. Some software packages
+:term:`do_configure` task if a ``Makefile`` exists. Some software packages
 do not provide a working clean target within their make files. If you
 have such recipes, you need to set
 :term:`CLEANBROKEN` to "1" within the recipe, for example::
@@ -155,7 +155,7 @@ The following QA Check and Validation Changes have occurred:
 -  :term:`S` now needs to be set to a valid value within a
    recipe. If :term:`S` is not set in the recipe, the directory is not
    automatically created. If :term:`S` does not point to a directory that
-   exists at the time the :ref:`ref-tasks-unpack` task
+   exists at the time the :term:`do_unpack` task
    finishes, a warning will be shown.
 
 -  :term:`LICENSE` is now validated for correct

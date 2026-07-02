@@ -606,7 +606,7 @@ contamination.
 ~~~~~~~~~~~~~~~~~~~~~~
 
 The OpenEmbedded build system uses this directory to store package metadata
-generated during the :ref:`ref-tasks-packagedata` task. The files stored in this
+generated during the :term:`do_packagedata` task. The files stored in this
 directory contain information about each output package produced by the
 OpenEmbedded build system, and are used in different ways by the build system
 such as ":ref:`dev-manual/debugging:viewing package information with
@@ -631,7 +631,7 @@ another.
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This directory is the location of the sysroot contents that the task
-:ref:`ref-tasks-prepare_recipe_sysroot`
+:term:`do_prepare_recipe_sysroot`
 links or copies into the recipe-specific sysroot for each recipe listed
 in :term:`DEPENDS`. Population of this directory is
 handled through shared state, while the path is specified by the
@@ -745,21 +745,21 @@ Here are key subdirectories within each recipe work directory:
    which tasks were executed.
 
 -  ``${WORKDIR}/image``: Contains the output of the
-   :ref:`ref-tasks-install` task, which corresponds to
+   :term:`do_install` task, which corresponds to
    the ``${``\ :term:`D`\ ``}`` variable in that task.
 
 -  ``${WORKDIR}/pseudo``: Contains the pseudo database and log for any
    tasks executed under pseudo for the recipe.
 
 -  ``${WORKDIR}/sysroot-destdir``: Contains the output of the
-   :ref:`ref-tasks-populate_sysroot` task.
+   :term:`do_populate_sysroot` task.
 
 -  ``${WORKDIR}/package``: Contains the output of the
-   :ref:`ref-tasks-package` task before the output is
+   :term:`do_package` task before the output is
    split into individual packages.
 
 -  ``${WORKDIR}/packages-split``: Contains the output of the
-   :ref:`ref-tasks-package` task after the output has been split into individual
+   :term:`do_package` task after the output has been split into individual
    packages. There are subdirectories for each individual package created by
    the recipe.
 

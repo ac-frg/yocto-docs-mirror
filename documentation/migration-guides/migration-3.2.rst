@@ -62,7 +62,7 @@ pseudo as the interprocess round trip to the server is avoided.
 
 There is a possible complication where some existing recipe may break, for
 example, a recipe was found to be writing to ``${B}/install`` for
-``make install`` in :ref:`ref-tasks-install` and since ``${B}`` is listed as not to be tracked,
+``make install`` in :term:`do_install` and since ``${B}`` is listed as not to be tracked,
 there were errors trying to ``chown root`` for files in this location. Another
 example was the ``tcl`` recipe where the source directory :term:`S` is set to a
 subdirectory of the source tree but files were written out to the directory
@@ -203,7 +203,7 @@ Globbing no longer supported in ``file://`` entries in ``SRC_URI``
 
 Globbing (``*`` and ``?`` wildcards) in ``file://`` URLs within :term:`SRC_URI`
 did not properly support file checksums, thus changes to the source files
-would not always change the :ref:`ref-tasks-fetch` task checksum, and consequently would
+would not always change the :term:`do_fetch` task checksum, and consequently would
 not ensure that the changed files would be incorporated in subsequent builds.
 
 Unfortunately it is not practical to make globbing work generically here, so
@@ -219,16 +219,16 @@ files into a subdirectory and reference that instead.
 deploy class now cleans ``DEPLOYDIR`` before ``do_deploy``
 ----------------------------------------------------------
 
-:ref:`ref-tasks-deploy` as implemented in the :ref:`ref-classes-deploy` class
+:term:`do_deploy` as implemented in the :ref:`ref-classes-deploy` class
 now cleans up ${:term:`DEPLOYDIR`} before running, just as
-:ref:`ref-tasks-install` cleans up ${:term:`D`} before running. This reduces
+:term:`do_install` cleans up ${:term:`D`} before running. This reduces
 the risk of :term:`DEPLOYDIR` being accidentally contaminated by files from
 previous runs, possibly even with different config, in case of incremental
 builds.
 
 Most recipes and classes that inherit the :ref:`ref-classes-deploy` class or
-interact with :ref:`ref-tasks-deploy` are unlikely to be affected by this
-unless they add ``prefuncs`` to :ref:`ref-tasks-deploy` *which also* put files
+interact with :term:`do_deploy` are unlikely to be affected by this
+unless they add ``prefuncs`` to :term:`do_deploy` *which also* put files
 into ``${DEPLOYDIR}`` --- these should be refactored to use
 ``do_deploy_prepend`` instead.
 

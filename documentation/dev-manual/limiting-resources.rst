@@ -32,7 +32,7 @@ details.
    This variable should be set in the form of ``-jN``, where ``N`` is a positive
    integer. This integer controls the number of threads used when starting
    ``make``. Note that this variable is not limited to the usage of ``make``,
-   but extends to the compilation (:ref:`ref-tasks-compile` task) commands
+   but extends to the compilation (:term:`do_compile` task) commands
    defined by the :ref:`ref-classes-meson`, :ref:`ref-classes-cmake` and such
    classes.
 
@@ -48,7 +48,7 @@ details.
 -  :term:`PARALLEL_MAKEINST`:
 
    Like :term:`PARALLEL_MAKE`, but this variable controls the number of threads
-   used during the :ref:`ref-tasks-install` task.
+   used during the :term:`do_install` task.
 
    The default value of :term:`PARALLEL_MAKEINST` is the value of
    :term:`PARALLEL_MAKE`.

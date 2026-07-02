@@ -89,7 +89,7 @@ Viewing Logs from Failed Tasks
 You can find the log for a task in the file
 ``${``\ :term:`WORKDIR`\ ``}/temp/log.do_``\ `taskname`.
 For example, the log for the
-:ref:`ref-tasks-compile` task of the
+:term:`do_compile` task of the
 QEMU minimal image for the x86 machine (``qemux86``) might be in
 ``tmp/work/qemux86-poky-linux/core-image-minimal/1.0-r0/temp/log.do_compile``.
 To see the commands :term:`BitBake` ran
@@ -197,7 +197,7 @@ Here are a few of the available ``oe-pkgdata-util`` subcommands.
       ``${``\ :term:`WORKDIR`\ ``}/packages-split``
       directory of the recipe that generates the package. This directory
       is created by the
-      :ref:`ref-tasks-package` task
+      :term:`do_package` task
       and has one subdirectory for each package the recipe generates,
       which contains the files stored in that package.
 
@@ -264,9 +264,9 @@ format and can be converted to images (e.g. using the ``dot`` tool from
          "libxslt.do_configure" -> "libxml2.do_populate_sysroot"
 
       The above example line reveals that the
-      :ref:`ref-tasks-configure`
+      :term:`do_configure`
       task in ``libxslt`` depends on the
-      :ref:`ref-tasks-populate_sysroot`
+      :term:`do_populate_sysroot`
       task in ``libxml2``, which is a normal
       :term:`DEPENDS` dependency
       between the two recipes.
@@ -314,7 +314,7 @@ BitBake has determined by doing the following:
    corresponds to the task. The ``sigdata`` files contain a pickled
    Python database of all the metadata that went into creating the input
    checksum for the task. As an example, for the
-   :ref:`ref-tasks-fetch` task of the
+   :term:`do_fetch` task of the
    ``db`` recipe, the ``sigdata`` file might be found in the following
    location::
 
@@ -430,7 +430,7 @@ invalidate the cache and force the tasks to run. The steps you can take
 are as simple as changing a function's comments in the source code. For
 example, to invalidate package shared state files, change the comment
 statements of
-:ref:`ref-tasks-package` or the
+:term:`do_package` or the
 comments of one of the functions it calls. Even though the change is
 purely cosmetic, it causes the checksum to be recalculated and forces
 the build system to run the task again.
@@ -445,11 +445,11 @@ Running Specific Tasks
 ======================
 
 Any given recipe consists of a set of tasks. The standard BitBake
-behavior in most cases is: :ref:`ref-tasks-fetch`, :ref:`ref-tasks-unpack`, :ref:`ref-tasks-patch`,
-:ref:`ref-tasks-configure`, :ref:`ref-tasks-compile`, :ref:`ref-tasks-install`, :ref:`ref-tasks-package`,
-:ref:`do_package_write_* <ref-tasks-package_write_deb>`, and :ref:`ref-tasks-build`. The default task is
-:ref:`ref-tasks-build` and any tasks on which it depends build first. Some tasks,
-such as :ref:`ref-tasks-devshell`, are not part of the default build chain. If you
+behavior in most cases is: :term:`do_fetch`, :term:`do_unpack`, :term:`do_patch`,
+:term:`do_configure`, :term:`do_compile`, :term:`do_install`, :term:`do_package`,
+:term:`do_package_write_* <do_package_write_deb>`, and :term:`do_build`. The default task is
+:term:`do_build` and any tasks on which it depends build first. Some tasks,
+such as :term:`do_devshell`, are not part of the default build chain. If you
 wish to run a task that is not part of the default build chain, you can
 use the ``-c`` option in BitBake. Here is an example::
 
@@ -472,7 +472,7 @@ out), then you can use the ``-f`` option.
 .. note::
 
    The reason ``-f`` is never required when running the
-   :ref:`ref-tasks-devshell` task is because the
+   :term:`do_devshell` task is because the
    [\ :ref:`nostamp <bitbake-user-manual/bitbake-user-manual-metadata:variable flags>`\ ]
    variable flag is already set for the task.
 
@@ -489,7 +489,7 @@ The following example shows one way you can use the ``-f`` option::
 
 This sequence first builds and then recompiles ``matchbox-desktop``. The
 last command reruns all tasks (basically the packaging tasks) after the
-compile. BitBake recognizes that the :ref:`ref-tasks-compile` task was rerun and
+compile. BitBake recognizes that the :term:`do_compile` task was rerun and
 therefore understands that the other tasks also need to be run again.
 
 Another, shorter way to rerun a task and all
@@ -502,7 +502,7 @@ that depend on it is to use the ``-C`` option.
    option, which is lower-cased.
 
 Using this option invalidates the given task and then runs the
-:ref:`ref-tasks-build` task, which is
+:term:`do_build` task, which is
 the default task if no task is given, and the tasks on which it depends.
 You could replace the final two commands in the previous example with
 the following single command::
@@ -536,7 +536,7 @@ task dependency mechanisms.
 
 
 You can view a list of tasks in a given package by running the
-:ref:`ref-tasks-listtasks` task as follows::
+:term:`do_listtasks` task as follows::
 
    $ bitbake matchbox-desktop -c listtasks
 
@@ -627,7 +627,7 @@ in the log, use the "debug" loglevel.
 
 Here is an example written in Python. The code handles logging for
 a function that determines the number of tasks needed to be run. See the
-":ref:`ref-tasks-listtasks`"
+":term:`do_listtasks`"
 section for additional information::
 
    python do_listtasks() {

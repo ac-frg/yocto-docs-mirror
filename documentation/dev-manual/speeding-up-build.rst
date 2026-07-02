@@ -19,12 +19,12 @@ variable for more information:
 
 -  :term:`PARALLEL_MAKE`: Extra
    options passed to the ``make`` command during the
-   :ref:`ref-tasks-compile` task in
+   :term:`do_compile` task in
    order to specify parallel compilation on the local build host.
 
 -  :term:`PARALLEL_MAKEINST`:
    Extra options passed to the ``make`` command during the
-   :ref:`ref-tasks-install` task in
+   :term:`do_install` task in
    order to specify parallel installation on the local build host.
 
 As mentioned, these variables all scale to the number of processor cores

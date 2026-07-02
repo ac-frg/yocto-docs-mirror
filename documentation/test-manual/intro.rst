@@ -129,7 +129,7 @@ the following types of tests:
       $ bitbake image -c testimage
 
    The tests use the :ref:`ref-classes-testimage`
-   class and the :ref:`ref-tasks-testimage` task. See the
+   class and the :term:`do_testimage` task. See the
    :ref:`test-manual/runtime-testing:Performing Automated Runtime Testing`
    section of the Yocto Project Test Environment Manual for more information.
 

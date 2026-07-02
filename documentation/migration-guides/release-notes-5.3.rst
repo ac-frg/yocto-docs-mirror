@@ -244,7 +244,7 @@ New Features / Enhancements in |yocto-ver|
 
 -  New core tasks:
 
-   -  The :ref:`ref-tasks-list_image_features` can be used to list the available
+   -  The :term:`do_list_image_features` can be used to list the available
       :term:`IMAGE_FEATURES` for an image recipe.
 
 -  Kernel-related changes:
@@ -670,7 +670,7 @@ New Features / Enhancements in |yocto-ver|
          -  Refactor to be extended easily.
 
          -  Add a ``check_network_flag`` test that checks that no tasks other
-            than :ref:`ref-tasks-fetch` can access the network.
+            than :term:`do_fetch` can access the network.
 
    -  ``send-error-report``:
 
@@ -824,7 +824,7 @@ New Features / Enhancements in |yocto-ver|
 -  :ref:`ref-classes-sanity` class changes:
 
    -  :ref:`ref-classes-insane`: Move test for invalid :term:`PACKAGECONFIG` to
-      :ref:`ref-tasks-recipe-qa`.
+      :term:`do_recipe_qa`.
 
    -  Add ``unimplemented-ptest`` detection for cargo-based tests, allowing to
       detect when a cargo package has available tests that could be enable with

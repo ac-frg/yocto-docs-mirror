@@ -291,7 +291,7 @@ The following miscellaneous changes have occurred.
 
 -  In the ``base-files`` recipe, writing the hostname into
    ``/etc/hosts`` and ``/etc/hostname`` is now done within the main
-   :ref:`ref-tasks-install` function rather than in the
+   :term:`do_install` function rather than in the
    ``do_install_basefilesissue`` function. The reason for the change is
    because ``do_install_basefilesissue`` is more easily overridden
    without having to duplicate the hostname functionality. If you have

@@ -1169,8 +1169,8 @@ build progresses as follows:
 For recipes in the workspace, fetching and unpacking is disabled as the
 source tree has already been prepared and is persistent. Each of these
 build steps is defined as a function (task), usually with a "do\_" prefix
-(e.g. :ref:`ref-tasks-fetch`,
-:ref:`ref-tasks-unpack`, and so
+(e.g. :term:`do_fetch`,
+:term:`do_unpack`, and so
 forth). These functions are typically shell scripts but can instead be
 written in Python.
 
@@ -1201,12 +1201,12 @@ links created within the source tree:
    useful:
 
    -  ``image/``: Contains all of the files installed during the
-      :ref:`ref-tasks-install` stage.
+      :term:`do_install` stage.
       Within a recipe, this directory is referred to by the expression
       ``${``\ :term:`D`\ ``}``.
 
    -  ``sysroot-destdir/``: Contains a subset of files installed within
-      :ref:`ref-tasks-install` that have been put into the shared sysroot. For
+      :term:`do_install` that have been put into the shared sysroot. For
       more information, see the
       ":ref:`dev-manual/new-recipe:sharing files between recipes`" section.
 
@@ -1250,7 +1250,7 @@ sysroot for the build host.
 
 Recipes should never write files directly into the sysroot. Instead,
 files should be installed into standard locations during the
-:ref:`ref-tasks-install` task within the ``${``\ :term:`D`\ ``}`` directory. A
+:term:`do_install` task within the ``${``\ :term:`D`\ ``}`` directory. A
 subset of these files automatically goes into the sysroot. The reason
 for this limitation is that almost all files that go into the sysroot
 are cataloged in manifests in order to ensure they can be removed later
@@ -1265,8 +1265,8 @@ the target device, it is important to understand packaging because the
 contents of the image are expressed in terms of packages and not
 recipes.
 
-During the :ref:`ref-tasks-package` task, files installed during the
-:ref:`ref-tasks-install` task are split into one main package, which is almost
+During the :term:`do_package` task, files installed during the
+:term:`do_install` task are split into one main package, which is almost
 always named the same as the recipe, and into several other packages. This
 separation exists because not all of those installed files are useful in every
 image. For example, you probably do not need any of the documentation installed
