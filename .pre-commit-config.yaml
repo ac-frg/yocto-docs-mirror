@@ -6,3 +6,10 @@ repos:
         entry: ./documentation/tools/check-glossaries
         language: python
         pass_filenames: false
+      - id: gen-doc-links
+        name: Generate documentation links
+        entry: ./documentation/tools/gen-doc-links
+        language: python
+        verbose: true
+        pass_filenames: false
+        additional_dependencies: [sphinx]
