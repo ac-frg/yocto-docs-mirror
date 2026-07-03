@@ -2,7 +2,6 @@
 
 import argparse
 import difflib
-import os
 import re
 import sys
 
@@ -14,7 +13,7 @@ def parse_arguments() -> argparse.Namespace:
 
     parser.add_argument("-d", "--docs-dir",
                         type=Path,
-                        default=Path(os.path.dirname(os.path.realpath(__file__))) / "documentation",
+                        default=Path(__file__).resolve().parent.parent,
                         help="Path to documentation/ directory in yocto-docs")
 
     return parser.parse_args()
