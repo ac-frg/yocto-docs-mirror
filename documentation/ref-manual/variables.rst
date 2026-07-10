@@ -2679,7 +2679,7 @@ system and gives an overview of their function and contents.
    :term:`EFI_ARCH`
       The CPU architecture name within EFI standard. Set in
       :oe_git:`meta/conf/image-uefi.conf
-      <openembedded-core/tree/meta/conf/image-uefi.conf>`.
+      </openembedded-core/tree/meta/conf/image-uefi.conf>`.
 
    :term:`EFI_PROVIDER`
       When building bootable images (i.e. where ``hddimg``, ``iso``, or
@@ -5031,7 +5031,7 @@ system and gives an overview of their function and contents.
 
       You can also find more information by referencing the
       ``conf/templates/default/local.conf.sample.extended``
-      configuration file in :yocto_git:`meta-poky <meta-yocto/tree/meta-poky>`, the :ref:`ref-classes-image`
+      configuration file in :yocto_git:`meta-poky </meta-yocto/tree/meta-poky>`, the :ref:`ref-classes-image`
       class, and the :ref:`ref-classes-kernel` class to see how to use the
       :term:`INITRAMFS_IMAGE` variable.
 
@@ -12248,7 +12248,7 @@ system and gives an overview of their function and contents.
 
       For more information, see
       ``conf/templates/default/local.conf.sample`` in
-      :yocto_git:`meta-poky <meta-yocto/tree/meta-poky>`.
+      :yocto_git:`meta-poky </meta-yocto/tree/meta-poky>`.
 
    :term:`USERADD_DEPENDS`
       Specifies a list of recipes that create users / groups (via
