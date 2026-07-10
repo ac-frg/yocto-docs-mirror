@@ -268,7 +268,7 @@ New Features / Enhancements in 5.0
 
 -  Packaging changes:
 
-   -  ``package_rpm``: the RPM package compressor's mode can now be overriden.
+   -  ``package_rpm``: the RPM package compressor's mode can now be overridden.
 
    -  ipk packaging (using ``opkg``) now uses ``zstd`` compression instead of
       ``xz`` for better compression and performance.

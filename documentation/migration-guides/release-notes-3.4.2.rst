@@ -47,7 +47,7 @@ Fixes in 3.4.2
 -  icu: fix make_icudata dependencies
 -  sstate: Improve failure to obtain archive message/handling
 -  insane.bbclass: Correct package_qa_check_empty_dirs()
--  sstate: A third fix for for touching files inside pseudo
+-  sstate: A third fix for touching files inside pseudo
 -  kernel: introduce python3-dtschema-wrapper
 -  vim: upgrade to 8.2 patch 3752
 -  bootchart2: Add missing python3-math dependency
