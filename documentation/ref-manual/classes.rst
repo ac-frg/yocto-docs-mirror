@@ -560,7 +560,7 @@ as well as in ``tmp/deploy/spdx``.
 
 The exact behaviour of this class, and the amount of output can be controlled
 by the :term:`SPDX_PRETTY`, :term:`SPDX_INCLUDE_SOURCES` and other variables
-starting with with ``SPDX_``.
+starting with ``SPDX_``.
 
 See the description of these variables and the
 ":ref:`dev-manual/sbom:creating a software bill of materials`"
