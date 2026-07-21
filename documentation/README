@@ -163,6 +163,20 @@ or directories:
   $ make sphinx-lint SPHINXLINTDOCS="<file1> <file2>"
   $ make sphinx-lint SPHINXLINTDOCS=<dir>
 
+Checking for broken links in the Yocto Project documentation
+============================================================
+
+To scout for broken links, the "linkcheck" builder from Sphinx can be used with
+the following command:
+
+  $ make linkcheck
+
+The builder is already configured in conf.py to exclude the links that are too
+frequent in the documentation. You can enable linkcheck for these links by
+setting the LINKCHECK_NOT_NICE environment variable to "1":
+
+  $ LINKCHECK_NOT_NICE=1 make linkcheck
+
 Sphinx theme and CSS customization
 ==================================
 

@@ -143,6 +143,23 @@ suppress_warnings = ['epub.unknown_project_files']
 # sphinx-copybutton configuration
 copybutton_prompt_text = "$ "
 
+# Don't check self-references to yocto-docs since they are already
+# checked when building.
+linkcheck_ignore = [r'https?://docs\.yoctoproject\.org.*']
+
+# When using the linkcheck builder, ignore the following links which are too
+# frequent in the docs, unless the LINKCHECK_NOT_NICE environment variable is set
+# to 1.
+if os.environ.get('LINKCHECK_NOT_NICE') != "1":
+    linkcheck_ignore.extend([
+        r'https?://nvd\.nist\.gov.*',
+        r'https?://git\.yoctoproject\.org.*',
+        r'https?://git\.openembedded\.org.*',
+        r'https?://downloads\.yoctoproject\.org.*',
+        r'https?://mirrors\.kernel\.org.*',
+        r'https?://mirrors\.edge\.kernel\.org.*',
+    ])
+
 # -- Options for HTML output -------------------------------------------------
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
