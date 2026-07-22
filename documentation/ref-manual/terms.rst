@@ -578,6 +578,14 @@ universal, the list includes them just in case:
       and the ":ref:`dev-manual/sbom:creating a software bill of materials`"
       section of the Development Tasks manual.
 
+   :term:`SPDX License Expression`
+      A :term:`SPDX` defined standard for expressing how one or more licenses
+      apply to a work.
+
+      The syntax for a SPDX License Expression is defined in the `SPDX
+      Specification
+      <https://spdx.github.io/spdx-spec/v3.0.1/annexes/spdx-license-expressions/>`__.
+
    :term:`Sysroot`
       When cross-compiling, the target file system may be differently laid
       out and contain different things compared to the host system. The concept
