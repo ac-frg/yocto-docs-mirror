@@ -4806,6 +4806,12 @@ system and gives an overview of their function and contents.
       - ``GPL-3.0*``: ``GPL-3.0-only``, ``GPL-3.0-or-later``
       - ``LGPL-3.0*``: ``LGPL-3.0-only``, ``LGPL-3.0-or-later``
 
+      If a license in :term:`LICENSE` has an exception listed using the
+      ``WITH`` operator, the license will still match this variable and the
+      license will not be allowed. To explicitly allow an SPDX license
+      exception to a license, the exception must be listed in
+      :term:`INCOMPATIBLE_LICENSE_EXCEPTIONS`
+
       .. note::
 
          This functionality is only regularly tested using the following
@@ -4819,12 +4825,12 @@ system and gives an overview of their function and contents.
          are required to produce a functional system image.
 
    :term:`INCOMPATIBLE_LICENSE_EXCEPTIONS`
-      Specifies a space-separated list of package and license pairs that
-      are allowed to be used even if the license is specified in
-      :term:`INCOMPATIBLE_LICENSE`. The package and license pairs are
-      separated using a colon. Example::
+      Specifies a space-separated list of package and SPDX license or SPDX
+      license exception pairs that are allowed to be used even if the license
+      is specified in :term:`INCOMPATIBLE_LICENSE`. The package and license
+      pairs are separated using a colon. Example::
 
-         INCOMPATIBLE_LICENSE_EXCEPTIONS = "gdbserver:GPL-3.0-only gdbserver:LGPL-3.0-only"
+         INCOMPATIBLE_LICENSE_EXCEPTIONS = "gdbserver:GPL-3.0-only gdbserver:LGPL-3.0-only gcc:GCC-exception-3.1"
 
    :term:`INHERIT`
       Causes the named class or classes to be inherited globally. Anonymous
@@ -5945,27 +5951,24 @@ system and gives an overview of their function and contents.
 
    :term:`LICENSE`
       This is a required field in an OpenEmbedded recipe file, and should
-      contain a list of source licenses for the recipe. Follow these rules:
+      contain a :term:`SPDX License Expression` that describes the source
+      license(s) for the recipe. Keep in mind a few rules:
 
-      -  Do not use spaces within individual license names.
+      -  Separate license name using ``OR`` when there is a choice between
+         licenses
 
-      -  Separate license names using \| (pipe) when there is a choice
-         between licenses.
+      -  Separate license names using ``AND`` when multiple licenses apply to
+         different parts of the source code
 
-      -  Separate license names using & (ampersand) when there are
-         multiple licenses for different parts of the source.
+      -  All licenses must be valid `SPDX License Identifiers <https://spdx.org/licenses/>`__
 
-      -  You can use spaces between license names.
-
-      -  For standard licenses, use the names of the files in
-         ``meta/files/common-licenses/`` or the
-         :term:`SPDXLICENSEMAP` flag names defined in
-         ``meta/conf/licenses.conf``.
+      -  Any License that does not come from the `SPDX License List <https://spdx.org/licenses/>`__
+         must be prefixed with ``LicenseRef-``.
 
       Here are some examples::
 
-         LICENSE = "LGPL-2.1-only | GPL-3.0-only"
-         LICENSE = "MPL-1.0 & LGPL-2.1-only"
+         LICENSE = "LGPL-2.1-only OR GPL-3.0-only"
+         LICENSE = "MPL-1.0 AND LGPL-2.1-only"
          LICENSE = "GPL-2.0-or-later"
 
       The first example is from the
@@ -5981,15 +5984,14 @@ system and gives an overview of their function and contents.
       but has accompanying documentation licensed under the GNU Free
       Documentation License 1.2 could be specified as follows::
 
-         LICENSE = "GFDL-1.2 & GPL-2.0-only"
+         LICENSE = "GFDL-1.2 AND GPL-2.0-only"
          LICENSE:${PN} = "GPL-2.0.only"
          LICENSE:${PN}-doc = "GFDL-1.2"
 
       .. note::
 
          A recipe's :term:`LICENSE` value must be accompanied by an associated
-         :term:`LIC_FILES_CHKSUM` value, except in the special case where
-         the :term:`LICENSE` value is set to "CLOSED".
+         :term:`LIC_FILES_CHKSUM` value.
 
    :term:`LICENSE_CREATE_PACKAGE`
       Setting :term:`LICENSE_CREATE_PACKAGE` to "1" causes the OpenEmbedded
