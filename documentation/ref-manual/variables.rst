@@ -10101,15 +10101,6 @@ system and gives an overview of their function and contents.
       cache (sstate-cache) results from previous builds. The sstate-cache
       you point to can also be from builds on other machines.
 
-      If a mirror uses the same structure as
-      :term:`SSTATE_DIR`, you need to add "PATH" at the
-      end as shown in the examples below. The build system substitutes the
-      correct path within the directory structure::
-
-         SSTATE_MIRRORS ?= "\
-             file://.* https://someserver.tld/share/sstate/PATH;downloadfilename=PATH \
-             file://.* file:///some-local-dir/sstate/PATH"
-
       .. note::
 
          If the mirror is protected behind a username and password, the
