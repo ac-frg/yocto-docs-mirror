@@ -10111,6 +10111,10 @@ system and gives an overview of their function and contents.
       reusable in real projects building binaries optimized for a specific
       CPU family.
 
+      See the :doc:`/dev-manual/sstate-mirrors-setup` section of the Yocto
+      Project Development Tasks Manual for details on how to setup a shared
+      state mirror.
+
    :term:`SSTATE_SCAN_FILES`
       Controls the list of files the OpenEmbedded build system scans for
       hardcoded installation paths. The variable uses a space-separated
