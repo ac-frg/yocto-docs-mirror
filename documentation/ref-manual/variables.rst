@@ -10101,34 +10101,6 @@ system and gives an overview of their function and contents.
       cache (sstate-cache) results from previous builds. The sstate-cache
       you point to can also be from builds on other machines.
 
-      .. note::
-
-         If the mirror is protected behind a username and password, the
-         :term:`build host` needs to be configured so the :term:`build system
-         <OpenEmbedded Build System>` is able to download the sstate cache using
-         authentication.
-
-         The recommended way to do that is by setting the following parameters
-         in ``$HOME/.netrc`` (``$HOME`` being the :term:`build host` home
-         directory)::
-
-            machine someserver.tld
-            login <user>
-            password <password>
-
-         This file requires permissions set to ``400`` or ``600`` to prevent
-         other users from reading the file::
-
-            chmod 600 "$HOME/.netrc"
-
-         Another method to configure the username and password is from the
-         URL in :term:`SSTATE_MIRRORS` directly, with the ``user`` and ``pswd``
-         parameters::
-
-            SSTATE_MIRRORS ?= "\
-                file://.* https://someserver.tld/share/sstate/PATH;user=<user>;pswd=<password>;downloadfilename=PATH \
-            "
-
       The Yocto Project actually shares the cache data objects built by its
       autobuilder::
 

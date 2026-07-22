@@ -112,6 +112,34 @@ Going Further
    :doc:`/dev-manual/hashequivserver` section of the Yocto Project Development
    Tasks Manual for more information.
 
+-  If the mirror is protected behind a username and password, the
+   :term:`build host` needs to be configured so the :term:`build system
+   <OpenEmbedded Build System>` is able to download the shared state cache using
+   authentication.
+
+   The recommended way to do that is by setting the following parameters
+   in ``$HOME/.netrc`` (``$HOME`` being the :term:`build host` home
+   directory)::
+
+      machine someserver.tld
+      login <user>
+      password <password>
+
+   This file requires permissions set to ``400`` or ``600`` to prevent
+   other users from reading the file:
+
+   .. code-block:: console
+
+      $ chmod 600 "$HOME/.netrc"
+
+   Another method to configure the username and password is from the
+   URL in :term:`SSTATE_MIRRORS` directly, with the ``user`` and ``pswd``
+   parameters::
+
+      SSTATE_MIRRORS ?= "\
+          file://.* https://someserver.tld/share/sstate/PATH;user=<user>;pswd=<password>;downloadfilename=PATH \
+      "
+
 -  If the :term:`BB_NO_NETWORK` variable is set to "1" on clients as a means to
    disable any accesses to the network, the :term:`SSTATE_MIRROR_ALLOW_NETWORK`
    variable may be used to allow the clients to fetch from the shared state
