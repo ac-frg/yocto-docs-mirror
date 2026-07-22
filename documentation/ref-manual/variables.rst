@@ -10101,16 +10101,6 @@ system and gives an overview of their function and contents.
       cache (sstate-cache) results from previous builds. The sstate-cache
       you point to can also be from builds on other machines.
 
-      When pointing to sstate build artifacts on another machine that uses
-      a different GCC version for native builds, you must configure
-      :term:`SSTATE_MIRRORS` with a regular expression that maps local search
-      paths to server paths. The paths need to take into account
-      :term:`NATIVELSBSTRING` set by the :ref:`ref-classes-uninative` class.
-      For example, the following maps the local search path ``universal-4.9``
-      to the server-provided path server_url_sstate_path::
-
-         SSTATE_MIRRORS ?= "file://universal-4.9/(.*) https://server_url_sstate_path/universal-4.8/\1"
-
       If a mirror uses the same structure as
       :term:`SSTATE_DIR`, you need to add "PATH" at the
       end as shown in the examples below. The build system substitutes the
