@@ -70,7 +70,7 @@ infrastructure.
    Application Development and the Extensible SDK (eSDK) <sdk-manual/index>
    Toaster Manual <toaster-manual/index>
    Test Environment Manual <test-manual/index>
-   bitbake
+   BitBake User Manual <bitbake>
 
 Security Reference
 ==================
