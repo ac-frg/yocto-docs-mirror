@@ -102,9 +102,9 @@ are several ways of working in the Yocto Project environment:
    hardware. To development BSPs, you need to take some additional steps
    beyond what was described in setting up a development host.
 
-   The :doc:`/bsp-guide/index` provides BSP-related development
+   The :doc:`/bsp-manual/index` provides BSP-related development
    information. For specifics on development host preparation, see the
-   ":ref:`bsp-guide/bsp:preparing your build host to work with bsp layers`"
+   ":ref:`bsp-manual/bsp:preparing your build host to work with bsp layers`"
    section in the Yocto Project Board Support Package (BSP) Developer's
    Guide.
 

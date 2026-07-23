@@ -32,7 +32,7 @@ Follow these general steps to create your layer without using tools:
 
    .. note::
 
-      For information on BSP layers, see the ":ref:`bsp-guide/bsp:bsp layers`"
+      For information on BSP layers, see the ":ref:`bsp-manual/bsp:bsp layers`"
       section in the Yocto Project Board Specific (BSP) Developer's Guide.
 
 #. *Create a new Layer:* Create the directory for your layer. The
@@ -166,7 +166,7 @@ Follow these general steps to create your layer without using tools:
    .. note::
 
       For an explanation of layer hierarchy that is compliant with the
-      Yocto Project, see the ":ref:`bsp-guide/bsp:example filesystem layout`"
+      Yocto Project, see the ":ref:`bsp-manual/bsp:example filesystem layout`"
       section in the Yocto Project Board Support Package (BSP) Developer's Guide.
 
 #. *Optionally Test for Compatibility:* If you want permission to use

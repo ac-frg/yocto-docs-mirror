@@ -61,7 +61,7 @@ Transitioning to a custom environment for systems development
 #. **Create your own layer for the BSP you're going to use**.
    It is not common that you would need to create an entire BSP from scratch
    unless you have a *really* special device. Even if you are using an existing
-   BSP, :ref:`create your own layer for the BSP <bsp-guide/bsp:creating a new
+   BSP, :ref:`create your own layer for the BSP <bsp-manual/bsp:creating a new
    bsp layer using the \`\`bitbake-layers\`\` script>`. For example, given a
    64-bit x86-based machine, copy the conf/intel-corei7-64 definition and give
    the machine a relevant name (think board name, not product name). Make sure

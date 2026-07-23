@@ -245,7 +245,7 @@ accomplish this through a recipe that is a BitBake append
 .. note::
 
    For general information on BSP layer structure, see the
-   :doc:`/bsp-guide/index`.
+   :doc:`/bsp-manual/index`.
 
 The :term:`Source Directory`
 contains both general layers and BSP layers right out of the box. You
@@ -690,7 +690,7 @@ helpful for getting started:
    ":ref:`dev-manual/layers:understanding and creating layers`"
    section in the Yocto Project Development Tasks Manual. For a
    discussion specifically on BSP Layers, see the
-   ":ref:`bsp-guide/bsp:bsp layers`" section in the Yocto
+   ":ref:`bsp-manual/bsp:bsp layers`" section in the Yocto
    Project Board Support Packages (BSP) Developer's Guide.
 
 -  *Metadata:* A key element of the Yocto Project is the Metadata that

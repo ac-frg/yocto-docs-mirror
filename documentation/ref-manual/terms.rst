@@ -57,7 +57,7 @@ universal, the list includes them just in case:
    :term:`Board Support Package (BSP)`
       A group of drivers, definitions, and other components that provide support
       for a specific hardware configuration. For more information on BSPs, see
-      the :doc:`/bsp-guide/index`.
+      the :doc:`/bsp-manual/index`.
 
    :term:`Build Directory`
       This term refers to the area used by the OpenEmbedded build system for
@@ -365,7 +365,7 @@ universal, the list includes them just in case:
       more detailed information on layers, see the
       ":ref:`dev-manual/layers:Understanding and Creating
       Layers`" section in the Yocto Project Development Tasks Manual. For a
-      discussion specifically on BSP Layers, see the ":ref:`bsp-guide/bsp:BSP
+      discussion specifically on BSP Layers, see the ":ref:`bsp-manual/bsp:BSP
       Layers`" section in the Yocto Project Board Support Packages (BSP)
       Developer's Guide.
 

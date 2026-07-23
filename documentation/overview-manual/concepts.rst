@@ -435,7 +435,7 @@ A BSP layer provides machine configurations that target specific
 hardware. Everything in this layer is specific to the machine for which
 you are building the image or the SDK. A common structure or form is
 defined for BSP layers. You can learn more about this structure in the
-:doc:`/bsp-guide/index`.
+:doc:`/bsp-manual/index`.
 
 .. note::
 

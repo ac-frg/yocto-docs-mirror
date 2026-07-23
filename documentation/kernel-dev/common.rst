@@ -81,7 +81,7 @@ section:
       see the
       ":ref:`dev-manual/layers:understanding and creating layers`"
       section in the Yocto Project Development Tasks Manual and the
-      ":ref:`bsp-guide/bsp:bsp layers`" section in the Yocto Project Board
+      ":ref:`bsp-manual/bsp:bsp layers`" section in the Yocto Project Board
       Support (BSP) Developer's Guide, respectively. For information on how to
       use the ``bitbake-layers create-layer`` command to quickly set up a layer,
       see the
@@ -176,7 +176,7 @@ section:
       see the
       ":ref:`dev-manual/layers:understanding and creating layers`"
       section in the Yocto Project Development Tasks Manual and the
-      ":ref:`bsp-guide/bsp:bsp layers`" section in the Yocto Project Board
+      ":ref:`bsp-manual/bsp:bsp layers`" section in the Yocto Project Board
       Support (BSP) Developer's Guide, respectively. For information on how to
       use the ``bitbake-layers create-layer`` command to quickly set up a layer,
       see the
@@ -369,7 +369,7 @@ your layer in the following area::
 .. note::
 
    If you are working on a new machine Board Support Package (BSP), be
-   sure to refer to the :doc:`/bsp-guide/index`.
+   sure to refer to the :doc:`/bsp-manual/index`.
 
 As an example, consider the following append file used by the BSPs in
 ``meta-yocto-bsp``:
