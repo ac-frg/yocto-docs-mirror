@@ -210,6 +210,8 @@ following criteria:
    third part (e.g. ``2.41.3`` to ``2.41.4``) are stable point releases.
    Similarly, systemd maintains ``stable/v259-stable``.
 
+And at least one of the following:
+
 2. **Upstream maintainer confirmation** --- the upstream project's maintainer
    explicitly confirms that a bump in a certain part of the version is
    bug-fix only.
