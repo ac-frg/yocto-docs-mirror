@@ -66,8 +66,8 @@ See :yocto_wiki:`Products that use the Yocto Project
 Wiki. Don't hesitate to contribute to this page if you know other such
 products.
 
-Why isn't systemd the default init system for OpenEmbedded-Core/Yocto Project or in Poky?
------------------------------------------------------------------------------------------
+Why isn't systemd the default init system in the Poky distro?
+-------------------------------------------------------------
 
 `systemd <https://systemd.io/>`__ is a desktop Linux init system with a specific
 focus that is not entirely aligned with a customisable "embedded" build
