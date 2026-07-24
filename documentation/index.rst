@@ -62,7 +62,7 @@ infrastructure.
    :caption: Manuals
 
    Reference Manual <ref-manual/index>
-   Board Support Package (BSP) Developer's guide <bsp-guide/index>
+   Board Support Package (BSP) Manual <bsp-manual/index>
    Development Tasks Manual <dev-manual/index>
    Linux Kernel Development Manual <kernel-dev/index>
    Security Manual <security-manual/index>

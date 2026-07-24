@@ -43,7 +43,7 @@ This manual does not give you the following:
 -  *Reference Material:* This type of material resides in an appropriate
    reference manual. For example, system variables are documented in the
    :doc:`/ref-manual/index`. As another
-   example, the :doc:`/bsp-guide/index` contains reference information on
+   example, the :doc:`/bsp-manual/index` contains reference information on
    BSPs.
 
 -  *Detailed Public Information Not Specific to the Yocto Project:* For

@@ -280,7 +280,7 @@ are necessary depending on what you want to accomplish. See the
 following references for information on how to prepare for Board Support
 Package (BSP) development and kernel development:
 
--  *BSP Development:* See the ":ref:`bsp-guide/bsp:preparing your build host to work with bsp layers`"
+-  *BSP Development:* See the ":ref:`bsp-manual/bsp:preparing your build host to work with bsp layers`"
    section in the Yocto Project Board Support Package (BSP) Developer's
    Guide.
 
