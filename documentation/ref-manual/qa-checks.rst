@@ -889,7 +889,7 @@ or "-fpic" to the compiler command-line options. For example, given
 software that reads :term:`CFLAGS` when you build it,
 you could add the following to your recipe::
 
-   CFLAGS:append = " -fPIC "
+   CFLAGS:append = " -fPIC"
 
 For more information on text relocations at runtime, see
 https://www.akkadia.org/drepper/textrelocs.html.

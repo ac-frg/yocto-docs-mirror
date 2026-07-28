@@ -5559,7 +5559,7 @@ system and gives an overview of their function and contents.
          KERNEL_EXTRA_FEATURES ?= "features/netfilter/netfilter.scc features/taskstats/taskstats.scc"
          KERNEL_FEATURES:append = " ${KERNEL_EXTRA_FEATURES}"
          KERNEL_FEATURES:append:qemuall = " cfg/virtio.scc"
-         KERNEL_FEATURES:append:qemux86 = "  cfg/sound.scc cfg/paravirt_kvm.scc"
+         KERNEL_FEATURES:append:qemux86 = " cfg/sound.scc cfg/paravirt_kvm.scc"
          KERNEL_FEATURES:append:qemux86-64 = " cfg/sound.scc"
 
    :term:`KERNEL_FIT_LINK_NAME`
