@@ -252,7 +252,7 @@ following list:
          KERNEL_CC:append:arc = " ${TOOLCHAIN_OPTIONS}"
          KERNEL_LD:append:arc = " ${TOOLCHAIN_OPTIONS}"
 
-         KERNEL_FEATURES:append:qemuall=" features/debug/printk.scc"
+         KERNEL_FEATURES:append:qemuall = " features/debug/printk.scc"
 
    -  *Place Machine-Specific Files in Machine-Specific Locations:* When
       you have a base recipe, such as ``base-files.bb``, that contains a
