@@ -4,11 +4,11 @@
 Introduction
 ************
 
-eSDK Introduction
-=================
+SDK/eSDK Introduction
+=====================
 
-Welcome to the Yocto Project Application Development and the Extensible
-Software Development Kit (eSDK) manual. This manual
+Welcome to the Yocto Project Application Development and
+Software Development Kits (SDK/eSDK) manual. This manual
 explains how to use both the Yocto Project extensible and standard
 SDKs to develop applications and images.
 

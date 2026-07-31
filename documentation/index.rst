@@ -67,7 +67,7 @@ infrastructure.
    Linux Kernel Development Manual <kernel-dev/index>
    Security Manual <security-manual/index>
    Profile and Tracing Manual <profile-manual/index>
-   Application Development and the Extensible SDK (eSDK) <sdk-manual/index>
+   Application Development and SDKs Manual <sdk-manual/index>
    Toaster Manual <toaster-manual/index>
    Test Environment Manual <test-manual/index>
    BitBake User Manual <bitbake>
