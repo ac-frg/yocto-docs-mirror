@@ -35,9 +35,7 @@ destined to run on some target machine. SDKs are completely
 self-contained. The binaries are linked against their own copy of
 ``libc``, which results in no dependencies on the target system. To
 achieve this, the pointer to the dynamic loader is configured at install
-time since that path cannot be dynamically altered. This is the reason
-for a wrapper around the ``populate_sdk`` and ``populate_sdk_ext``
-archives.
+time since that path cannot be dynamically altered.
 
 Another feature of the SDKs is that only one set of cross-compiler
 toolchain binaries are produced for any given architecture. This feature
