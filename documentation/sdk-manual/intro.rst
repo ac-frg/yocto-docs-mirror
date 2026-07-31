@@ -45,7 +45,7 @@ environment script and contained in variables such as
 :term:`CC` and
 :term:`LD`. This reduces the space needed
 for the tools. Understand, however, that every target still needs its own
-sysroot because those binaries are target-specific.
+:term:`sysroot` because those binaries are target-specific.
 
 The SDK development environment consists of the following:
 
@@ -117,7 +117,7 @@ cross-toolchain works with a matching target sysroot.
 Sysroots
 --------
 
-The native and target sysroots contain needed headers and libraries for
+The native and target :term:`sysroots <Sysroot>` contain needed headers and libraries for
 generating binaries that run on the target architecture. The target
 sysroot is based on the target root filesystem image that is built by
 the OpenEmbedded build system and uses the same metadata configuration
