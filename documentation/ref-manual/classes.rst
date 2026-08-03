@@ -152,7 +152,7 @@ barebox, enabling tasks such as :ref:`ref-tasks-menuconfig` and
 
 The generated barebox binaries are deployed to
 :term:`DEPLOY_DIR_IMAGE` as well as installed to ``BAREBOX_INSTALL_PATH``
-(``/boot`` by default) making them part of the recipe’s base package.
+(``/boot`` by default) making them part of the recipe's base package.
 This setup supports both using the barebox binaries as independent artifacts
 and installing them into a rootfs.
 :term:`BAREBOX_BINARY` can be used to select a distinct binary to deploy and
@@ -3687,7 +3687,7 @@ for details.
 The :ref:`ref-classes-upstream-stable-release-point` class automatically
 generates the :term:`UPSTREAM_STABLE_RELEASE_REGEX` variable for recipes
 whose version uses a dot-separated scheme. This enables stable point release
-upgrades — version upgrades constrained to the same stable series (e.g.
+upgrades -- version upgrades constrained to the same stable series (e.g.
 ``1.4.2`` to ``1.4.3`` but not to ``1.5.0``).
 
 The class uses the :term:`STABLE_VERSION_PARTS` variable (defaults to ``"2"``)

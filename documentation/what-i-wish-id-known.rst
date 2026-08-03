@@ -86,13 +86,13 @@ contact us with other suggestions.
    pinpoint where trouble is occurring and how the build is breaking. The
    workflow breaks down into the following steps:
 
-   #. Fetch – get the source code
-   #. Extract – unpack the sources
-   #. Patch – apply patches for bug fixes and new capability
-   #. Configure – set up your environment specifications
-   #. Build – compile and link
-   #. Install – copy files to target directories
-   #. Package – bundle files for installation
+   #. Fetch - get the source code
+   #. Extract - unpack the sources
+   #. Patch - apply patches for bug fixes and new capability
+   #. Configure - set up your environment specifications
+   #. Build - compile and link
+   #. Install - copy files to target directories
+   #. Package - bundle files for installation
 
    During "fetch", there may be an inability to find code. During "extract",
    there is likely an invalid zip or something similar. In other words, the

@@ -99,14 +99,14 @@ command::
                        otherwise $EDITOR, otherwise vi.
    Use recipetool <subcommand> --help to get help on a specific command
 
-Running ``recipetool create -o OUTFILE`` creates the base recipe and
+Running ``recipetool create -o OUTFILE`` creates the base recipe and
 locates it properly in the layer that contains your source files.
 Here are some syntax examples:
 
  - Use this syntax to generate a recipe based on source. Once generated,
    the recipe resides in the existing source code layer::
 
-      recipetool create -o OUTFILE source
+      recipetool create -o OUTFILE source
 
  - Use this syntax to generate a recipe using code that
    you extract from source. The extracted code is placed in its own layer

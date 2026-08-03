@@ -33,7 +33,7 @@ Transitioning to a custom environment for systems development
    Layer Index <>` to find and acquire the best BSP for your
    target board. The Yocto Project layer index BSPs are regularly validated. The
    best place to get your first BSP is from your silicon manufacturer or board
-   vendor – they can point you to their most qualified efforts. In general, for
+   vendor - they can point you to their most qualified efforts. In general, for
    Intel silicon use ``meta-intel``, for Texas Instruments use ``meta-ti``, and so
    forth. Choose a BSP that has been tested with the same Yocto Project release
    that you've downloaded. Be aware that some BSPs may not be immediately

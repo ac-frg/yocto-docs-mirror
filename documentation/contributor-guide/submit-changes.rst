@@ -17,7 +17,7 @@ Both Yocto Project and OpenEmbedded have many key components that are
 maintained by patches being submitted on mailing lists. We appreciate this
 approach does look a little old fashioned when other workflows are available
 through web technology such as GitHub, GitLab and others. Since we are often
-asked this question, we’ve decided to document the reasons for using mailing
+asked this question, we've decided to document the reasons for using mailing
 lists.
 
 One significant factor is that we value peer review. When a change is proposed
@@ -40,7 +40,7 @@ of key people from the project, which would again be to its detriment.
 
 The projects are acutely aware that potential new contributors find the
 mailing list approach off-putting and would prefer a web-based GUI.
-Since we don’t believe that can work for us, the project is aiming to ensure
+Since we don't believe that can work for us, the project is aiming to ensure
 `patchwork <https://patchwork.yoctoproject.org/>`__ is available to help track
 patch status and also looking at how tooling can provide more feedback to users
 about patch status. We are looking at improving tools such as ``patchtest`` to

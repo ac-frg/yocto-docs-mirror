@@ -577,7 +577,7 @@ applies the new configuration before building the kernel.
 For a detailed example showing how to configure the kernel, see the
 ":ref:`kernel-dev/common:configuring the kernel`" section.
 
-Using an "In-Tree"  ``defconfig`` File
+Using an "In-Tree"  ``defconfig`` File
 --------------------------------------
 
 It might be desirable to have kernel configuration fragment support
@@ -958,7 +958,7 @@ possible.
 For more information on kernel configuration, see the
 ":ref:`kernel-dev/common:changing the configuration`" section.
 
-Using  ``menuconfig``
+Using  ``menuconfig``
 ---------------------
 
 The easiest way to define kernel configurations is to set them through
@@ -1064,7 +1064,7 @@ kernel layer.
    Be sure to make a copy of the ``.config`` file and do not just rename it.
    The build system needs an existing ``.config`` file from which to work.
 
-Creating a  ``defconfig`` File
+Creating a  ``defconfig`` File
 ------------------------------
 
 A ``defconfig`` file in the context of the Yocto Project is often a
@@ -1693,12 +1693,12 @@ Showing a Particular Feature or Branch Change
 ---------------------------------------------
 
 Tags in the Yocto Project kernel tree divide changes for significant
-features or branches. The ``git show`` tag command shows changes based
+features or branches. The ``git show`` tag command shows changes based
 on a tag. Here is an example that shows ``systemtap`` changes::
 
    $ git show systemtap
 
-You can use the ``git branch --contains`` tag command to
+You can use the ``git branch --contains`` tag command to
 show the branches that contain a particular feature. This command shows
 the branches that contain the ``systemtap`` feature::
 
