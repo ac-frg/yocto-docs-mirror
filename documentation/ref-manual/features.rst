@@ -141,6 +141,14 @@ metadata, as extra layers can define their own:
    section in the Yocto Project Application Development and the
    Extensible Software Development Kit (eSDK) manual.
 
+-  *audit:* Enables `linux-audit <https://github.com/linux-audit/audit-documentation/wiki>`__
+   support.
+
+   .. note::
+
+      The ``audit`` recipe is provided by :oe_git:`meta-oe
+      </meta-openembedded/tree/meta-oe/>` in ``meta-openembedded``.
+
 -  *bluetooth:* Include bluetooth support (integrated BT only).
 
 -  *cramfs:* Include CramFS support.
