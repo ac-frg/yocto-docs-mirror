@@ -135,9 +135,9 @@ differ from the examples below.
 
       Available Configuration Templates:
       1. oe-nodistro-master   OpenEmbedded - 'nodistro' basic configuration
-      2. oe-nodistro-&DISTRO_NAME_NO_CAP  OpenEmbedded - 'nodistro' basic configuration, release &DISTRO_RELEASE_SERIES; '&DISTRO_NAME_NO_CAP;' (supported until ...)
+      2. oe-nodistro-&DISTRO_NAME_NO_CAP;  OpenEmbedded - 'nodistro' basic configuration, release &DISTRO_RELEASE_SERIES; '&DISTRO_NAME_NO_CAP;' (supported until ...)
       3. poky-master          Poky - The Yocto Project testing distribution configurations and hardware test platforms
-      4. poky-&DISTRO_NAME_NO_CAP         Poky - The Yocto Project testing distribution configurations and hardware test platforms, release &DISTRO_RELEASE_SERIES; '&DISTRO_NAME_NO_CAP;' (supported until ...)
+      4. poky-&DISTRO_NAME_NO_CAP;         Poky - The Yocto Project testing distribution configurations and hardware test platforms, release &DISTRO_RELEASE_SERIES; '&DISTRO_NAME_NO_CAP;' (supported until ...)
 
       Please select one of the above configurations by its number: 3
 
