@@ -3285,7 +3285,7 @@ system and gives an overview of their function and contents.
       :ref:`ref-classes-base` class found in ``meta/classes-global`` in
       :term:`OpenEmbedded-Core (OE-Core)`::
 
-         FILESPATH = "${@base_set_filespath(["${FILE_DIRNAME}/${BP}", \
+         FILESPATH = "${@oe.utils.base_set_filespath(["${FILE_DIRNAME}/${BP}", \
              "${FILE_DIRNAME}/${BPN}", "${FILE_DIRNAME}/files"], d)}"
 
       The
