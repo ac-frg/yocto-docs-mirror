@@ -11593,6 +11593,190 @@ system and gives an overview of their function and contents.
       The default is ``txt`` which means the script is installed as-is, with
       no modification.
 
+   :term:`UBOOT_EXTLINUX`
+      When inheriting the :ref:`ref-classes-uboot-extlinux-config` class in a
+      U-Boot recipe, the :term:`UBOOT_EXTLINUX` variable should be set to "1" to
+      enable the class functionality (inheriting the class is not enough).
+
+   :term:`UBOOT_EXTLINUX_CONF_NAME`
+      When inheriting the :ref:`ref-classes-uboot-extlinux-config` class, the
+      :term:`UBOOT_EXTLINUX_CONF_NAME` variable controls the name of the
+      file used for booting, which is ``extlinux.conf`` by default.
+
+   :term:`UBOOT_EXTLINUX_CONSOLE`
+      When inheriting the :ref:`ref-classes-uboot-extlinux-config` class, the
+      :term:`UBOOT_EXTLINUX_CONSOLE` variable can be set to control the
+      ``console=`` parameter of the `Linux kernel command-line
+      <https://docs.kernel.org/admin-guide/kernel-parameters.html>`__. For
+      example::
+
+         UBOOT_EXTLINUX_CONSOLE = "console=ttyS0,115200n8"
+
+      This is added to the ``APPEND`` property of the ``extlinux.conf`` file
+      used for booting.
+
+   :term:`UBOOT_EXTLINUX_DEFAULT_LABEL`
+      When inheriting the :ref:`ref-classes-uboot-extlinux-config` class, the
+      :term:`UBOOT_EXTLINUX_DEFAULT_LABEL` variable can be set to the name of
+      the label to automatically boot after the timeout period (controlled with
+      :term:`UBOOT_EXTLINUX_TIMEOUT`).
+
+   :term:`UBOOT_EXTLINUX_FDT`
+      When inheriting the :ref:`ref-classes-uboot-extlinux-config` class, the
+      :term:`UBOOT_EXTLINUX_FDT` variable can be set to control the ``FDT``
+      property of the ``extlinux.conf`` file used for booting, which controls
+      the Linux kernel device tree to use. For example::
+
+         UBOOT_EXTLINUX_FDT = "../am335x-bone.dtb"
+
+      .. note::
+
+         The above path is relative to the ``extlinux.conf`` file used for
+         booting. It can also be absolute, with the path being the one as stored
+         in the partition from which the ``extlinux.conf`` file is.
+
+   :term:`UBOOT_EXTLINUX_FDTDIR`
+      When inheriting the :ref:`ref-classes-uboot-extlinux-config` class, the
+      :term:`UBOOT_EXTLINUX_FDTDIR` variable can be set to control the ``FDTDIR``
+      property of the ``extlinux.conf`` file used for booting, which controls
+      the directory where the Linux kernel device tree specified in the
+      ``fdtfile`` U-Boot environment variable is. For example::
+
+         UBOOT_EXTLINUX_FDTDIR = "../"
+
+      .. note::
+
+         The above path is relative to the ``extlinux.conf`` file used for
+         booting. It can also be absolute, with the path being the one as stored
+         in the partition from which the ``extlinux.conf`` file is.
+
+   :term:`UBOOT_EXTLINUX_FDTOVERLAYS`
+      When inheriting the :ref:`ref-classes-uboot-extlinux-config` class, the
+      :term:`UBOOT_EXTLINUX_FDT` variable can be set to control the ``FDTOVERLAYS``
+      property of the ``extlinux.conf`` file used for booting, which controls
+      the Linux kernel device overlays tree to apply on top of the device tree.
+      For example::
+
+         UBOOT_EXTLINUX_FDTOVERLAYS = "../am335x-bone-wifi.dtbo"
+
+      .. note::
+
+         The above path is relative to the ``extlinux.conf`` file used for
+         booting. It can also be absolute, with the path being the one as stored
+         in the partition from which the ``extlinux.conf`` file is.
+
+   :term:`UBOOT_EXTLINUX_INITRD`
+      When inheriting the :ref:`ref-classes-uboot-extlinux-config` class, the
+      :term:`UBOOT_EXTLINUX_INITRD` variable is optional and sets the value of
+      the ``INITRD`` property of the ``extlinux.conf`` file used for booting, if
+      the initramfs is external to the Linux kernel (see
+      :term:`INITRAMFS_IMAGE_BUNDLE`). For example::
+
+         UBOOT_EXTLINUX_INITRD = "../ramdisk.tar.zst"
+
+      .. note::
+
+         The above path is relative to the ``extlinux.conf`` file used for
+         booting. It can also be absolute, with the path being the one as stored
+         in the partition from which the ``extlinux.conf`` file is.
+
+   :term:`UBOOT_EXTLINUX_INSTALL_DIR`
+      When inheriting the :ref:`ref-classes-uboot-extlinux-config` class, the
+      :term:`UBOOT_EXTLINUX_INSTALL_DIR` variable controls the name of the
+      directory where the ``extlinux.conf`` file used for booting is installed,
+      relative to the root of the partition where the directory will belong.
+
+   :term:`UBOOT_EXTLINUX_KERNEL_ARGS`
+      When inheriting the :ref:`ref-classes-uboot-extlinux-config` class, the
+      :term:`UBOOT_EXTLINUX_KERNEL_ARGS` variable can be used to pass extra
+      parameters to the `Linux kernel command-line
+      <https://docs.kernel.org/admin-guide/kernel-parameters.html>`__. For
+      example::
+
+         UBOOT_EXTLINUX_KERNEL_ARGS = "rootwait ro"
+
+      This is included in the ``APPEND`` property of the ``extlinux.conf`` file
+      used for booting.
+
+   :term:`UBOOT_EXTLINUX_KERNEL_IMAGE`
+      When inheriting the :ref:`ref-classes-uboot-extlinux-config` class, the
+      :term:`UBOOT_EXTLINUX_KERNEL_IMAGE` variable can be used to specify the
+      ``KERNEL`` property of the ``extlinux.conf`` file used for booting, which controls
+      the Linux kernel image to use. For example::
+
+         UBOOT_EXTLINUX_KERNEL_IMAGE = "../zImage"
+
+      .. note::
+
+         The above path is relative to the ``extlinux.conf`` file used for
+         booting. It can also be absolute, with the path being the one as stored
+         in the partition from which the ``extlinux.conf`` file is.
+
+      .. tip::
+
+         The :term:`KERNEL_IMAGETYPE` variable can be used to get the name of
+         the current Linux kernel being built by its associated recipe.
+
+   :term:`UBOOT_EXTLINUX_LABELS`
+      When inheriting the :ref:`ref-classes-uboot-extlinux-config` class, the
+      :term:`UBOOT_EXTLINUX_LABELS` variable contains a list of labels
+      (``LABEL`` property of the ``extlinux.conf`` file used for booting) that
+      can be used for booting. This list must contain at least one entry, and
+      default to "linux".
+
+      When multiple labels are specified in this list, all of the
+      ``UBOOT_EXTLINUX_`` variables should be specified with overrides-style
+      assignments. For example, if the :term:`UBOOT_EXTLINUX_LABELS` variable
+      contains::
+
+         UBOOT_EXTLINUX_LABELS = "compressed uncompressed"
+
+      Then the :term:`UBOOT_EXTLINUX_KERNEL_IMAGE` variable can be specified
+      multiple times as follows::
+
+         UBOOT_EXTLINUX_KERNEL_IMAGE:compressed = "../zImage"
+         UBOOT_EXTLINUX_KERNEL_IMAGE:uncompressed = "../Image"
+
+      This will make the value of the ``KERNEL`` property be different in each
+      of the associated labels.
+
+      Note that default values are used when no overrides-style assignments are
+      found for the current label. For example, taking the above example again,
+      the following assignment would apply to both ``compressed`` and
+      ``uncompressed`` labels if and only if ``UBOOT_EXTLINUX_FDT:compressed``
+      and ``UBOOT_EXTLINUX_FDT:uncompressed`` aren't set::
+
+         UBOOT_EXTLINUX_FDT = "../am335x-bone-wifi.dtbo"
+
+   :term:`UBOOT_EXTLINUX_MENU_DESCRIPTION`
+      When inheriting the :ref:`ref-classes-uboot-extlinux-config` class, the
+      :term:`UBOOT_EXTLINUX_MENU_DESCRIPTION` variable sets the value of the
+      ``LABEL`` property of the ``extlinux.conf`` file. If not specified, the
+      name of the label itself is used as the description.
+
+   :term:`UBOOT_EXTLINUX_MENU_TITLE`
+      When inheriting the :ref:`ref-classes-uboot-extlinux-config` class, the
+      :term:`UBOOT_EXTLINUX_MENU_TITLE` variable sets the ``MENU TITLE``
+      property of the ``extlinux.conf`` file used for booting. This variable
+      doesn't support the overrides-style syntax described in
+      the definition of :term:`UBOOT_EXTLINUX_LABELS` as it applies to the whole
+      ``extlinux.conf`` file.
+
+   :term:`UBOOT_EXTLINUX_ROOT`
+      When inheriting the :ref:`ref-classes-uboot-extlinux-config` class, the
+      :term:`UBOOT_EXTLINUX_ROOT` variable is mandatory and contains the
+      ``root=`` parameter of the `Linux kernel command-line
+      <https://docs.kernel.org/admin-guide/kernel-parameters.html>`__. For
+      example, the following would set this value to instruct the kernel to use
+      the second partition of MMC block device 0 as its root partition::
+
+         UBOOT_EXTLINUX_ROOT = "root=/dev/mmcblk0p2"
+
+   :term:`UBOOT_EXTLINUX_TIMEOUT`
+      When inheriting the :ref:`ref-classes-uboot-extlinux-config` class, the
+      :term:`UBOOT_EXTLINUX_TIMEOUT` variable is optional and sets the value of
+      the ``TIMEOUT`` property of the ``extlinux.conf`` file used for booting.
+
    :term:`UBOOT_FIT_ADDRESS_CELLS`
       Specifies the value of the ``#address-cells`` value for the
       description of the U-Boot FIT image.
