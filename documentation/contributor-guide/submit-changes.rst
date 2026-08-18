@@ -860,18 +860,23 @@ including in the :doc:`/contributor-guide/recipe-style-guide`, and contributing 
 additional requirements to the items in section
 :ref:`contributor-guide/submit-changes:Implement and commit changes`.
 
-All AI Generated Code must be labeled as such in the commit message,
-prior to your ``Signed-off-by`` line. It is also strongly recommended,
-that any patches or code within the commit also have a comment or other
-indication that this code was AI generated.
+All AI Generated Code must be labeled as such in the commit message, prior to
+your ``Signed-off-by`` line. It should include the ``Assisted-by`` trailer tag
+in the following format::
 
-For example, here is a properly formatted commit message::
+   component: Add the ability to...
 
-   component: Add the ability to ...
-
-   AI-Generated: Uses GitHub Copilot
-
+   Assisted-by: LLM
    Signed-off-by: Your Name <your.name@domain>
+
+.. note::
+
+   Using the ``AI-Generated`` trailer tag is also accepted as an alternative,
+   but prefer using ``Assisted-by``, with no mention of the LLM agent or model
+   in the commit message.
+
+It is also strongly recommended that any patches or code within the commit also
+have a comment or other indication that this code was AI generated.
 
 The ``Signed-off-by`` line must be written by you, and not the AI helper.
 As a reminder, when contributing a change, your ``Signed-off-by`` line is
