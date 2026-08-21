@@ -26,6 +26,8 @@ Here the folders corresponding to individual manuals:
 * sdk-manual           - Yocto Project Software Development Kit (SDK) Developer's Guide.
 * toaster-manual       - Toaster User Manual
 * test-manual          - Yocto Project Test Environment Manual
+* security-manual      - Yocto Project Security Manual
+* security-reference   - Yocto Project Security Reference
 * migration-guides     - Yocto Project Release and Migration Notes
 
 Each folder is self-contained regarding content and figures.
