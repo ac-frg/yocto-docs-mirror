@@ -3780,7 +3780,7 @@ The :ref:`useradd* <ref-classes-useradd>` classes support the
 :term:`USERADD_PACKAGES`,
 :term:`USERADD_PARAM`,
 :term:`GROUPADD_PARAM`, and
-:term:`GROUPMEMS_PARAM` variables.
+:term:`USERMOD_PARAM` variables.
 
 The :ref:`useradd-staticids <ref-classes-useradd>` class supports the addition of users or groups
 that have static user identification (``uid``) and group identification

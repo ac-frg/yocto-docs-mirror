@@ -3957,10 +3957,6 @@ system and gives an overview of their function and contents.
       For information on the standard Linux shell command
       ``groupadd``, see :manpage:`groupadd(8)`.
 
-   :term:`GROUPMEMS_PARAM`
-      Deprecated in favor of :term:`USERMOD_PARAM`. See
-      :ref:`ref-migration-6-1-groupmems` for more information.
-
    :term:`GRUB_GFXSERIAL`
       Configures the GNU GRand Unified Bootloader (GRUB) to have graphics
       and serial in the boot menu. Set this variable to "1" in your
@@ -12548,7 +12544,7 @@ system and gives an overview of their function and contents.
 
          It follows that if you are going to use the :term:`USERADD_PACKAGES`
          variable, you need to set one or more of the :term:`USERADD_PARAM`,
-         :term:`GROUPADD_PARAM`, or :term:`GROUPMEMS_PARAM` variables.
+         :term:`GROUPADD_PARAM`, or :term:`USERMOD_PARAM` variables.
 
    :term:`USERADD_PARAM`
       When inheriting the :ref:`ref-classes-useradd` class,
