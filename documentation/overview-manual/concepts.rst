@@ -2296,7 +2296,9 @@ The contents of ``libhello/hellolib.c`` are::
       puts("Hello from a Yocto demo \n");
    }
 
-The contents of ``sayhello/Makefile`` are::
+The contents of ``sayhello/Makefile`` are:
+
+.. code-block:: make
 
    EXEC=sayhello
    LDFLAGS += -lhello

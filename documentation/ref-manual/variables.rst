@@ -3667,7 +3667,9 @@ system and gives an overview of their function and contents.
          FIT_LOADABLE_OS[tee] = "tee"
          FIT_LOADABLE_LOADADDRESS[tee] = "0x96000000"
 
-      and will be converted to the following FIT source::
+      and will be converted to the following FIT source:
+
+      .. code-block:: devicetree
 
          images {
                  atf {
@@ -11986,7 +11988,9 @@ system and gives an overview of their function and contents.
       https://fitspec.osfw.foundation/\ .
 
       The original content of the U-Boot Image Tree Source (ITS) is as
-      follows::
+      follows:
+
+      .. code-block:: devicetree
 
          images {
              uboot {
@@ -12023,7 +12027,9 @@ system and gives an overview of their function and contents.
       ``\n``.
 
       The generated content of the U-Boot Image Tree Source (ITS) is as
-      follows::
+      follows:
+
+      .. code-block:: devicetree
 
          images {
              uboot {
