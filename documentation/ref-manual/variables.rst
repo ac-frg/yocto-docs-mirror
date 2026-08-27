@@ -2110,10 +2110,6 @@ system and gives an overview of their function and contents.
 
           CVE_VERSION = "2.39"
 
-   :term:`CVSDIR`
-      The directory in which files checked out under the CVS system are
-      stored.
-
    :term:`CXX`
       The minimal command and arguments used to run the C++ compiler.
 
