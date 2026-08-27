@@ -200,12 +200,12 @@ were inherited from the DocBook CSS stylesheets.
 Sphinx design guidelines and principles
 =======================================
 
-The initial Docbook to Sphinx migration was done with an automated
+The initial DocBook to Sphinx migration was done with an automated
 tool called Pandoc (https://pandoc.org/). The tool produced some clean
 output markdown text files. After the initial automated conversion
 additional changes were done to fix up headings, images and links. In
 addition Sphinx has built in mechanisms (directives) which were used
-to replace similar functions implemented in Docbook such as glossary,
+to replace similar functions implemented in DocBook such as glossary,
 variables substitutions, notes and references.
 
 Headings
@@ -229,7 +229,7 @@ Here are the heading styles that we use in the manuals:
             Subsubsection      => ~~~~
               Subsubsubsection => ^^^^
 
-With this proposal, we preserve the same TOCs between Sphinx and Docbook.
+With this proposal, we preserve the same TOCs between Sphinx and DocBook.
 
 Built-in glossary
 =================
@@ -251,8 +251,8 @@ Global substitutions
 ====================
 
 The Yocto Project documentation makes heavy use of global
-variables. In Docbook these variables are stored in the file
-poky.ent. This Docbook feature is not handled automatically with
+variables. In DocBook these variables are stored in the file
+poky.ent. This DocBook feature is not handled automatically with
 Pandoc. Sphinx has builtin support for substitutions
 (https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html#substitutions),
 however there are important shortcomings. For example they cannot be
