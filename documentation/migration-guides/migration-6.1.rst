@@ -36,7 +36,7 @@ See :ref:`all supported distributions <system-requirements-supported-distros>`.
 
 .. _ref-migration-6-1-groupmems:
 
-useradd: replace :term:`GROUPMEMS_PARAM` assignments to :term:`USERMOD_PARAMS`
+useradd: replace :term:`GROUPMEMS_PARAM` assignments to :term:`USERMOD_PARAM`
 ------------------------------------------------------------------------------
 
 The ``groupmems`` command is removed from the ``shadow`` recipe starting from
@@ -44,7 +44,7 @@ version 4.20. The same functionality provided by ``groupmems`` can be achieved
 with the ``usermod`` command.
 
 Assignments made to the :term:`GROUPMEMS_PARAM` variable can be converted to use
-:term:`USERMOD_PARAMS`, by replacing::
+:term:`USERMOD_PARAM`, by replacing::
 
    GROUPMEMS_PARAM:${PN} = "--add user --group group1; \
                             --add user --group group2"

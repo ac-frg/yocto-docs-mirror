@@ -99,7 +99,7 @@ New Features / Enhancements in |yocto-ver|
       several recipes to replace ``${nonarch_base_libdir}/firmware``
       (:oecore_rev:`2b75c7ba5e3aa6fc57d7b4afe59e2277b4d87de1`)
 
-   -  :ref:`ref-classes-useradd`: Add support for the :term:`USERMOD_PARAMS`
+   -  :ref:`ref-classes-useradd`: Add support for the :term:`USERMOD_PARAM`
       variable, acting as a replacement of the :term:`GROUPMEMS_PARAM` variable
       (:oecore_rev:`b8da733ab12c64503a353d5ceb2eb63fed95d851`,
       :oecore_rev:`cec67e24ac94554e092f8ab18b42e09b4feba77e`)

@@ -3958,7 +3958,7 @@ system and gives an overview of their function and contents.
       ``groupadd``, see :manpage:`groupadd(8)`.
 
    :term:`GROUPMEMS_PARAM`
-      Deprecated in favor of :term:`USERMOD_PARAMS`. See
+      Deprecated in favor of :term:`USERMOD_PARAM`. See
       :ref:`ref-migration-6-1-groupmems` for more information.
 
    :term:`GRUB_GFXSERIAL`
@@ -12605,7 +12605,7 @@ system and gives an overview of their function and contents.
       Additionally, you should also set the
       :term:`USERADD_ERROR_DYNAMIC` variable.
 
-   :term:`USERMOD_PARAMS`
+   :term:`USERMOD_PARAM`
       When a recipe inherits the :ref:`ref-classes-useradd` class, this variable
       specifies for a package what parameters should be passed to the ``usermod``
       command if you wish to modify a user when the package is installed.
