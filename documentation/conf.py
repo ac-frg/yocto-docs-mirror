@@ -11,11 +11,16 @@
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
-#
+
+import datetime
 import os
 import re
 import sys
-import datetime
+
+from sphinx.builders.epub3 import Epub3Builder
+from sphinx.search import SearchEnglish
+from sphinx.search import languages
+
 try:
     import yaml
 except ImportError:
@@ -211,9 +216,6 @@ latex_elements = {
     'preamble': '\\usepackage[UTF8]{ctex}\n\\setcounter{tocdepth}{2}',
 }
 
-
-from sphinx.search import SearchEnglish
-from sphinx.search import languages
 class DashFriendlySearchEnglish(SearchEnglish):
 
     # Accept words that can include 'inner' hyphens or dots
@@ -230,5 +232,4 @@ function splitQuery(query) {
 languages['en'] = DashFriendlySearchEnglish
 
 # Make the EPUB builder prefer PNG to SVG because of issues rendering Inkscape SVG
-from sphinx.builders.epub3 import Epub3Builder
 Epub3Builder.supported_image_types = ['image/png', 'image/gif', 'image/jpeg']
