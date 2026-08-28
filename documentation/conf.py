@@ -6,12 +6,6 @@
 # list see the documentation:
 # https://www.sphinx-doc.org/en/master/usage/configuration.html
 
-# -- Path setup --------------------------------------------------------------
-
-# If extensions (or modules to document with autodoc) are in another directory,
-# add these directories to sys.path here. If the directory is relative to the
-# documentation root, use os.path.abspath to make it absolute, like shown here.
-
 import datetime
 import importlib.util
 import os
@@ -28,6 +22,37 @@ except ImportError:
     sys.stderr.write("The Yocto Project Sphinx documentation requires PyYAML.\
     \nPlease make sure to install pyyaml Python package.\n")
     sys.exit(1)
+
+# -- Project information -----------------------------------------------------
+
+project = 'The Yocto Project \xae'
+copyright = '2010-%s, The Linux Foundation, CC-BY-SA-2.0-UK license' % datetime.datetime.now().year
+author = 'The Linux Foundation'
+
+# -- Path setup --------------------------------------------------------------
+
+# If extensions (or modules to document with autodoc) are in another directory,
+# add these directories to sys.path here. If the directory is relative to the
+# documentation root, use os.path.abspath to make it absolute, like shown here.
+
+sys.path.insert(0, os.path.abspath('sphinx'))
+
+# -- General configuration ---------------------------------------------------
+
+# Prevent building with an outdated version of sphinx
+needs_sphinx = "4.0"
+
+# Add any Sphinx extension module names here, as strings. They can be
+# extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
+# ones.
+extensions = [
+    'sphinx.ext.autosectionlabel',
+    'sphinx.ext.extlinks',
+    'sphinx.ext.intersphinx',
+    'sphinx_copybutton',
+    'sphinxcontrib.rsvgconverter',
+    'yocto-vars'
+]
 
 # current_version = "dev"
 # bitbake_version = "" # Leave empty for development branch
@@ -51,33 +76,6 @@ if current_version == 'dev':
 # Version seen in documentation_options.js and hence in js switchers code
 release = current_version
 
-
-# -- Project information -----------------------------------------------------
-project = 'The Yocto Project \xae'
-copyright = '2010-%s, The Linux Foundation, CC-BY-SA-2.0-UK license' % datetime.datetime.now().year
-author = 'The Linux Foundation'
-
-# -- General configuration ---------------------------------------------------
-
-# Prevent building with an outdated version of sphinx
-needs_sphinx = "4.0"
-
-# to load local extension from the folder 'sphinx'
-sys.path.insert(0, os.path.abspath('sphinx'))
-
-# Add any Sphinx extension module names here, as strings. They can be
-# extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
-# ones.
-extensions = [
-    'sphinx.ext.autosectionlabel',
-    'sphinx.ext.extlinks',
-    'sphinx.ext.intersphinx',
-    'sphinx_copybutton',
-    'sphinxcontrib.rsvgconverter',
-    'yocto-vars'
-]
-autosectionlabel_prefix_document = True
-
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 
@@ -97,74 +95,39 @@ rst_prolog = """
 .. |author| replace:: %s
 """ % (project, copyright, author)
 
-# base url definitions
-oe_git_server = "https://git.openembedded.org"
-oecore_git = f"{oe_git_server}/openembedded-core"
-bitbake_git = f"{oe_git_server}/bitbake"
-yocto_git_server = "https://git.yoctoproject.org"
-meta_yocto_git = f"{yocto_git_server}/meta-yocto"
-bugzilla_server = "https://bugzilla.yoctoproject.org"
-
-# external links and substitutions
-extlinks = {
-    'bitbake_git': (f'{bitbake_git}%s', None),
-    'bitbake_path': (f'{bitbake_git}/tree/%s', '%s'),
-    'bitbake_rev': (f'{bitbake_git}/commit/?id=%s', '%.7s'),
-    'cve_mitre': ('https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-%s', 'CVE-%s'),
-    'cve_nist': ('https://nvd.nist.gov/vuln/detail/CVE-%s', 'CVE-%s'),
-    'yocto_home': ('https://www.yoctoproject.org%s', None),
-    'yocto_wiki': ('https://wiki.yoctoproject.org/wiki%s', None),
-    'yocto_dl': ('https://downloads.yoctoproject.org%s', None),
-    'yocto_lists': ('https://lists.yoctoproject.org%s', None),
-    'yocto_bugs': (f'{bugzilla_server}%s', None),
-    'yocto_bug': (f'{bugzilla_server}/show_bug.cgi?id=%s', '%s'),
-    'yocto_ab': ('https://autobuilder.yoctoproject.org%s', None),
-    'yocto_docs': ('https://docs.yoctoproject.org%s', None),
-    'yocto_git': (f'{yocto_git_server}%s', None),
-    'meta_yocto_path': (f'{meta_yocto_git}/tree/%s', '%s'),
-    'meta_yocto_rev': (f'{meta_yocto_git}/commit/?id=%s', '%.7s'),
-    'yocto_sstate': ('http://sstate.yoctoproject.org%s', None),
-    'oe_home': ('https://www.openembedded.org%s', None),
-    'oe_lists': ('https://lists.openembedded.org%s', None),
-    'oe_git': (f'{oe_git_server}%s', None),
-    'oecore_path': (f'{oecore_git}/tree/%s', '%s'),
-    'oecore_rev': (f'{oecore_git}/commit/?id=%s', '%.7s'),
-    'oe_wiki': ('https://www.openembedded.org/wiki%s', None),
-    'oe_layerindex': ('https://layers.openembedded.org%s', None),
-    'oe_layer': ('https://layers.openembedded.org/layerindex/branch/master/layer%s', None),
-    'wikipedia': ('https://en.wikipedia.org/wiki/%s', None),
-}
-
 # To be able to use :manpage:`<something>` in the docs.
 manpages_url = 'https://manpages.debian.org/{path}'
-
-# Intersphinx config to use cross reference with BitBake user manual
-intersphinx_mapping = {
-    'bitbake': ('https://docs.yoctoproject.org/bitbake/' + bitbake_version, None)
-}
 
 # Suppress "WARNING: unknown mimetype for ..."
 suppress_warnings = ['epub.unknown_project_files']
 
-# sphinx-copybutton configuration
-copybutton_prompt_text = "$ "
+# We need XeTeX to process special unicode character, sometimes the contributor
+# list from the release note contains those.
+# See https://docs.readthedocs.io/en/stable/guides/pdf-non-ascii-languages.html.
+latex_engine = 'xelatex'
+latex_use_xindy = False
+latex_elements = {
+    'passoptionstopackages': '\\PassOptionsToPackage{bookmarksdepth=5}{hyperref}',
+    'preamble': '\\usepackage[UTF8]{ctex}\n\\setcounter{tocdepth}{2}',
+}
 
-# Don't check self-references to yocto-docs since they are already
-# checked when building.
-linkcheck_ignore = [r'https?://docs\.yoctoproject\.org.*']
+class DashFriendlySearchEnglish(SearchEnglish):
 
-# When using the linkcheck builder, ignore the following links which are too
-# frequent in the docs, unless the LINKCHECK_NOT_NICE environment variable is set
-# to 1.
-if os.environ.get('LINKCHECK_NOT_NICE') != "1":
-    linkcheck_ignore.extend([
-        r'https?://nvd\.nist\.gov.*',
-        r'https?://git\.yoctoproject\.org.*',
-        r'https?://git\.openembedded\.org.*',
-        r'https?://downloads\.yoctoproject\.org.*',
-        r'https?://mirrors\.kernel\.org.*',
-        r'https?://mirrors\.edge\.kernel\.org.*',
-    ])
+    # Accept words that can include 'inner' hyphens or dots
+    _word_re = re.compile(r'[\w]+(?:[\.\-][\w]+)*')
+
+    js_splitter_code = r"""
+function splitQuery(query) {
+    return query
+        .split(/[^\p{Letter}\p{Number}_\p{Emoji_Presentation}\-\.]+/gu)
+        .filter(term => term.length > 0);
+}
+"""
+
+languages['en'] = DashFriendlySearchEnglish
+
+# Make the EPUB builder prefer PNG to SVG because of issues rendering Inkscape SVG
+Epub3Builder.supported_image_types = ['image/png', 'image/gif', 'image/jpeg']
 
 # -- Options for HTML output -------------------------------------------------
 
@@ -206,30 +169,77 @@ html_last_updated_fmt = '%b %d, %Y'
 # Remove the trailing 'dot' in section numbers
 html_secnumber_suffix = " "
 
-# We need XeTeX to process special unicode character, sometimes the contributor
-# list from the release note contains those.
-# See https://docs.readthedocs.io/en/stable/guides/pdf-non-ascii-languages.html.
-latex_engine = 'xelatex'
-latex_use_xindy = False
-latex_elements = {
-    'passoptionstopackages': '\\PassOptionsToPackage{bookmarksdepth=5}{hyperref}',
-    'preamble': '\\usepackage[UTF8]{ctex}\n\\setcounter{tocdepth}{2}',
+# -- linkcheck configuration -------------------------------------------------
+
+# Don't check self-references to yocto-docs since they are already
+# checked when building.
+linkcheck_ignore = [r'https?://docs\.yoctoproject\.org.*']
+
+# When using the linkcheck builder, ignore the following links which are too
+# frequent in the docs, unless the LINKCHECK_NOT_NICE environment variable is set
+# to 1.
+if os.environ.get('LINKCHECK_NOT_NICE') != "1":
+    linkcheck_ignore.extend([
+        r'https?://nvd\.nist\.gov.*',
+        r'https?://git\.yoctoproject\.org.*',
+        r'https?://git\.openembedded\.org.*',
+        r'https?://downloads\.yoctoproject\.org.*',
+        r'https?://mirrors\.kernel\.org.*',
+        r'https?://mirrors\.edge\.kernel\.org.*',
+    ])
+
+# -- sphinx.ext.autosectionlabel configuration -------------------------------
+
+autosectionlabel_prefix_document = True
+
+# -- sphinx.ext.extlinks configuration ---------------------------------------
+
+# base url definitions
+oe_git_server = "https://git.openembedded.org"
+oecore_git = f"{oe_git_server}/openembedded-core"
+bitbake_git = f"{oe_git_server}/bitbake"
+yocto_git_server = "https://git.yoctoproject.org"
+meta_yocto_git = f"{yocto_git_server}/meta-yocto"
+bugzilla_server = "https://bugzilla.yoctoproject.org"
+
+# external links and substitutions
+extlinks = {
+    'bitbake_git': (f'{bitbake_git}%s', None),
+    'bitbake_path': (f'{bitbake_git}/tree/%s', '%s'),
+    'bitbake_rev': (f'{bitbake_git}/commit/?id=%s', '%.7s'),
+    'cve_mitre': ('https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-%s', 'CVE-%s'),
+    'cve_nist': ('https://nvd.nist.gov/vuln/detail/CVE-%s', 'CVE-%s'),
+    'yocto_home': ('https://www.yoctoproject.org%s', None),
+    'yocto_wiki': ('https://wiki.yoctoproject.org/wiki%s', None),
+    'yocto_dl': ('https://downloads.yoctoproject.org%s', None),
+    'yocto_lists': ('https://lists.yoctoproject.org%s', None),
+    'yocto_bugs': (f'{bugzilla_server}%s', None),
+    'yocto_bug': (f'{bugzilla_server}/show_bug.cgi?id=%s', '%s'),
+    'yocto_ab': ('https://autobuilder.yoctoproject.org%s', None),
+    'yocto_docs': ('https://docs.yoctoproject.org%s', None),
+    'yocto_git': (f'{yocto_git_server}%s', None),
+    'meta_yocto_path': (f'{meta_yocto_git}/tree/%s', '%s'),
+    'meta_yocto_rev': (f'{meta_yocto_git}/commit/?id=%s', '%.7s'),
+    'yocto_sstate': ('http://sstate.yoctoproject.org%s', None),
+    'oe_home': ('https://www.openembedded.org%s', None),
+    'oe_lists': ('https://lists.openembedded.org%s', None),
+    'oe_git': (f'{oe_git_server}%s', None),
+    'oecore_path': (f'{oecore_git}/tree/%s', '%s'),
+    'oecore_rev': (f'{oecore_git}/commit/?id=%s', '%.7s'),
+    'oe_wiki': ('https://www.openembedded.org/wiki%s', None),
+    'oe_layerindex': ('https://layers.openembedded.org%s', None),
+    'oe_layer': ('https://layers.openembedded.org/layerindex/branch/master/layer%s', None),
+    'wikipedia': ('https://en.wikipedia.org/wiki/%s', None),
 }
 
-class DashFriendlySearchEnglish(SearchEnglish):
+# -- sphinx.ext.intersphinx configuration ------------------------------------
 
-    # Accept words that can include 'inner' hyphens or dots
-    _word_re = re.compile(r'[\w]+(?:[\.\-][\w]+)*')
-
-    js_splitter_code = r"""
-function splitQuery(query) {
-    return query
-        .split(/[^\p{Letter}\p{Number}_\p{Emoji_Presentation}\-\.]+/gu)
-        .filter(term => term.length > 0);
+# Intersphinx config to use cross reference with BitBake user manual
+intersphinx_mapping = {
+    'bitbake': ('https://docs.yoctoproject.org/bitbake/' + bitbake_version, None)
 }
-"""
 
-languages['en'] = DashFriendlySearchEnglish
+# -- sphinx_copybutton configuration -----------------------------------------
 
-# Make the EPUB builder prefer PNG to SVG because of issues rendering Inkscape SVG
-Epub3Builder.supported_image_types = ['image/png', 'image/gif', 'image/jpeg']
+# sphinx-copybutton configuration
+copybutton_prompt_text = "$ "
