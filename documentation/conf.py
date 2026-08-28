@@ -13,6 +13,7 @@
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 
 import datetime
+import importlib.util
 import os
 import re
 import sys
@@ -169,17 +170,16 @@ if os.environ.get('LINKCHECK_NOT_NICE') != "1":
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
-#
-try:
-    import sphinx_rtd_theme
-    html_theme = 'sphinx_rtd_theme'
-    html_theme_options = {
-        'sticky_navigation': False,
-    }
-except ImportError:
+
+if not importlib.util.find_spec('sphinx_rtd_theme'):
     sys.stderr.write("The Sphinx sphinx_rtd_theme HTML theme was not found.\
     \nPlease make sure to install the sphinx_rtd_theme Python package.\n")
     sys.exit(1)
+
+html_theme = 'sphinx_rtd_theme'
+html_theme_options = {
+    'sticky_navigation': False,
+}
 
 html_logo = 'sphinx-static/YoctoProject_Logo_RGB.jpg'
 html_favicon = 'sphinx-static/favicon.ico'
