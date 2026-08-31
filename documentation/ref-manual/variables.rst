@@ -8264,7 +8264,7 @@ system and gives an overview of their function and contents.
 
       For example::
 
-         QB_SMP = "-smp 8".
+         QB_SMP = "-smp 8"
 
    :term:`QB_TAP_NAMESERVER`
 
