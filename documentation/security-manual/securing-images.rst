@@ -80,7 +80,7 @@ your build output more secure. The security flags are in the
    Depending on the recipe, certain security flags are enabled and
    disabled by default.
 
-Use the following line in your ``local.conf`` file or in your custom
+Use the following line in your :ref:`structure-build-conf-local.conf` file or in your custom
 distro :term:`configuration file` to enable the security compiler and
 linker flags for your build::
 

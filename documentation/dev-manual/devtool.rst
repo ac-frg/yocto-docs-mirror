@@ -445,7 +445,7 @@ installers.
 functionality of the SDK and the eSDK installers. Compared to the installers,
 however, the SDK created with ``devtool ide-sdk`` is much more flexible.
 For example, it is very easy to change the :term:`MACHINE` in the
-``local.conf`` file, update the layer meta data and then regenerate the SDK.
+:ref:`structure-build-conf-local.conf` file, update the layer meta data and then regenerate the SDK.
 
 Let's take a look at an example of how to use ``devtool ide-sdk`` in each of
 the two modes:
@@ -454,7 +454,7 @@ the two modes:
 
    In order to use the ``devtool ide-sdk``, a few settings are needed. As a
    starting example, the following lines of code can be added to the
-   ``local.conf`` file::
+   :ref:`structure-build-conf-local.conf` file::
 
       # Build the companion debug file system
       IMAGE_GEN_DEBUGFS = "1"

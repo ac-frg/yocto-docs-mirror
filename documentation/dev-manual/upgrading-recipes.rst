@@ -96,14 +96,14 @@ The following steps describe how to set up the AUH utility:
    undesirably.
 
 #. *Make Configurations in Your Local Configuration File:* Several
-   settings are needed in the ``local.conf`` file in the build
+   settings are needed in the :ref:`structure-build-conf-local.conf` file in the build
    directory you just created for AUH. Make these following
    configurations:
 
    -  If you want to enable :ref:`Build
       History <dev-manual/build-quality:maintaining build output quality with \`\`buildhistory\`\`>`,
       which is optional, you need the following lines in the
-      ``conf/local.conf`` file::
+      :ref:`structure-build-conf-local.conf` file::
 
          INHERIT =+ "buildhistory"
          BUILDHISTORY_COMMIT = "1"

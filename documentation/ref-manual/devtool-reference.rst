@@ -312,7 +312,7 @@ the layer into which to write an append file::
 
 The ``*.bbappend`` file is created at the
 appropriate path within the specified layer directory, which may or may
-not be in your ``bblayers.conf`` file. If an append file already exists,
+not be in your :ref:`structure-build-conf-bblayers.conf` file. If an append file already exists,
 the command updates it appropriately.
 
 .. _devtool-checking-on-the-upgrade-status-of-a-recipe:

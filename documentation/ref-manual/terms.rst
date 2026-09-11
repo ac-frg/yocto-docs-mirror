@@ -266,11 +266,11 @@ universal, the list includes them just in case:
    :term:`Container Layer`
       A flexible definition that typically refers to a single Git checkout
       which contains multiple (and typically related) sub-layers which can
-      be included independently in your project's ``bblayers.conf`` file.
+      be included independently in your project's :ref:`structure-build-conf-bblayers.conf` file.
 
       In some cases, such as with OpenEmbedded's :oe_git:`meta-openembedded </meta-openembedded>`
       layer, the top level ``meta-openembedded/`` directory is not itself an actual layer,
-      so you would never explicitly include it in a ``bblayers.conf`` file;
+      so you would never explicitly include it in a :ref:`structure-build-conf-bblayers.conf` file;
       rather, you would include any number of its layer subdirectories, such as
       :oe_git:`meta-oe </meta-openembedded/tree/meta-oe>`, :oe_git:`meta-python
       </meta-openembedded/tree/meta-python>` and so on.
@@ -279,7 +279,7 @@ universal, the list includes them just in case:
       :yocto_git:`meta-security </meta-security>`)
       have a top-level directory that is itself an actual layer, as well as
       a variety of sub-layers, both of which could be included in your
-      ``bblayers.conf`` file.
+      :ref:`structure-build-conf-bblayers.conf` file.
 
       In either case, the phrase "container layer" is simply used to describe
       a directory structure which contains multiple valid OpenEmbedded layers.

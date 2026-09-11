@@ -103,7 +103,7 @@ an entire Linux distribution, including the toolchain, from source.
     Directory` contains all the files created during the build.
 
 #.  **Examine Your Local Configuration File:** When you set up the build
-    environment, a local configuration file named ``local.conf`` becomes
+    environment, a local configuration file named :ref:`structure-build-conf-local.conf` becomes
     available in a ``conf`` sub-directory of the :term:`Build Directory`. For
     this example, the defaults are set to build for a ``qemux86-64`` target,
     which is suitable for emulation. The package manager used is set to the RPM

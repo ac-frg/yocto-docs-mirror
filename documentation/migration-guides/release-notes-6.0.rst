@@ -451,7 +451,7 @@ New Features / Enhancements in |yocto-ver|
 
       -  Share :ref:`overview-manual/concepts:Shared State` by default between
          builds, by adding a definition for :term:`SSTATE_DIR` and
-         :term:`BB_HASHSERVE_DB_DIR` in the ``site.conf`` file created by
+         :term:`BB_HASHSERVE_DB_DIR` in the :ref:`structure-build-conf-auto.conf` file created by
          :ref:`bitbake:ref-bbsetup-command-init`
          (:bitbake_rev:`a70c336790a9188aae67975fac6ca13579ad1d3e`)
 

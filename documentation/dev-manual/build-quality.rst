@@ -304,8 +304,8 @@ The following list shows the files produced for SDKs:
    specific to the extensible SDK although you can set it differently if
    you would like to pull in specific files from the standard SDK.
 
-   The default files are ``conf/local.conf``, ``conf/bblayers.conf``,
-   ``conf/auto.conf``, ``conf/locked-sigs.inc``, and
+   The default files are :ref:`structure-build-conf-local.conf`, :ref:`structure-build-conf-bblayers.conf`,
+   :ref:`structure-build-conf-auto.conf`, ``conf/locked-sigs.inc``, and
    ``conf/devtool.conf``. Thus, for an extensible SDK, these files get
    copied into the ``sdk-files`` directory.
 

@@ -53,7 +53,7 @@ build system applies them against :ref:`structure-build-conf-local.conf` and
    class.
 
 Additionally, the contents of ``conf/sdk-extra.conf``, when present, are
-appended to the end of ``conf/local.conf`` within the produced SDK,
+appended to the end of :ref:`structure-build-conf-local.conf` within the produced SDK,
 without any filtering. The ``sdk-extra.conf`` file is particularly
 useful if you want to set a variable value just for the SDK and not the
 OpenEmbedded build system used to create the SDK.
@@ -114,7 +114,7 @@ adjustments:
 
 -  If you have adjusted the list of files and directories that appear in
    :term:`COREBASE` (other than
-   layers that are enabled through ``bblayers.conf``), then you must
+   layers that are enabled through :ref:`structure-build-conf-bblayers.conf`), then you must
    list these files in
    :term:`COREBASE_FILES` so
    that the files are copied into the SDK.
@@ -287,7 +287,7 @@ source, you need to do a number of things:
       SDK and the SDK itself (i.e. the mirror is accessible in both
       places or it will fail quickly on the OpenEmbedded build system
       side, and its contents will not interfere with the build), then
-      you can set the variable in your ``local.conf`` or custom distro
+      you can set the variable in your :ref:`structure-build-conf-local.conf` or custom distro
       configuration file. You can then pass the variable to the SDK by
       adding the following:
 

@@ -432,7 +432,7 @@ system and gives an overview of their function and contents.
       you to control the build based on these parameters.
 
       Disk space monitoring is disabled by default. To enable monitoring,
-      add the :term:`BB_DISKMON_DIRS` variable to your ``conf/local.conf`` file
+      add the :term:`BB_DISKMON_DIRS` variable to your :ref:`structure-build-conf-local.conf` file
       found in the :term:`Build Directory`. Use the
       following form:
 
@@ -480,7 +480,7 @@ system and gives an overview of their function and contents.
 
       The first example works only if you also provide the
       :term:`BB_DISKMON_WARNINTERVAL`
-      variable in the ``conf/local.conf``. This example causes the build
+      variable in the :ref:`structure-build-conf-local.conf`. This example causes the build
       system to immediately stop when either the disk space in
       ``${TMPDIR}`` drops below 1 Gbyte or the available free inodes drops
       below 100 Kbytes. Because two directories are provided with the
@@ -501,7 +501,7 @@ system and gives an overview of their function and contents.
 
    :term:`BB_DISKMON_WARNINTERVAL`
       Defines the disk space and free inode warning intervals. To set these
-      intervals, define the variable in your ``conf/local.conf`` file in
+      intervals, define the variable in your :ref:`structure-build-conf-local.conf` file in
       the :term:`Build Directory`.
 
       If you are going to use the :term:`BB_DISKMON_WARNINTERVAL` variable, you
@@ -721,7 +721,7 @@ system and gives an overview of their function and contents.
       server due to inactivity. Set :term:`BB_SERVER_TIMEOUT` to determine how
       long the BitBake server stays resident between invocations.
 
-      For example, the following statement in your ``local.conf`` file
+      For example, the following statement in your :ref:`structure-build-conf-local.conf` file
       instructs the server to be unloaded after 20 seconds of inactivity::
 
          BB_SERVER_TIMEOUT = "20"
@@ -885,7 +885,7 @@ system and gives an overview of their function and contents.
 
    :term:`BBLAYERS`
       Lists the layers to enable during the build. This variable is defined
-      in the ``bblayers.conf`` configuration file in the :term:`Build Directory`.
+      in the :ref:`structure-build-conf-bblayers.conf` configuration file in the :term:`Build Directory`.
       Here is an example::
 
          BBLAYERS = " \
@@ -1981,7 +1981,7 @@ system and gives an overview of their function and contents.
    :term:`COREBASE_FILES`
       Lists files from the :term:`COREBASE` directory that
       should be copied other than the layers listed in the
-      ``bblayers.conf`` file. The :term:`COREBASE_FILES` variable allows
+      :ref:`structure-build-conf-bblayers.conf` file. The :term:`COREBASE_FILES` variable allows
       to copy metadata from the OpenEmbedded build system
       into the extensible SDK.
 
@@ -2626,7 +2626,7 @@ system and gives an overview of their function and contents.
       variable.
 
       You can set this directory by defining the :term:`DL_DIR` variable in the
-      ``conf/local.conf`` file. This directory is self-maintaining and you
+      :ref:`structure-build-conf-local.conf` file. This directory is self-maintaining and you
       should not have to touch it. By default, the directory is
       ``downloads`` in the :term:`Build Directory`::
 
@@ -2819,7 +2819,7 @@ system and gives an overview of their function and contents.
       Directs BitBake to exclude a recipe from world builds (i.e.
       ``bitbake world``). During world builds, BitBake locates, parses and
       builds all recipes found in every layer exposed in the
-      ``bblayers.conf`` configuration file.
+      :ref:`structure-build-conf-bblayers.conf` configuration file.
 
       To exclude a recipe from a world build using this variable, set the
       variable to "1" in the recipe.
@@ -3868,7 +3868,7 @@ system and gives an overview of their function and contents.
          If you specifically remove the locale ``en_US.UTF-8``, you must set
          :term:`IMAGE_LINGUAS` appropriately.
 
-      You can set :term:`GLIBC_GENERATE_LOCALES` in your ``local.conf`` file for
+      You can set :term:`GLIBC_GENERATE_LOCALES` in your :ref:`structure-build-conf-local.conf` file for
       local testing or in your distro :term:`configuration file`.
 
       By default, all locales are generated::
@@ -4327,7 +4327,7 @@ system and gives an overview of their function and contents.
    :term:`IMAGE_FEATURES`
       The primary list of features to include in an image. Typically, you
       configure this variable in an image recipe. Although you can use this
-      variable from your ``local.conf`` file, which is found in the
+      variable from your :ref:`structure-build-conf-local.conf` file, which is found in the
       :term:`Build Directory`, best practices dictate that you do
       not.
 
@@ -4415,7 +4415,7 @@ system and gives an overview of their function and contents.
 
          -  Using :term:`IMAGE_INSTALL` with the
             :ref:`+= <bitbake-user-manual/bitbake-user-manual-metadata:appending (+=) and prepending (=+) with spaces>`
-            BitBake operator within the ``/conf/local.conf`` file or from
+            BitBake operator within the :ref:`structure-build-conf-local.conf` file or from
             within an image recipe is not recommended. Use of this operator in
             these ways can cause ordering issues. Since
             :ref:`ref-classes-core-image` sets :term:`IMAGE_INSTALL` to a
@@ -4423,7 +4423,7 @@ system and gives an overview of their function and contents.
             :ref:`?= <bitbake-user-manual/bitbake-user-manual-metadata:setting a default value (?=)>`
             operator, using a ``+=`` operation against :term:`IMAGE_INSTALL`
             results in unexpected behavior when used within
-            ``conf/local.conf``. Furthermore, the same operation from within an
+            :ref:`structure-build-conf-local.conf`. Furthermore, the same operation from within an
             image recipe may or may not succeed depending on the specific
             situation. In both these cases, the behavior is contrary to how
             most users expect the ``+=`` operator to work.
@@ -7074,7 +7074,7 @@ system and gives an overview of their function and contents.
 
       Consider the following example where the :term:`PACKAGE_FEED_URIS`,
       :term:`PACKAGE_FEED_BASE_PATHS`, and :term:`PACKAGE_FEED_ARCHS` variables are
-      defined in your ``local.conf`` file::
+      defined in your :ref:`structure-build-conf-local.conf` file::
 
          PACKAGE_FEED_URIS = "https://example.com/packagerepos/release \
                               https://example.com/packagerepos/updates"
@@ -7103,7 +7103,7 @@ system and gives an overview of their function and contents.
 
       Consider the following example where the :term:`PACKAGE_FEED_URIS`,
       :term:`PACKAGE_FEED_BASE_PATHS`, and :term:`PACKAGE_FEED_ARCHS` variables are
-      defined in your ``local.conf`` file::
+      defined in your :ref:`structure-build-conf-local.conf` file::
 
          PACKAGE_FEED_URIS = "https://example.com/packagerepos/release \
                               https://example.com/packagerepos/updates"
@@ -7132,7 +7132,7 @@ system and gives an overview of their function and contents.
 
       Consider the following example where the :term:`PACKAGE_FEED_URIS`,
       :term:`PACKAGE_FEED_BASE_PATHS`, and :term:`PACKAGE_FEED_ARCHS` variables are
-      defined in your ``local.conf`` file::
+      defined in your :ref:`structure-build-conf-local.conf` file::
 
          PACKAGE_FEED_URIS = "https://example.com/packagerepos/release \
                               https://example.com/packagerepos/updates"
@@ -7507,7 +7507,7 @@ system and gives an overview of their function and contents.
       places you in the right location so that you can manually resolve the
       conflicts.
 
-      Set this variable in your ``local.conf`` file.
+      Set this variable in your :ref:`structure-build-conf-local.conf` file.
 
    :term:`PATCHTOOL`
       Specifies the utility used to apply patches for a recipe during the
@@ -7898,7 +7898,7 @@ system and gives an overview of their function and contents.
 
       Typically, you could add a specific server for the build system to
       attempt before any others by adding something like the following to
-      the ``local.conf`` configuration file in the
+      the :ref:`structure-build-conf-site.conf` configuration file in the
       :term:`Build Directory`::
 
          PREMIRRORS:prepend = "\
@@ -8629,7 +8629,7 @@ system and gives an overview of their function and contents.
          ROOT_HOME ?= "/root"
 
       You can also override the default by setting the variable in your distro
-      configuration or in the ``local.conf`` file.
+      configuration or in the :ref:`structure-build-conf-local.conf` file.
 
    :term:`ROOTFS`
       Indicates a filesystem image to include as the root filesystem.
@@ -9382,7 +9382,7 @@ system and gives an overview of their function and contents.
       build the recipe.
 
       To prevent a recipe from being built, use the :term:`SKIP_RECIPE`
-      variable in your ``local.conf`` file or distribution configuration.
+      variable in your :ref:`structure-build-conf-local.conf` file or distribution configuration.
       Here is an example which prevents ``myrecipe`` from being built::
 
          SKIP_RECIPE[myrecipe] = "Not supported by our organization."
@@ -10961,8 +10961,8 @@ system and gives an overview of their function and contents.
 
       The layer's ``README`` file contains information on how to use the
       Sourcery G++ Toolchain as an external toolchain. You will have to
-      add the layer to your ``bblayers.conf`` file and then set the
-      :term:`EXTERNAL_TOOLCHAIN` variable in your ``local.conf`` file to
+      add the layer to your :ref:`structure-build-conf-bblayers.conf` file and then set the
+      :term:`EXTERNAL_TOOLCHAIN` variable in your :ref:`structure-build-conf-local.conf` file to
       the location of the toolchain.
 
       The fundamentals used for this example apply to any external

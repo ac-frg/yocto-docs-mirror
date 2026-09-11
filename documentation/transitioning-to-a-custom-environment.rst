@@ -66,7 +66,7 @@ Transitioning to a custom environment for systems development
    64-bit x86-based machine, copy the conf/intel-corei7-64 definition and give
    the machine a relevant name (think board name, not product name). Make sure
    the layer configuration is dependent on the ``meta-intel`` layer (or at least,
-   ``meta-intel`` remains in your ``bblayers.conf`` file). Now you can put your custom BSP
+   ``meta-intel`` remains in your :ref:`structure-build-conf-bblayers.conf` file). Now you can put your custom BSP
    settings into your layer and you can re-use it for different applications.
 
 #. **Write your own recipe to build additional software support that isn't

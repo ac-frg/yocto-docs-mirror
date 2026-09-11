@@ -12,7 +12,7 @@ follows:
    steps to build and install the toolchain.
 
 -  Make sure you add the layer that contains the toolchain to your
-   ``bblayers.conf`` file through the
+   :ref:`structure-build-conf-bblayers.conf` file through the
    :term:`BBLAYERS` variable.
 
 -  Set the :term:`EXTERNAL_TOOLCHAIN` variable in your

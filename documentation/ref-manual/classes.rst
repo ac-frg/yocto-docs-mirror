@@ -2708,7 +2708,7 @@ It is used to generate a JSON specification file from the features listed in
 The :ref:`ref-classes-sanity` class checks to see if prerequisite software is present
 on the host system so that users can be notified of potential problems
 that might affect their build. The class also performs basic user
-configuration checks from the ``local.conf`` configuration file to
+configuration checks from the :ref:`structure-build-conf-local.conf` configuration file to
 prevent common mistakes that cause build failures. Distribution policy
 usually determines whether to include this class.
 

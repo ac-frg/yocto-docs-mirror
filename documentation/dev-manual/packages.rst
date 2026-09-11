@@ -163,7 +163,7 @@ be consistent and correct with the latest changes.
 The simplest form for a PR Service is for a single host development system
 that builds the package feed (building system). For this scenario, you can
 enable a local PR Service by setting :term:`PRSERV_HOST` in your
-``local.conf`` file in the :term:`Build Directory`::
+:ref:`structure-build-conf-local.conf` file in the :term:`Build Directory`::
 
    PRSERV_HOST = "localhost:0"
 
@@ -959,7 +959,7 @@ NPM packages:
    part of the OpenEmbedded environment. You need to get the package by
    cloning the :oe_git:`meta-openembedded </meta-openembedded>`
    repository. Be sure to add the path to your local copy
-   to your ``bblayers.conf`` file.
+   to your :ref:`structure-build-conf-bblayers.conf` file.
 
 -  ``devtool`` cannot detect native libraries in module dependencies.
    Consequently, you must manually add packages to your recipe.

@@ -708,7 +708,7 @@ the external directory and use it as is, not copy it.
 To build from software that comes from an external source, all you need to do
 is inherit the :ref:`ref-classes-externalsrc` class and then set
 the :term:`EXTERNALSRC` variable to point to your external source code. Here
-are the statements to put in your ``local.conf`` file::
+are the statements to put in your :ref:`structure-build-conf-local.conf` file::
 
    INHERIT += "externalsrc"
    EXTERNALSRC:pn-myrecipe = "path-to-your-source-tree"
@@ -758,7 +758,7 @@ Follow these steps to populate your Downloads directory:
    an empty location or one that does not yet exist.
 
 #. *Generate Tarballs of the Source Git Repositories:* Edit your
-   ``local.conf`` configuration file as follows::
+   :ref:`structure-build-conf-local.conf` configuration file as follows::
 
       DL_DIR = "/home/your-download-dir/"
       BB_GENERATE_MIRROR_TARBALLS = "1"
@@ -793,7 +793,7 @@ any machine and at any time.
 Follow these steps to build your target using the files in the downloads
 directory:
 
-#. *Using Local Files Only:* Inside your ``local.conf`` or distro
+#. *Using Local Files Only:* Inside your :ref:`structure-build-conf-local.conf` or distro
    :term:`configuration file`, add the :term:`SOURCE_MIRROR_URL` variable,
    inherit the :ref:`ref-classes-own-mirrors` class, and add the
    :term:`BB_NO_NETWORK` variable::
