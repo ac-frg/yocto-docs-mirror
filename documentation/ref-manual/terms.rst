@@ -198,8 +198,9 @@ universal, the list includes them just in case:
       Configuration files end with a ``.conf`` filename extension. There are
       multiple types of configuration files, such as:
 
-      -  The :file:`conf/local.conf` configuration file in the :term:`Build
-         Directory` contains user-defined variables that affect every build.
+      -  The :ref:`structure-build-conf-local.conf` configuration file in the
+         :term:`Build Directory` contains user-defined variables that affect
+         every build.
 
       -  The :file:`meta-poky/conf/distro/poky.conf` configuration file defines
          Yocto "distro" configuration variables used only when building with
