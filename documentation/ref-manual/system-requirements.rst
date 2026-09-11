@@ -70,8 +70,8 @@ supported on the following distributions:
 -  Debian 12
 -  Debian 13
 -  Fedora 43
--  OpenSUSE Leap 15.6
--  OpenSUSE Leap 16.0
+-  openSUSE Leap 15.6
+-  openSUSE Leap 16.0
 -  Rocky Linux 8
 -  Rocky Linux 9
 -  Ubuntu 22.04 (LTS)
@@ -90,7 +90,7 @@ organizations publishing them no longer make updates publicly available:
 
 -  Fedora 39
 -  Fedora 40
--  OpenSUSE Leap 15.5
+-  openSUSE Leap 15.5
 -  Ubuntu 25.04
 
 Note that the Yocto Project doesn't have access to private updates
