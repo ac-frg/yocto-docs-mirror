@@ -288,11 +288,8 @@ to ``${TMPDIR}/buildstats/``. You can analyze the elapsed time using
 chart of the entire build process and can be useful for highlighting
 bottlenecks.
 
-Collecting build statistics is enabled by default through the
-:term:`USER_CLASSES` variable from your
-``local.conf`` file. Consequently, you do not have to do anything to
-enable the class. However, if you want to disable the class, simply
-remove ":ref:`ref-classes-buildstats`" from the :term:`USER_CLASSES` list.
+If you want to enable the class, you can add ":ref:`ref-classes-buildstats`" to
+the :term:`USER_CLASSES` variable.
 
 .. _ref-classes-buildstats-summary:
 
