@@ -3834,7 +3834,8 @@ system and gives an overview of their function and contents.
          GCCVERSION ?= "8.%"
 
       You can override this value by setting it in a
-      configuration file such as the ``local.conf``.
+      :term:`configuration file` such as a distro configuration file, granted
+      that the recipes associated to this version of GCC exist in your workspace.
 
    :term:`GDB`
       The minimal command and arguments to run the GNU Debugger.
