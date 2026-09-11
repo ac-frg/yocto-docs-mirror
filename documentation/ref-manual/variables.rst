@@ -2441,6 +2441,20 @@ system and gives an overview of their function and contents.
       of the distribution, see the :term:`DISTRO_NAME`
       variable.
 
+      You can define the :term:`DISTRO` in two ways:
+
+      -  with the :ref:`ref-fragments-builtin-core-distro` fragment:
+
+         .. code-block:: console
+
+            $ bitbake-config-build enable-fragment distro/<DISTRO>
+
+         Replace ``<DISTRO>`` with the name of the distro in the above
+         command.
+
+      -  in the :ref:`structure-build-conf-local.conf` file found in the
+         :term:`Build Directory`.
+
       The :term:`DISTRO` variable corresponds to a distribution configuration
       file whose root name is the same as the variable's argument and whose
       filename extension is ``.conf``. For example, the distribution
@@ -6121,13 +6135,20 @@ system and gives an overview of their function and contents.
       in-use.
 
    :term:`MACHINE`
-      Specifies the target device for which the image is built. You define
-      :term:`MACHINE` in the ``local.conf`` file found in the
-      :term:`Build Directory`. By default, :term:`MACHINE` is set to
-      "qemux86", which is an x86-based architecture machine to be emulated
-      using QEMU::
+      Specifies the target device for which the image is built. You can define
+      the :term:`MACHINE` in two ways:
 
-         MACHINE ?= "qemux86"
+      -  with the :ref:`ref-fragments-builtin-core-machine` fragment:
+
+         .. code-block:: console
+
+            $ bitbake-config-build enable-fragment machine/<MACHINE>
+
+         Replace ``<MACHINE>`` with the name of the machine in the above
+         command.
+
+      -  in the :ref:`structure-build-conf-local.conf` file found in the
+         :term:`Build Directory`.
 
       The variable corresponds to a machine configuration file of the same
       name, through which machine-specific configurations are set. Thus,
