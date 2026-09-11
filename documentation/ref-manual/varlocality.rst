@@ -84,8 +84,6 @@ configuration through the ``local.conf`` file.
 
 -  :term:`DL_DIR`
 
--  :term:`BBFILES`
-
 -  :term:`EXTRA_IMAGE_FEATURES`
 
 -  :term:`PACKAGE_CLASSES`
