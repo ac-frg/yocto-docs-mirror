@@ -395,8 +395,8 @@ Limiting the Number of Parallel Connections
 
 Some users are behind firewalls or use servers where the number of parallel
 connections is limited. In such cases, you can limit the number of fetch
-tasks being run in parallel by adding the following to your ``local.conf``
-file::
+tasks being run in parallel by adding the following to your
+:ref:`structure-build-conf-local.conf` file::
 
    do_fetch[number_threads] = "4"
 
@@ -1549,8 +1549,9 @@ in the BitBake User Manual.
    assign a value to a variable, but only when the variable is currently
    unset. Use the question mark followed by the equal sign (``?=``) to
    make a "soft" assignment used for conditional assignment. Typically,
-   "soft" assignments are used in the ``local.conf`` file for variables
-   that are allowed to come through from the external environment.
+   "soft" assignments are used in :term:`configuration files <Configuration
+   File>` for variables that are allowed to come through from the external
+   environment.
 
    Here is an example where ``VAR1`` is set to "New value" if it is
    currently empty. However, if ``VAR1`` has already been set, it

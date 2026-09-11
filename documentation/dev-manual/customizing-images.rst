@@ -56,7 +56,8 @@ high-level image features by using the
 variables. Although the functions for both variables are nearly
 equivalent, best practices dictate using :term:`IMAGE_FEATURES` from within
 a recipe and using :term:`EXTRA_IMAGE_FEATURES` from within your
-``local.conf`` file, which is found in the :term:`Build Directory`.
+``local.conf`` for temporary changes (which is found in the :term:`Build
+Directory`) and a distro :term:`configuration file` for permanent changes.
 
 To understand how these features work, the best reference is
 :ref:`meta/classes-recipe/image.bbclass <ref-classes-image>`.
@@ -90,9 +91,9 @@ image does not contain an SSH server.
 
 You can customize your image and change these defaults. Edit the
 :term:`IMAGE_FEATURES` variable in your recipe or use the
-:term:`EXTRA_IMAGE_FEATURES` in your ``local.conf`` file so that it
-configures the image you are working with to include
-``ssh-server-dropbear`` or ``ssh-server-openssh``.
+:term:`EXTRA_IMAGE_FEATURES` in your ``local.conf`` file (or distro
+:term:`configuration file`) so that it configures the image you are working with
+to include ``ssh-server-dropbear`` or ``ssh-server-openssh``.
 
 .. note::
 

@@ -119,8 +119,8 @@ of other mirrors including the Yocto Project source mirror if those
 fail.
 
 As an example, you could add a specific server for the build system to
-attempt before any others by adding something like the following to the
-``local.conf`` configuration file::
+attempt before any others by adding something like the following to
+a :term:`configuration file`::
 
    PREMIRRORS:prepend = "\
        git://.*/.* &YOCTO_DL_URL;/mirror/sources/ \
@@ -159,8 +159,8 @@ technique is useful if you want to create a mirror server. If not,
 however, the technique can simply waste time during the build.
 
 Finally, consider an example where you are behind an HTTP-only firewall.
-You could make the following changes to the ``local.conf`` configuration
-file as long as the :term:`PREMIRRORS` server is current::
+You could make the following changes to a :term:`configuration
+file` as long as the :term:`PREMIRRORS` server is current::
 
    PREMIRRORS:prepend = "\
        git://.*/.* &YOCTO_DL_URL;/mirror/sources/ \

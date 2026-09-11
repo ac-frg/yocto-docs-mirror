@@ -51,7 +51,8 @@ section:
 #. *Prepare Your local.conf File:* By default, the :term:`MACHINE` variable
    is set to "qemux86-64", which is fine if you are building for the QEMU
    emulator in 64-bit mode. However, if you are not, you need to set the
-   :term:`MACHINE` variable appropriately in your ``conf/local.conf`` file
+   :term:`MACHINE` variable appropriately in your
+   :ref:`structure-build-conf-local.conf` file
    found in the :term:`Build Directory` (i.e.  ``bitbake-builds/build`` in this example).
 
    Also, since you are preparing to work on the kernel image, you need
@@ -60,7 +61,8 @@ section:
 
    In this example we wish to build for qemux86 so we must set the
    :term:`MACHINE` variable to "qemux86" and also add the "kernel-modules".
-   As described we do this by appending to ``conf/local.conf``::
+   As described we do this by appending to
+   :ref:`structure-build-conf-local.conf`::
 
       MACHINE = "qemux86"
       MACHINE_ESSENTIAL_EXTRA_RRECOMMENDS += "kernel-modules"
@@ -156,7 +158,8 @@ section:
 
    In this example we wish to build for qemux86 so we must set the
    :term:`MACHINE` variable to "qemux86" and also add the "kernel-modules".
-   As described we do this by appending to ``conf/local.conf``::
+   As described we do this by appending to
+   :ref:`structure-build-conf-local.conf`::
 
       MACHINE = "qemux86"
       MACHINE_ESSENTIAL_EXTRA_RRECOMMENDS += "kernel-modules"

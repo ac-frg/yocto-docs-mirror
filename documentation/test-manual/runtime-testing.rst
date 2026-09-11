@@ -95,7 +95,7 @@ Once you start running the tests, the following happens:
    to reach the login prompt. You can change the timeout period by
    setting
    :term:`TEST_QEMUBOOT_TIMEOUT`
-   in the ``local.conf`` file.
+   in a :term:`configuration file`.
 
 #. Once the boot process is reached and the login prompt appears, the
    tests run. The full boot log is written to

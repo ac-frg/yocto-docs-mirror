@@ -417,7 +417,8 @@ One requirement that is often overlooked is inclusion of license text.
 This requirement also needs to be dealt with prior to generating the
 final image. Some licenses require the license text to accompany the
 binary. You can achieve this by adding the following to your
-``local.conf`` file::
+:ref:`structure-build-conf-local.conf` file or distro :term:`configuration
+file`::
 
    COPY_LIC_MANIFEST = "1"
    COPY_LIC_DIRS = "1"

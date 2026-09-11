@@ -32,7 +32,9 @@ General Setup
 =============
 
 Most of the tools are available only in ``sdk`` images or in images built
-after adding ``tools-profile`` to your ``local.conf`` file. So, in order to be able
+after adding ``tools-profile`` to the :term:`EXTRA_IMAGE_FEATURES` variable.
+
+So, in order to be able
 to access all of the tools described here, you can build and boot
 an ``sdk`` image, perhaps one of::
 

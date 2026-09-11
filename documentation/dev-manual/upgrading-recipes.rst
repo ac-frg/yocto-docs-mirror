@@ -115,14 +115,15 @@ The following steps describe how to set up the AUH utility:
 
    -  If you want to enable testing through the :ref:`ref-classes-testimage`
       class, which is optional, you need to have the following set in
-      your ``conf/local.conf`` file::
+      your :ref:`structure-build-conf-local.conf` file::
 
          IMAGE_CLASSES += "testimage"
 
       .. note::
 
          If your distro does not enable by default ptest, which :term:`Poky`
-         does, you need the following in your ``local.conf`` file::
+         does, you need the following in your
+         :ref:`structure-build-conf-local.conf` file::
 
                  DISTRO_FEATURES:append = " ptest"
 
@@ -139,7 +140,8 @@ The following steps describe how to set up the AUH utility:
    :yocto_git:`AUH source repository </auto-upgrade-helper/tree/>`.
 
    Read through the sample file and make configurations as needed. For
-   example, if you enabled build history in your ``local.conf`` as
+   example, if you enabled build history in your
+   :ref:`structure-build-conf-local.conf` as
    described earlier, you must enable it in ``upgrade-helper.conf``.
 
    Also, if you are using the default ``maintainers.inc`` file supplied

@@ -81,7 +81,7 @@ your build output more secure. The security flags are in the
    disabled by default.
 
 Use the following line in your ``local.conf`` file or in your custom
-distribution configuration file to enable the security compiler and
+distro :term:`configuration file` to enable the security compiler and
 linker flags for your build::
 
    require conf/distro/include/security_flags.inc
@@ -100,7 +100,7 @@ system to make your images more secure:
 
       EXTRA_IMAGE_FEATURES = "allow-empty-password empty-root-password allow-root-login"
 
-   to your ``local.conf`` file, or by enabling the exactly equivalent
+   to your distro :term:`configuration file`, or by enabling the exactly equivalent
    configuration fragment :ref:`ref-fragments-root-login-with-empty-password`.
 
    If you're using either of these approaches during development,

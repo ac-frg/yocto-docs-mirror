@@ -20,7 +20,8 @@ The extensible SDK primarily consists of a pre-configured copy of the
 OpenEmbedded build system from which it was produced. Thus, the SDK's
 configuration is derived using that build system and the filters shown
 in the following list. When these filters are present, the OpenEmbedded
-build system applies them against ``local.conf`` and ``auto.conf``:
+build system applies them against :ref:`structure-build-conf-local.conf` and
+:ref:`structure-build-conf-auto.conf`:
 
 -  Variables whose values start with "/" are excluded since the
    assumption is that those values are paths that are likely to be

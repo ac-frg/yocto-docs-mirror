@@ -98,7 +98,7 @@ Transitioning to a custom environment for systems development
    well as the package feed and possibly the update solution. You would create
    your own distribution in a new layer inheriting from :term:`Poky` but overriding what
    needs to change for your distribution. If you find yourself adding a lot of
-   configuration to your local.conf file aside from paths and other typical
+   configuration to your :ref:`structure-build-conf-local.conf` file aside from paths and other typical
    local settings, it's time to :ref:`consider creating your own distribution
    <dev-manual/custom-distribution:creating your own distribution>`.
 

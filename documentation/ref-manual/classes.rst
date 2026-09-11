@@ -2010,9 +2010,9 @@ code specific to particular package types resides in these
 package-specific classes: :ref:`ref-classes-package_deb`,
 :ref:`ref-classes-package_rpm`, :ref:`ref-classes-package_ipk`.
 
-You can control the list of resulting package formats by using the
-:term:`PACKAGE_CLASSES` variable defined in your ``conf/local.conf``
-configuration file, which is located in the :term:`Build Directory`.
+You can control the list of resulting package formats by setting the
+:term:`PACKAGE_CLASSES` variable in your :ref:`structure-build-conf-local.conf`
+file or distro :term:`configuration file`.
 When defining the variable, you can specify one or more package types.
 Since images are generated from packages, a packaging class is needed
 to enable image generation. The first class listed in this variable is
@@ -2065,7 +2065,7 @@ packages are written out in a ``.deb`` file format to the
 
 This class inherits the :ref:`ref-classes-package` class and
 is enabled through the :term:`PACKAGE_CLASSES`
-variable in the ``local.conf`` file.
+variable.
 
 .. _ref-classes-package_ipk:
 
@@ -2079,7 +2079,7 @@ are written out in a ``.ipk`` file format to the
 
 This class inherits the :ref:`ref-classes-package` class and
 is enabled through the :term:`PACKAGE_CLASSES`
-variable in the ``local.conf`` file.
+variable.
 
 .. _ref-classes-package_rpm:
 
@@ -2093,7 +2093,7 @@ are written out in a ``.rpm`` file format to the
 
 This class inherits the :ref:`ref-classes-package` class and
 is enabled through the :term:`PACKAGE_CLASSES`
-variable in the ``local.conf`` file.
+variable.
 
 .. _ref-classes-packagedata:
 
@@ -2616,7 +2616,8 @@ recipe are no longer needed. However, by default, the build system
 preserves these files for inspection and possible debugging purposes. If
 you would rather have these files deleted to save disk space as the build
 progresses, you can enable :ref:`ref-classes-rm-work` by adding the following to
-your ``local.conf`` file, which is found in the :term:`Build Directory`::
+your :ref:`structure-build-conf-local.conf` file, which is found in the
+:term:`Build Directory`::
 
    INHERIT += "rm_work"
 
@@ -2625,7 +2626,8 @@ recipe, enabling :ref:`ref-classes-rm-work` will potentially result in your
 changes to the source being lost. To exclude some recipes from having their work
 directories deleted by :ref:`ref-classes-rm-work`, you can add the names of the
 recipe or recipes you are working on to the :term:`RM_WORK_EXCLUDE` variable,
-which can also be set in your ``local.conf`` file. Here is an example::
+which can also be set in your :ref:`structure-build-conf-local.conf` file. Here
+is an example::
 
    RM_WORK_EXCLUDE += "busybox glibc"
 
@@ -3849,7 +3851,8 @@ using the Vala programming language.
 The :ref:`ref-classes-vex` class is used to generate metadata needed by external
 tools to check for vulnerabilities, for example CVEs.
 
-In order to use this class, inherit the class in the ``local.conf`` file and it
+In order to use this class, inherit the class in your
+:ref:`structure-build-conf-local.conf` or distro :term:`configuration file` and it
 will add the ``generate_vex`` task for every recipe::
 
    INHERIT += "vex"

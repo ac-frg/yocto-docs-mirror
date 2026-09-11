@@ -112,8 +112,9 @@ Follow these steps to create an :term:`Initramfs` image:
 #. *Decide if You Need to Bundle the Initramfs Image Into the Kernel
    Image:* If you want the :term:`Initramfs` image that is built to be bundled
    in with the kernel image, set the :term:`INITRAMFS_IMAGE_BUNDLE`
-   variable to ``"1"`` in your ``local.conf`` configuration file and set the
-   :term:`INITRAMFS_IMAGE` variable in the recipe that builds the kernel image.
+   variable to ``"1"`` in a :term:`configuration file`, such as a machine
+   :term:`configuration file`, and set the :term:`INITRAMFS_IMAGE` variable in
+   the recipe that builds the kernel image.
 
    Setting the :term:`INITRAMFS_IMAGE_BUNDLE` flag causes the :term:`Initramfs`
    image to be unpacked into the ``${B}/usr/`` directory. The unpacked
@@ -236,7 +237,7 @@ To achieve this, you need to perform some additional steps:
       TCLIBC = "musl"
 
 #. *Set additional Initramfs variables on your main configuration:*
-   Additionally, on your main configuration (``local.conf``) you need to set the
+   Additionally, in your :term:`configuration file` you need to set the
    variables::
 
      INITRAMFS_MULTICONFIG = "initramfscfg"
@@ -328,10 +329,11 @@ your own distribution that are likely modeled after ``poky-tiny``.
 
 .. note::
 
-   To use ``poky-tiny`` in your build, set the :term:`DISTRO` variable in your
-   ``local.conf`` file to "poky-tiny" as described in the
-   ":ref:`dev-manual/custom-distribution:creating your own distribution`"
-   section.
+   To use ``poky-tiny`` in your build, set the
+   :ref:`ref-fragments-builtin-core-distro` fragment to "poky-tiny" as described in the
+   :ref:`ref-bitbake-config-build-enable-fragment` section, or set the
+   :term:`DISTRO` variable to "poky-tiny" in the
+   :ref:`structure-build-conf-local.conf` file.
 
 Understanding some memory concepts will help you reduce the system size.
 Memory consists of static, dynamic, and temporary memory. Static memory
@@ -414,9 +416,8 @@ minimal impact on the feature set. For example, you might not need a VGA
 display. Or, you might be able to get by with ``devtmpfs`` and ``mdev``
 instead of ``udev``.
 
-Use your ``local.conf`` file to make changes. For example, to eliminate
-``udev`` and ``glib``, set the following in the local configuration
-file::
+Use your distro :term:`configuration file` to make such changes. For example, to
+eliminate ``udev`` and ``glib``, set the following::
 
    VIRTUAL-RUNTIME_dev_manager = ""
 
@@ -792,10 +793,10 @@ any machine and at any time.
 Follow these steps to build your target using the files in the downloads
 directory:
 
-#. *Using Local Files Only:* Inside your ``local.conf`` file, add the
-   :term:`SOURCE_MIRROR_URL` variable, inherit the
-   :ref:`ref-classes-own-mirrors` class, and add the
-   :term:`BB_NO_NETWORK` variable to your ``local.conf``::
+#. *Using Local Files Only:* Inside your ``local.conf`` or distro
+   :term:`configuration file`, add the :term:`SOURCE_MIRROR_URL` variable,
+   inherit the :ref:`ref-classes-own-mirrors` class, and add the
+   :term:`BB_NO_NETWORK` variable::
 
       SOURCE_MIRROR_URL ?= "file:///home/your-download-dir/"
       INHERIT += "own-mirrors"

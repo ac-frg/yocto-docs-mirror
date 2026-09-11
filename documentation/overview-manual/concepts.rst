@@ -122,12 +122,12 @@ Reference Manual provides details about classes and how to use them.
 Configurations
 --------------
 
-The configuration files (``.conf``) define various configuration
+The :term:`configuration files <Configuration File>` (``.conf``) define various configuration
 variables that govern the OpenEmbedded build process. These files fall
 into several areas that define machine configuration options,
 distribution configuration options, compiler tuning options, general
 common configuration options, and user configuration options in
-``conf/local.conf``, which is found in the :term:`Build Directory`.
+:ref:`structure-build-conf-local.conf`, which is found in the :term:`Build Directory`.
 
 
 Layers
@@ -228,8 +228,9 @@ the Build Environment>`, you can specify which directory will be the
 Setting up the build environment creates a :term:`Build Directory`
 if one does not already exist. BitBake uses the :term:`Build Directory`
 for all its work during builds. The Build Directory has a ``conf`` subdirectory
-that contains default versions of your ``local.conf`` and ``bblayers.conf``
-configuration files. These default :term:`configuration files <Configuration
+that contains default versions of your :ref:`structure-build-conf-local.conf`
+and :ref:`structure-build-conf-bblayers.conf`
+:term:`configuration files <Configuration File>`. These default :term:`configuration files <Configuration
 File>` are created only if they do not already exist in the :term:`Build
 Directory` at the time you source the build environment setup script.
 

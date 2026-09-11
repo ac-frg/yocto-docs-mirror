@@ -943,7 +943,7 @@ To run a ``debuginfod`` server, you need to do the following:
    (it already is in :term:`OpenEmbedded-Core (OE-Core)` defaults and
    :term:`Poky` reference distribution).
 
-   If not, set in your distro config file or in ``local.conf``::
+   If not, set in your distro :term:`configuration file` or in ``local.conf``::
 
       DISTRO_FEATURES:append = " debuginfod"
 

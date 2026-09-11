@@ -591,7 +591,7 @@ installer:
 
    .. note::
 
-      The :term:`SDKMACHINE` variable in your ``local.conf`` file determines
+      The :term:`SDKMACHINE` variable determines
       whether you build tools for a 32-bit or 64-bit system.
 
    Once the build completes, you can find the ``.sh`` file that installs

@@ -40,7 +40,8 @@ layer. The following steps provide some more detail:
    .. note::
 
       The :term:`DISTRO` variable in your ``local.conf`` file determines the
-      name of your distribution.
+      name of your distribution. You can also use the
+      :ref:`ref-fragments-builtin-core-distro` configuration fragment.
 
    You can split out parts of your configuration file into include files
    and then "require" them from within your distribution configuration
@@ -90,6 +91,9 @@ layer. The following steps provide some more detail:
    you point to it as follows::
 
       DISTRO = "mydistro"
+
+   You can also set the :ref:`ref-fragments-builtin-core-distro` configuration
+   fragment from the command-line.
 
 -  *Add more to the layer if necessary:* Use your layer to hold other
    information needed for the distribution:

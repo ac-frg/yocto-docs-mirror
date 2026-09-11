@@ -288,11 +288,10 @@ system and gives an overview of their function and contents.
 
          BAD_RECOMMENDATIONS = "package_name package_name package_name ..."
 
-      You can set this variable globally in your ``local.conf`` file or you
-      can attach it to a specific image recipe by using the recipe name
-      override::
+      You can set this variable globally in a :term:`configuration file` or you
+      can specify it in an image recipe directly::
 
-         BAD_RECOMMENDATIONS:pn-target_image = "package_name"
+         BAD_RECOMMENDATIONS = "package_name"
 
       It is important to realize that if you choose to not install packages
       using this variable and some other packages are dependent on them
@@ -572,8 +571,7 @@ system and gives an overview of their function and contents.
 
          BB_GENERATE_MIRROR_TARBALLS = "1"
 
-      Set this variable in your
-      ``local.conf`` file in the :term:`Build Directory`.
+      Set this variable in a :term:`configuration file`.
 
       Once you have the tarballs containing your source files, you can
       clean up your :term:`DL_DIR` directory by deleting any Git or other
@@ -942,7 +940,8 @@ system and gives an overview of their function and contents.
    :term:`BBMULTICONFIG`
       Specifies each additional separate configuration when you are
       building targets with multiple configurations. Use this variable in
-      your ``conf/local.conf`` configuration file. Specify a
+      your :ref:`structure-build-conf-local.conf` configuration file for local testing, or in a
+      machine :term:`configuration file`. Specify a
       multiconfig name for each configuration file you are using. For
       example, the following line specifies three configuration files::
 
@@ -1731,8 +1730,8 @@ system and gives an overview of their function and contents.
       "``${``\ :term:`TMPDIR`\ ``}/sysroots-components``").
 
    :term:`CONF_VERSION`
-      Tracks the version of the local configuration file (i.e.
-      ``local.conf``). The value for :term:`CONF_VERSION` increments each time
+      Tracks the version of the local configuration file (:ref:`structure-build-conf-local.conf`).
+      The value for :term:`CONF_VERSION` increments each time
       ``build/conf/`` compatibility changes.
 
    :term:`CONFFILES`
@@ -1968,8 +1967,9 @@ system and gives an overview of their function and contents.
 
    :term:`CORE_IMAGE_EXTRA_INSTALL`
       Specifies the list of packages to be added to the image. You should
-      only set this variable in the ``local.conf`` configuration file found
-      in the :term:`Build Directory`.
+      set this variable in the :ref:`structure-build-conf-local.conf` configuration file found
+      in the :term:`Build Directory`, or in a distro :term:`configuration file`
+      if your distro should always include this list of package.
 
       This variable replaces ``POKY_EXTRA_INSTALL``, which is no longer
       supported.
@@ -2720,8 +2720,8 @@ system and gives an overview of their function and contents.
       ``${``\ :term:`LOG_DIR`\ ``}/error-report``.
 
       You can set :term:`ERR_REPORT_DIR` to the path you want the error
-      reporting tool to store the debug files as follows in your
-      ``local.conf`` file::
+      reporting tool to store the debug files as follows in a
+      :term:`configuration file`::
 
          ERR_REPORT_DIR = "path"
 
@@ -2912,9 +2912,10 @@ system and gives an overview of their function and contents.
       A list of additional features to include in an image. When listing
       more than one feature, separate them with a space.
 
-      Typically, you configure this variable in your ``local.conf`` file,
-      which is found in the :term:`Build Directory`. Although you can use this
-      variable from within a recipe, best practices dictate that you do not.
+      Typically, you configure this variable in your :ref:`structure-build-conf-local.conf` file for
+      local modifications, or in your distro :term:`configuration file` for
+      permanent changes. Although you can use this variable from within a
+      recipe, best practices dictate that you do not.
 
       .. note::
 
@@ -3131,7 +3132,7 @@ system and gives an overview of their function and contents.
       Points to the base URL of the server and location within the
       document-root that provides the metadata and packages required by
       OPKG to support runtime package management of IPK packages. You set
-      this variable in your ``local.conf`` file.
+      this variable in a :term:`configuration file`.
 
       Consider the following example::
 
@@ -3867,7 +3868,9 @@ system and gives an overview of their function and contents.
          If you specifically remove the locale ``en_US.UTF-8``, you must set
          :term:`IMAGE_LINGUAS` appropriately.
 
-      You can set :term:`GLIBC_GENERATE_LOCALES` in your ``local.conf`` file.
+      You can set :term:`GLIBC_GENERATE_LOCALES` in your ``local.conf`` file for
+      local testing or in your distro :term:`configuration file`.
+
       By default, all locales are generated::
 
          GLIBC_GENERATE_LOCALES = "en_GB.UTF-8 en_US.UTF-8"
@@ -3963,7 +3966,7 @@ system and gives an overview of their function and contents.
    :term:`GRUB_GFXSERIAL`
       Configures the GNU GRand Unified Bootloader (GRUB) to have graphics
       and serial in the boot menu. Set this variable to "1" in your
-      ``local.conf`` or distribution configuration file to enable graphics
+      :ref:`structure-build-conf-local.conf` or distribution :term:`configuration file` to enable graphics
       and serial in the menu.
 
       See the :ref:`ref-classes-grub-efi` class for more
@@ -5448,7 +5451,7 @@ system and gives an overview of their function and contents.
       building and configuring the kernel stops with an error.
 
       You can turn these errors into warnings by setting the
-      following in ``conf/local.conf``::
+      following in a :term:`configuration file`::
 
          KERNEL_DANGLING_FEATURES_WARN_ONLY = "1"
 
@@ -6583,11 +6586,10 @@ system and gives an overview of their function and contents.
 
          NO_RECOMMENDATIONS = "1"
 
-      You can set this variable globally in your ``local.conf`` file or you
-      can attach it to a specific image recipe by using the recipe name
-      override::
+      You can set this variable globally in a :term:`configuration file` or you
+      can specify it in an image recipe directly::
 
-         NO_RECOMMENDATIONS:pn-target_image = "1"
+         NO_RECOMMENDATIONS = "1"
 
       It is important to realize that if you choose to not install packages
       using this variable and some other packages are dependent on them
@@ -6944,9 +6946,7 @@ system and gives an overview of their function and contents.
       included in the default package.
 
    :term:`PACKAGE_CLASSES`
-      This variable, which is set in the ``local.conf`` configuration file
-      found in the ``conf`` folder of the
-      :term:`Build Directory`, specifies the package manager the
+      This variable specifies the package manager the
       OpenEmbedded build system uses when packaging data.
 
       You can provide one or more of the following arguments for the
@@ -6957,7 +6957,7 @@ system and gives an overview of their function and contents.
       The build system uses only the first argument in the list as the
       package manager when creating your image or SDK. However, packages
       will be created using any additional packaging classes you specify.
-      For example, if you use the following in your ``local.conf`` file::
+      For example, if you use the following in your distro :term:`configuration file`::
 
          PACKAGE_CLASSES ?= "package_ipk"
 
@@ -7018,11 +7018,10 @@ system and gives an overview of their function and contents.
 
          PACKAGE_EXCLUDE = "package_name package_name package_name ..."
 
-      You can set this variable globally in your ``local.conf`` file or you
-      can attach it to a specific image recipe by using the recipe name
-      override::
+      You can set this variable globally in a :term:`configuration file` or you
+      can specify it in an image recipe directly::
 
-         PACKAGE_EXCLUDE:pn-target_image = "package_name"
+         PACKAGE_EXCLUDE = "package_name"
 
       If you choose to not install a package using this variable and some
       other package is dependent on it (i.e. listed in a recipe's
@@ -7317,8 +7316,8 @@ system and gives an overview of their function and contents.
             PACKAGECONFIG:append = " f4"
 
       -  *Configuration file:* This method is identical to changing the
-         block through an append file except you edit your ``local.conf``
-         or ``mydistro.conf`` file. As with append files previously
+         block through an append file except you edit your :ref:`structure-build-conf-local.conf`
+         or distro :term:`configuration file`. As with append files previously
          described, you can either completely override the variable::
 
             PACKAGECONFIG:pn-recipename = "f4 f5"
@@ -8009,8 +8008,8 @@ system and gives an overview of their function and contents.
    :term:`PRSERV_HOST`
       The network based :term:`PR` service host and port.
 
-      The ``conf/templates/default/local.conf.sample.extended`` configuration
-      file in :yocto_git:`meta-poky </meta-yocto/tree/meta-poky>` shows how the
+      The :oecore_path:`meta/conf/templates/default/local.conf.sample.extended`
+      configuration file in :term:`OpenEmbedded-Core (OE-Core)` shows how the
       :term:`PRSERV_HOST` variable is set::
 
          PRSERV_HOST = "localhost:0"
@@ -9371,9 +9370,8 @@ system and gives an overview of their function and contents.
       package. Removal of these files is required for packages containing
       prebuilt binaries and libraries such as ``libstdc++`` and ``glibc``.
 
-      To enable file removal, set the variable to "1" in your
-      ``conf/local.conf`` configuration file in your:
-      :term:`Build Directory`::
+      To enable file removal, set the variable to "1" in a :term:`configuration
+      file`::
 
          SKIP_FILEDEPS = "1"
 
@@ -9437,7 +9435,7 @@ system and gives an overview of their function and contents.
    :term:`SOURCE_MIRROR_FETCH`
       When you are fetching files to create a mirror of sources (i.e.
       creating a source mirror), setting :term:`SOURCE_MIRROR_FETCH` to "1" in
-      your ``local.conf`` configuration file ensures the source for all
+      a :term:`configuration file` ensures the source for all
       recipes are fetched regardless of whether or not a recipe is
       compatible with the configuration. A recipe is considered
       incompatible with the currently configured machine when either or
@@ -10978,9 +10976,10 @@ system and gives an overview of their function and contents.
 
    :term:`TEMPLATECONF`
       Specifies the directory used by the build system to find templates
-      from which to build the ``bblayers.conf`` and ``local.conf`` files.
+      from which to build the :ref:`structure-build-conf-bblayers.conf` and
+      :ref:`structure-build-conf-local.conf` files.
       Use this variable if you wish to customize such files, and the default
-      BitBake targets shown when sourcing the ``oe-init-build-env`` script.
+      BitBake targets shown when sourcing the :ref:`structure-core-script` script.
 
       For details, see the
       :ref:`dev-manual/custom-template-configuration-directory:creating a custom template configuration directory`
@@ -11034,8 +11033,7 @@ system and gives an overview of their function and contents.
       The time in seconds allowed for an image to boot before automated
       runtime tests begin to run against an image. The default timeout
       period to allow the boot process to reach the login prompt is 500
-      seconds. You can specify a different value in the ``local.conf``
-      file.
+      seconds. You can specify a different value in a :term:`configuration file`.
 
       For more information on testing images, see the
       ":ref:`test-manual/runtime-testing:performing automated runtime testing`"
@@ -11184,10 +11182,9 @@ system and gives an overview of their function and contents.
 
       These tests are written in Python making use of the ``unittest``
       module, and the majority of them run commands on the target system
-      over ``ssh``. You can set this variable to "1" in your ``local.conf``
-      file in the :term:`Build Directory` to have the
-      OpenEmbedded build system automatically run these tests after an
-      image successfully builds:
+      over ``ssh``. You can set this variable to "1" in a :term:`configuration
+      file` to have the OpenEmbedded build system automatically run these tests
+      after an image successfully builds:
 
          TESTIMAGE_AUTO = "1"
 
@@ -12472,13 +12469,10 @@ system and gives an overview of their function and contents.
       Classes inherited using :term:`USER_CLASSES` must be located in the
       ``classes-global/`` or ``classes/`` subdirectories.
 
-      The default list is set in your ``local.conf`` file::
+      A default list is set in the
+      :oecore_path:`meta/conf/templates/default/local.conf.sample` file::
 
          USER_CLASSES ?= "buildstats"
-
-      For more information, see
-      ``conf/templates/default/local.conf.sample`` in
-      :yocto_git:`meta-poky </meta-yocto/tree/meta-poky>`.
 
    :term:`USERADD_DEPENDS`
       Specifies a list of recipes that create users / groups (via
@@ -12498,8 +12492,8 @@ system and gives an overview of their function and contents.
       ``uid`` and ``gid`` values. Consequently, the
       :term:`USERADD_ERROR_DYNAMIC` variable is by default not set. If you plan
       on using statically assigned ``gid`` and ``uid`` values, you should
-      set the :term:`USERADD_ERROR_DYNAMIC` variable in your ``local.conf``
-      file as follows::
+      set the :term:`USERADD_ERROR_DYNAMIC` variable in a :term:`configuration
+      file`::
 
          USERADD_ERROR_DYNAMIC = "error"
 
@@ -12529,8 +12523,7 @@ system and gives an overview of their function and contents.
       When applying static group identification (``gid``) values, the
       OpenEmbedded build system looks in :term:`BBPATH` for a
       ``files/group`` file and then applies those ``uid`` values. Set the
-      variable as follows in your ``local.conf`` file::
-
+      variable as follows in a :term:`configuration file`::
 
          USERADD_GID_TABLES = "files/group"
 
@@ -12580,7 +12573,7 @@ system and gives an overview of their function and contents.
       When applying static user identification (``uid``) values, the
       OpenEmbedded build system looks in :term:`BBPATH` for a
       ``files/passwd`` file and then applies those ``uid`` values. Set the
-      variable as follows in your ``local.conf`` file::
+      variable as follows in a :term:`configuration file`::
 
          USERADD_UID_TABLES = "files/passwd"
 
@@ -12595,8 +12588,10 @@ system and gives an overview of their function and contents.
       ``group`` files found in :term:`BBPATH`.
 
       To use static user identification (``uid``) and group identification
-      (``gid``) values, set the variable as follows in your ``local.conf``
-      file: USERADDEXTENSION = "useradd-staticids"
+      (``gid``) values, set the variable as follows in in a
+      :term:`configuration file`::
+
+         USERADDEXTENSION = "useradd-staticids"
 
       .. note::
 

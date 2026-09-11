@@ -15,8 +15,10 @@ follows:
    ``bblayers.conf`` file through the
    :term:`BBLAYERS` variable.
 
--  Set the :term:`EXTERNAL_TOOLCHAIN` variable in your ``local.conf`` file
-   to the location in which you installed the toolchain.
+-  Set the :term:`EXTERNAL_TOOLCHAIN` variable in your
+   :ref:`structure-build-conf-local.conf` file
+   to the location in which you installed the toolchain (or in your distro
+   :term:`configuration file`).
 
 The toolchain configuration is very flexible and customizable. It
 is primarily controlled with the :term:`TCMODE` variable. This variable
