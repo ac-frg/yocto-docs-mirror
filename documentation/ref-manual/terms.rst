@@ -195,19 +195,30 @@ universal, the list includes them just in case:
       build system what to build and what to put into the image to support a
       particular platform.
 
-      Configuration files end with a ``.conf`` filename extension. The
-      :file:`conf/local.conf` configuration file in the :term:`Build Directory`
-      contains user-defined variables that affect every build. The
-      :file:`meta-poky/conf/distro/poky.conf` configuration file defines Yocto
-      "distro" configuration variables used only when building with this
-      policy. Machine configuration files, which are located in
-      :ref:`bsp-manual/bsp:BSP Layers>, define variables for specific hardware and are
-      only used when building for that target (e.g. the
-      :file:`machine/beaglebone.conf` configuration file defines variables for
-      the Texas Instruments ARM Cortex-A8 development board).
-      :term:`Configuration Fragments <Configuration Fragment>` such as
-      :ref:`ref-fragments-core-yocto-sstate-mirror-cdn` define snippets of
-      configuration that can be enabled from the command-line.
+      Configuration files end with a ``.conf`` filename extension. There are
+      multiple types of configuration files, such as:
+
+      -  The :file:`conf/local.conf` configuration file in the :term:`Build
+         Directory` contains user-defined variables that affect every build.
+
+      -  The :file:`meta-poky/conf/distro/poky.conf` configuration file defines
+         Yocto "distro" configuration variables used only when building with
+         this policy. See the :ref:`dev-manual/custom-distribution:creating your
+         own distribution` section of the Yocto Project Reference Manual for
+         more information.
+
+      -  Machine configuration files, which are located in
+         :ref:`bsp-manual/bsp:BSP Layers`, define variables for specific
+         hardware and are only used when building for that target (e.g. the
+         :file:`machine/beaglebone.conf` configuration file defines variables
+         for the Texas Instruments ARM Cortex-A8 development board).
+
+      -  :term:`Configuration Fragments <Configuration Fragment>` such as
+         :ref:`ref-fragments-core-yocto-sstate-mirror-cdn` define snippets of
+         configuration that can be enabled from the command-line.
+
+      See also the :doc:`/ref-manual/structure` section of the Yocto Project
+      Reference Manual for more example of configuration files.
 
    :term:`Configuration Fragment`
       A :term:`Configuration Fragment` (also called Standard :term:`Configuration
