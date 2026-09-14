@@ -9500,6 +9500,29 @@ system and gives an overview of their function and contents.
 
             SOURCE_MIRROR_URL = "http://example.com/my_source_mirror;user=<user>;pswd=<password>"
 
+   :term:`SPDX_AUTHORS`
+      This variable is used to list the authors of the created SPDX data.
+      It works slightly differently than the other agent variables (like
+      :term:`SPDX_IMAGE_SUPPLIER`) in that the base variable provides a list of
+      suffixes which are used to construct the variable prefixes for the
+      created authors. For example::
+
+         SPDX_AUTHORS = "myorg myself"
+         SPDX_AUTHORS_myorg_name = "My Organization"
+         SPDX_AUTHORS_myorg_type = "organization"
+         SPDX_AUTHORS_myself_name = "My Name"
+         SPDX_AUTHORS_myself_type = "Person"
+
+
+      Note that references to other objects can be made using the ``_ref``
+      suffix, for example::
+
+         SPDX_AUTHORS_myself_ref = "SPDX_IMAGE_SUPPLIER"
+
+      And other variables can reference authors by using the correct prefix::
+
+         SPDX_IMAGE_SUPPLIER_ref = "SPDX_AUTHORS_myorg"
+
    :term:`SPDX_BUILD_HOST`
       The base variable name describing the build host on which the build is
       running. The value must name a key from ``SPDX_IMPORTS``, allowing
