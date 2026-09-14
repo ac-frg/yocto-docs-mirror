@@ -9575,38 +9575,28 @@ system and gives an overview of their function and contents.
       PURLs.
 
    :term:`SPDX_IMAGE_SUPPLIER`
-      The name of an agent variable prefix describing the organization or
-      person who supplies the image SBOM. When set, the supplier is attached
-      to all root elements of the image SBOM using the ``suppliedBy`` property.
+      The variable prefix for describing the organization or person who
+      supplies the image SBOM. When set, the supplier is attached to all root
+      elements of the image SBOM using the ``suppliedBy`` property.
 
       The value of this variable is the base prefix used to look up the
       agent's details. The following sub-variables are read using that prefix:
 
-      -  ``<PREFIX>_name``: display name of the supplier (required)
-      -  ``<PREFIX>_type``: agent type: ``organization``, ``person``,
+      -  ``SPDX_IMAGE_SUPPLIER_name``: display name of the supplier (required)
+      -  ``SPDX_IMAGE_SUPPLIER_type``: agent type: ``organization``, ``person``,
          ``software``, or ``agent`` (optional, defaults to ``agent``)
-      -  ``<PREFIX>_comment``: free-text comment (optional)
-      -  ``<PREFIX>_id_email``: contact e-mail address (optional)
-
-      The simplest approach is to use the variable itself as its own prefix,
-      so the sub-variable names follow directly from
-      ``SPDX_IMAGE_SUPPLIER``.
+      -  ``SPDX_IMAGE_SUPPLIER_comment``: free-text comment (optional)
+      -  ``SPDX_IMAGE_SUPPLIER_id_email``: contact e-mail address (optional)
 
       Example (set in the image recipe or in a :term:`configuration file`)::
 
-         SPDX_IMAGE_SUPPLIER = "SPDX_IMAGE_SUPPLIER"
          SPDX_IMAGE_SUPPLIER_name = "Acme Corp"
          SPDX_IMAGE_SUPPLIER_type = "organization"
 
-      Alternatively, you can use any other prefix name, which is useful for
-      sharing an agent definition across multiple supplier variables::
+      Alternatively, it is also possible to reference an agent created by
+      another variable prefix, using ``SPDX_IMAGE_SUPPLIER_ref``. For example::
 
-         MY_COMPANY_name = "Acme Corp"
-         MY_COMPANY_type = "organization"
-         SPDX_IMAGE_SUPPLIER = "MY_COMPANY"
-         SPDX_SDK_SUPPLIER = "MY_COMPANY"
-
-      If not set, no supplier information is added to the image SBOM.
+        SPDX_IMAGE_SUPPLIER_ref = "SPDX_PACKAGE_SUPPLIER"
 
       See also :term:`SPDX_PACKAGE_SUPPLIER` and :term:`SPDX_SDK_SUPPLIER`.
 
@@ -9745,7 +9735,7 @@ system and gives an overview of their function and contents.
          already fixed upstream (warning: this can be large and slow).
 
    :term:`SPDX_INVOKED_BY`
-      The base variable name describing the agent that invoked the build.
+      The variable prefix describing the agent that invoked the build.
       Each ``Build`` object in the SPDX output is linked to this agent with an
       ``invokedBy`` relationship. Requires
       :term:`SPDX_INCLUDE_BITBAKE_PARENT_BUILD` to be set to ``"1"``.
@@ -9759,7 +9749,6 @@ system and gives an overview of their function and contents.
       Example (CI pipeline invoking the build)::
 
          SPDX_INCLUDE_BITBAKE_PARENT_BUILD = "1"
-         SPDX_INVOKED_BY = "SPDX_INVOKED_BY"
          SPDX_INVOKED_BY_name = "GitLab CI"
          SPDX_INVOKED_BY_type = "software"
 
@@ -9800,7 +9789,7 @@ system and gives an overview of their function and contents.
       ``http://spdx.org/spdxdoc``.
 
    :term:`SPDX_ON_BEHALF_OF`
-      The base variable name describing the agent on whose behalf the invoking
+      The variable prefix describing the agent on whose behalf the invoking
       agent (:term:`SPDX_INVOKED_BY`) is running the build. Requires
       :term:`SPDX_INCLUDE_BITBAKE_PARENT_BUILD` to be set to ``"1"``.
       Has no effect if :term:`SPDX_INVOKED_BY` is not also set.
@@ -9814,10 +9803,8 @@ system and gives an overview of their function and contents.
       Example (CI system building on behalf of a customer organization)::
 
          SPDX_INCLUDE_BITBAKE_PARENT_BUILD = "1"
-         SPDX_INVOKED_BY = "SPDX_INVOKED_BY"
          SPDX_INVOKED_BY_name = "GitLab CI"
          SPDX_INVOKED_BY_type = "software"
-         SPDX_ON_BEHALF_OF = "SPDX_ON_BEHALF_OF"
          SPDX_ON_BEHALF_OF_name = "Acme Corp"
          SPDX_ON_BEHALF_OF_type = "organization"
 
@@ -9830,7 +9817,7 @@ system and gives an overview of their function and contents.
       :term:`SPDX_INVOKED_BY`, and :term:`SPDX_BUILD_HOST`.
 
    :term:`SPDX_PACKAGE_SUPPLIER`
-      The base variable name describing the agent who supplies the artifacts
+      The variable prefix describing the agent who supplies the artifacts
       produced by the build. Works identically to :term:`SPDX_IMAGE_SUPPLIER`
       but applies to individual packages rather than the image SBOM.
 
@@ -9839,7 +9826,6 @@ system and gives an overview of their function and contents.
       to apply only to packages of that recipe. Recipe-level overrides
       (``SPDX_PACKAGE_SUPPLIER:pn-<recipe>``) are also supported::
 
-         SPDX_PACKAGE_SUPPLIER = "SPDX_PACKAGE_SUPPLIER"
          SPDX_PACKAGE_SUPPLIER_name = "Acme Corp"
          SPDX_PACKAGE_SUPPLIER_type = "organization"
 
@@ -11487,7 +11473,7 @@ system and gives an overview of their function and contents.
       configuration must define the :term:`UBOOT_MACHINE` variable.
       Additional control variables are: :term:`UBOOT_CONFIG_BINARY`,
       :term:`UBOOT_CONFIG_FRAGMENTS`, :term:`UBOOT_CONFIG_IMAGE_FSTYPES`, and
-      :term:`UBOOT_CONFIG_MAKE_OPTS`. 
+      :term:`UBOOT_CONFIG_MAKE_OPTS`.
 
       Here is an updated example from the ``meta-freescale`` layer. ::
 
