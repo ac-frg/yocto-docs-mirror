@@ -1042,25 +1042,33 @@ The following lists specific examples of virtual providers:
 Properly Versioning Pre-Release Recipes
 =======================================
 
-Sometimes the name of a recipe can lead to versioning problems when the
-recipe is upgraded to a final release. For example, consider the
-``irssi_0.8.16-rc1.bb`` recipe file in the list of example recipes in
-the ":ref:`dev-manual/new-recipe:storing and naming the recipe`" section.
-This recipe is at a release candidate stage (i.e. "rc1"). When the recipe is
-released, the recipe filename becomes ``irssi_0.8.16.bb``. The version
-change from ``0.8.16-rc1`` to ``0.8.16`` is seen as a decrease by the
-build system and package managers, so the resulting packages will not
-correctly trigger an upgrade.
+Occasionally, someone wants to release a recipe that is clearly marked
+as a `release candidate` --- say, ``app_2.0-rc1.bb`` --- until the
+eventual release of ``app_2.0.bb``. The problem with this approach is
+that, based on release numbering, the eventual version change from ``2.0-rc1``
+to ``2.0`` would be seen as a `decrease` by the build system and package
+managers, so the resulting packages would not trigger a proper upgrade.
 
-In order to ensure the versions compare properly, the recommended
-convention is to use a tilde (``~``) character as follows::
+In order for the versions to compare properly, the recommended
+convention is to name the recipe file with the eventual final
+release --- ``app_2.0.bb`` --- but, inside the recipe file, set
+the :term:`PV` variable to incorporate the release candidate number using
+the tilde (``~``) character::
 
-  PV = "0.8.16~rc1"
+   PV = "2.0~rc1"
 
-This way ``0.8.16~rc1`` sorts before ``0.8.16``. See the
-":ref:`contributor-guide/recipe-style-guide:version policy`" section in the
-Yocto Project and OpenEmbedded Contributor Guide for more details about
-versioning code corresponding to a pre-release or to a specific Git commit.
+ensuring that ``2.0~rc1`` sorts before ``2.0``.
+
+This is exactly the approach taken with OpenEmbedded's ``avahi`` recipe,
+whose current ``avahi_0.9.bb`` recipe file identifies that it is now on
+its `fifth` release candidate::
+
+   PV = "0.9~rc5"
+
+See the ":ref:`contributor-guide/recipe-style-guide:version policy`"
+section in the Yocto Project and OpenEmbedded Contributor Guide for more
+details about versioning code corresponding to a pre-release or to a
+specific Git commit.
 
 Post-Installation Scripts
 =========================
