@@ -561,7 +561,7 @@ to use. In your configuration, you use the
 variable to specify the format:
 
 #. Select the desired package format as follows from your
-:ref:`structure-build-conf-local.conf` or distro :term:`configuration file`::
+   :ref:`structure-build-conf-local.conf` or distro :term:`configuration file`::
 
       PACKAGE_CLASSES ?= "package_packageformat"
 
