@@ -116,3 +116,10 @@ Release notes and migration guides for the different Yocto Project releases.
    :hidden:
 
    downloads
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Documentation Conventions
+   :hidden:
+
+   conventions
