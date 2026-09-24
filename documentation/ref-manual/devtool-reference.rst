@@ -474,7 +474,7 @@ This is roughly equivalent to the ``devtool update-recipe`` command followed by
 the ``devtool reset`` command. The changes must have been committed to the git
 repository created by ``devtool``. Here is an example::
 
-  $ devtool finish recipe /path/to/custom/layer
+  $ devtool finish <recipe> <path/to/custom/layer>
 
 .. _devtool-building-your-recipe:
 

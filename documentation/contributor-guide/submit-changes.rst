@@ -62,8 +62,8 @@ on Debian and Ubuntu::
 Then, you need to set a name and e-mail address that Git will
 use to identify your commits::
 
-   $ git config --global user.name "Ada Lovelace"
-   $ git config --global user.email "ada.lovelace@gmail.com"
+   $ git config --global user.name "<firstname> <lastname>"
+   $ git config --global user.email "<email>"
 
 By default, Git adds a signature line at the end of patches containing the Git
 version. We suggest to remove it as it doesn't add useful information.
@@ -394,13 +394,14 @@ Mail Transport Agent (MTA) such as ``msmtp``, ``sendmail``, or
 through a direct SMTP configuration in your Git ``~/.gitconfig`` file.
 
 Here are the settings for letting ``git send-email`` send e-mail through your
-regular STMP server, using a Google Mail account as an example::
+regular STMP server, such as ``smtp.gmail.com`` for a Google Mail
+account::
 
-   $ git config --global sendemail.smtpserver smtp.gmail.com
+   $ git config --global sendemail.smtpserver <smtp server>
    $ git config --global sendemail.smtpserverport 587
    $ git config --global sendemail.smtpencryption tls
-   $ git config --global sendemail.smtpuser ada.lovelace@gmail.com
-   $ git config --global sendemail.smtppass = XXXXXXXX
+   $ git config --global sendemail.smtpuser <email>
+   $ git config --global sendemail.smtppass <password>
 
 These settings will appear in the ``.gitconfig`` file in your home directory.
 
@@ -517,7 +518,7 @@ author name. The following will ensure that your e-mails have an additional
 maintainers accepting your patches don't have to fix commit author information
 manually::
 
-   $ git config --global sendemail.from "linus.torvalds@kernel.org"
+   $ git config --global sendemail.from "<email>"
 
 The ``sendemail.from`` should match your ``user.email`` setting,
 which appears in the ``Signed-off-by`` line of your commits.

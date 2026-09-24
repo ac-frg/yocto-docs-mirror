@@ -162,7 +162,7 @@ system and gives an overview of their function and contents.
          ARCHIVER_MODE[src] = "patched"                    # Uses patched source files. This is the default.
          ARCHIVER_MODE[src] = "configured"                 # Uses configured source files.
          ARCHIVER_MODE[diff] = "1"                         # Uses patches between do_unpack and do_patch.
-         ARCHIVER_MODE[diff-exclude] ?= "file file ..."    # Lists files and directories to exclude from diff.
+         ARCHIVER_MODE[diff-exclude] ?= "<file> <file> ..."    # Lists files and directories to exclude from diff.
          ARCHIVER_MODE[dumpdata] = "1"                     # Uses environment data.
          ARCHIVER_MODE[recipe] = "1"                       # Uses recipe and include files.
 

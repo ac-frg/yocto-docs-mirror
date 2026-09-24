@@ -810,7 +810,7 @@ be visible. In this case, there is a missing dependency for the ``neard``
 Makefile target. Here is some abbreviated, sample output with the
 missing dependency clearly visible at the end::
 
-   i586-poky-linux-gcc  -m32 -march=i586 --sysroot=/home/scott-lenovo/......
+   i586-poky-linux-gcc  -m32 -march=i586 --sysroot=<path/to/sysroot>
       .
       .
       .
@@ -1114,11 +1114,11 @@ debugger.
    After running gdbserver on the target, you need to run Gdb on the
    host and configure it and connect to the target. Use these commands::
 
-      $ cd directory-holding-the-debugfs-directory
-      $ arch-gdb
+      $ cd <debugfs-directory>
+      $ <arch>-gdb
       (gdb) set sysroot debugfs
       (gdb) set substitute-path /usr/src/debug debugfs/usr/src/debug
-      (gdb) target remote IP-of-target:1234
+      (gdb) target remote <IP-of-target>:1234
 
    At this
    point, everything should automatically load (i.e. matching binaries,
