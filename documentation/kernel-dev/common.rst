@@ -722,7 +722,7 @@ the ":ref:`kernel-dev/common:getting ready to develop using ``devtool```" Sectio
 
       .. code-block:: none
 
-         # dmesg | less
+         root@qemux86:~# dmesg | less
 
       You should see
       the results of your ``printk`` statements as part of the output
@@ -878,7 +878,7 @@ Section.
 
    .. code-block:: none
 
-      # dmesg | less
+      root@qemux86:~# dmesg | less
 
    You should see the results of your
    ``printk`` statements as part of the output when you scroll down the
@@ -1554,8 +1554,8 @@ directory. Next, ``make`` the scripts:
 
 .. code-block:: none
 
-   # cd /usr/src/kernel
-   # make scripts
+   root@machine:~# cd /usr/src/kernel
+   root@machine:/usr/src/kernel# make scripts
 
 Because all SDK image recipes include ``dev-pkgs``, the
 ``kernel-dev`` packages will be installed as part of the SDK image and

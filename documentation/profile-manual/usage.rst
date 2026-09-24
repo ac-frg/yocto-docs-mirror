@@ -1801,7 +1801,7 @@ probe, you'd just install SystemTap on the system you want to probe,
 and directly run the probe on that system e.g. assuming the name of the
 file containing the above text is ``trace_open.stp``::
 
-   # stap trace_open.stp
+   root@machine:~# stap trace_open.stp
 
 What SystemTap does under the covers to run this probe is 1) parse and
 convert the probe to an equivalent "C" form, 2) compile the "C" form
