@@ -107,6 +107,34 @@ section#welcome-to-the-yocto-project-documentation p.caption {
    display: none;
 }
 
+/* A code-block caption names the file the block came from, so it
+   should read as a filename rather than as prose, and sit on the block
+   it titles rather than floating above it. */
+.rst-content .literal-block-wrapper .code-block-caption {
+    font-style: normal;
+    font-family: SFMono-Regular, Menlo, Monaco, Consolas,
+                 Liberation Mono, Courier New, Courier, monospace;
+    font-size: 80%;
+    text-align: left;
+    color: #e6edf3;
+    background: #2b3137;
+    padding: .45em .9em;
+    margin: 0;
+    line-height: 1.5;
+    border-radius: 4px 4px 0 0;
+}
+
+.rst-content .literal-block-wrapper .code-block-caption .headerlink {
+    color: #93a1ad;
+}
+
+/* No gap and no doubled border between a caption and its block. */
+.rst-content .literal-block-wrapper .code-block-caption + div[class^=highlight] {
+    margin-top: 0;
+    border-top: none;
+    border-radius: 0 0 4px 4px;
+}
+
 @media screen {
     .wy-nav-content {
        max-width: 1000px;
