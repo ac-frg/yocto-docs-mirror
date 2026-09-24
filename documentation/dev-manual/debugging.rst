@@ -144,7 +144,7 @@ helpful during debugging.
 Variables that are exported to the environment are preceded by
 ``export`` in the output of ``bitbake-getvar``. See the following example::
 
-   export CC="i586-poky-linux-gcc -m32 -march=i586 --sysroot=/home/ulf/poky/build/tmp/sysroots/qemux86"
+   export CC="i586-poky-linux-gcc -m32 -march=i586 --sysroot=/home/user/poky/build/tmp/sysroots/qemux86"
 
 Shell functions and tasks can also be inspected with the same mechanism::
 
@@ -522,7 +522,7 @@ task dependency mechanisms.
 
    .. code-block:: none
 
-      WARNING: /home/ulf/openembedded-core/meta/recipes-sato/matchbox-desktop/matchbox-desktop_2.1.bb.do_compile is tainted from a forced run
+      WARNING: /home/user/openembedded-core/meta/recipes-sato/matchbox-desktop/matchbox-desktop_2.1.bb.do_compile is tainted from a forced run
 
 
    The purpose of the warning is to let you know that the work directory

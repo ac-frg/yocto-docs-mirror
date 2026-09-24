@@ -916,11 +916,11 @@ shows the layers that are in your :ref:`structure-build-conf-bblayers.conf` file
    NOTE: Starting bitbake server...
    layer                 path                                                            priority
    ==============================================================================================
-   meta                  /home/scottrif/bitbake-builds/layers/openembedded-core/meta           5
-   meta-poky             /home/scottrif/bitbake-builds/layers/meta-yocto/meta-poky             5
-   meta-yocto-bsp        /home/scottrif/bitbake-builds/layers/meta-yocto/meta-yocto-bsp        5
-   workspace             /home/scottrif/bitbake-builds/build/workspace                         99
-   meta-scottrif         /home/scottrif/bitbake-builds/build/meta-scottrif                     6
+   meta                  /home/user/bitbake-builds/layers/openembedded-core/meta           5
+   meta-poky             /home/user/bitbake-builds/layers/meta-yocto/meta-poky             5
+   meta-yocto-bsp        /home/user/bitbake-builds/layers/meta-yocto/meta-yocto-bsp        5
+   workspace             /home/user/bitbake-builds/build/workspace                         99
+   meta-scottrif         /home/user/bitbake-builds/build/meta-scottrif                     6
 
 Adding the layer to this file
 enables the build system to locate the layer during the build.

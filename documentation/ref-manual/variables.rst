@@ -888,10 +888,10 @@ system and gives an overview of their function and contents.
       Here is an example::
 
          BBLAYERS = " \
-             /home/scottrif/bitbake-builds/layers/meta \
-             /home/scottrif/bitbake-builds/layers/meta-poky \
-             /home/scottrif/bitbake-builds/layers/meta-yocto-bsp \
-             /home/scottrif/bitbake-builds/layers/meta-mykernel \
+             /home/user/bitbake-builds/layers/meta \
+             /home/user/bitbake-builds/layers/meta-poky \
+             /home/user/bitbake-builds/layers/meta-yocto-bsp \
+             /home/user/bitbake-builds/layers/meta-mykernel \
              "
 
       This example enables four layers, one of which is a custom,

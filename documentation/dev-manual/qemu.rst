@@ -151,7 +151,7 @@ available. Follow these general steps to run QEMU:
       determines the QEMU architecture (`MACHINE`) to be "qemux86-64" and
       the root filesystem type to be "vmdk"::
 
-         $ runqemu /home/scott-lenovo/vm/core-image-minimal-qemux86-64.wic.vmdk
+         $ runqemu /home/user/vm/core-image-minimal-qemux86-64.wic.vmdk
 
 Switching Between Consoles
 ==========================

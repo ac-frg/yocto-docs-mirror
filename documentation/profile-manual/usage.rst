@@ -322,7 +322,7 @@ debug packages once built can be found in ``build/tmp/deploy/rpm/*``
 on the host system. Find the ``busybox-dbg-...rpm`` file and copy it
 to the target. For example::
 
-   [trz@empanada core2]$ scp /home/trz/yocto/crownbay-tracing-dbg/build/tmp/deploy/rpm/core2_32/busybox-dbg-1.20.2-r2.core2_32.rpm root@192.168.1.31:
+   $ scp /home/user/yocto/crownbay-tracing-dbg/build/tmp/deploy/rpm/core2_32/busybox-dbg-1.20.2-r2.core2_32.rpm root@192.168.1.31:
    busybox-dbg-1.20.2-r2.core2_32.rpm                     100% 1826KB   1.8MB/s   00:01
 
 Now install the debug RPM on the target::

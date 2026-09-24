@@ -461,11 +461,11 @@ and related variables. To better understand this, consider the following
 two paths (artificially broken across lines for readability) where the
 first is relatively normal and the second is not::
 
-   /home/maxtothemax/poky-bootchart2/build/tmp/work/i586-poky-linux/zlib/
+   /home/user/poky-bootchart2/build/tmp/work/i586-poky-linux/zlib/
       1.2.8-r0/sysroot-destdir/usr/bin
 
-   /home/maxtothemax/poky-bootchart2/build/tmp/work/x86_64-linux/
-      zlib-native/1.2.8-r0/sysroot-destdir/home/maxtothemax/poky-bootchart2/
+   /home/user/poky-bootchart2/build/tmp/work/x86_64-linux/
+      zlib-native/1.2.8-r0/sysroot-destdir/home/user/poky-bootchart2/
       build/tmp/sysroots/x86_64-linux/usr/bin
 
 Even if the paths look unusual, they both are correct --- the first for
