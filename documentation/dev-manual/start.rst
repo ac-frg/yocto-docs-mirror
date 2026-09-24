@@ -56,7 +56,8 @@ particular working environment and set of practices.
     get the hardware together. Ideally, any development, build, or test
     engineer uses a system that runs a supported Linux distribution.
     These systems, in general, should be high performance (e.g. a minimum
-    of &MIN_RAM; Gbytes of RAM and at least &MIN_DISK_SPACE; Gbytes of disk space).
+    of &MIN_RAM; Gbytes of RAM, at least &MIN_DISK_SPACE; Gbytes of disk space
+    and a minimum of &MIN_CPU_CORES; CPU cores).
     You can help ensure efficiency by having any machines used for testing
     or that run Autobuilders be as high performance as possible.
 

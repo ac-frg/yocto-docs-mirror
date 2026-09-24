@@ -42,12 +42,12 @@ section of the Development Tasks Manual.
 
 .. _system-requirements-minimum-ram:
 
-Minimum System RAM
-==================
+Minimum System RAM and CPU Cores
+================================
 
 You will manage to build an image such as ``core-image-sato`` for the
-``qemux86-64`` machine with as little as &MIN_RAM; Gbytes of RAM on an old
-system with 4 CPU cores, but your builds will be much faster on a system with
+``qemux86-64`` machine with as little as &MIN_RAM; Gbytes of RAM and
+&MIN_CPU_CORES; CPU cores, but your builds will be much faster on a system with
 as much RAM and as many CPU cores as possible.
 
 .. _system-requirements-supported-distros:
