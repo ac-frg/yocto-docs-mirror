@@ -821,7 +821,6 @@ missing dependency clearly visible at the end::
                      ^
    compilation terminated.
    make: *** [tools/snep-send.o] Error 1
-   $
 
 
 Creating a Patch for the Fix

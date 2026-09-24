@@ -373,7 +373,7 @@ layer>`:
 
     First, clone the layer next to the other layers::
 
-      git clone -b &DISTRO_NAME_NO_CAP; https://git.yoctoproject.org/meta-raspberrypi ../layers/meta-raspberrypi
+      $ git clone -b &DISTRO_NAME_NO_CAP; https://git.yoctoproject.org/meta-raspberrypi ../layers/meta-raspberrypi
 
 #.  **Add Your Layer to the Layer Configuration File:** Before you can use
     it, you must add the layer and its dependencies to your :ref:`structure-build-conf-bblayers.conf`

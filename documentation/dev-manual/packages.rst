@@ -176,7 +176,7 @@ work against a common, shared package feed, you have a single PR Service
 running and it is connected to each building system. For this scenario,
 you need to start the PR Service using the ``bitbake-prserv`` command::
 
-   bitbake-prserv --host ip --port port --start
+   $ bitbake-prserv --host ip --port port --start
 
 In addition to
 hand-starting the service, you need to update the

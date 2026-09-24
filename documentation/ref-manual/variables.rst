@@ -967,7 +967,7 @@ system and gives an overview of their function and contents.
       Use the following format to export the variable to the BitBake
       environment::
 
-         export BBSERVER=localhost:$port
+         $ export BBSERVER=localhost:$port
 
       By default, :term:`BBSERVER` also appears in :term:`BB_BASEHASH_IGNORE_VARS`.
       Consequently, :term:`BBSERVER` is excluded from checksum and dependency
@@ -9357,7 +9357,7 @@ system and gives an overview of their function and contents.
 
      You can obtain the signature of all the tasks for the recipe ``bc`` using::
 
-       bitbake -S none bc
+       $ bitbake -S none bc
 
      Then you can look at files in ``build/tmp/stamps/<arch>/bc`` and look for
      files like: ``<PV>.do_compile.sigdata.09772aa4532512baf96d433484f27234d4b7c11dd9cda0d6f56fa1b7ce6f25f0``.
@@ -9514,7 +9514,7 @@ system and gives an overview of their function and contents.
          This file requires permissions set to ``400`` or ``600`` to prevent
          other users from reading the file::
 
-            chmod 600 "$HOME/.netrc"
+            $ chmod 600 "$HOME/.netrc"
 
          Another method to configure the username and password is from the URL
          in :term:`SOURCE_MIRROR_URL` directly, with the ``user`` and ``pswd``

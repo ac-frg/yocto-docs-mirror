@@ -89,7 +89,7 @@ it always depends upon the paths it is built in.
 To run our automated selftest, as we use in our CI on the Autobuilder, you can
 run::
 
-   oe-selftest -r reproducible.ReproducibleTests.test_reproducible_builds
+   $ oe-selftest -r reproducible.ReproducibleTests.test_reproducible_builds
 
 This defaults to including a ``world`` build so, if other layers are added, it
 would also run the tests for recipes in the additional layers. Different build

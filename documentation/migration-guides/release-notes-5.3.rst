@@ -466,7 +466,7 @@ New Features / Enhancements in |yocto-ver|
       -  The script can now run compressed images with snapshot mode. For
          example, with :term:`IMAGE_FSTYPES` containing ``ext4.zst``, you can run::
 
-            runqemu snapshot ext4.zst <image-recipe>
+            $ runqemu snapshot ext4.zst <image-recipe>
 
       -  Add support for the ``erofs`` filesystem.
 

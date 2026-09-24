@@ -80,11 +80,11 @@ the CLI, you need to do the following after your image is built:
 
 #. Run these commands to export ``XDG_RUNTIME_DIR``::
 
-      mkdir -p /tmp/$USER-weston
-      chmod 0700 /tmp/$USER-weston
-      export XDG_RUNTIME_DIR=/tmp/$USER-weston
+      user@machine:~$ mkdir -p /tmp/$USER-weston
+      user@machine:~$ chmod 0700 /tmp/$USER-weston
+      user@machine:~$ export XDG_RUNTIME_DIR=/tmp/$USER-weston
 
 #. Launch Weston in the shell::
 
-      weston
+      user@machine:~$ weston
 

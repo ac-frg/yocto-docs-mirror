@@ -65,7 +65,7 @@ available. Follow these general steps to run QEMU:
       initializes the toolchain. For example, the following commands run
       the initialization script from the default ``poky_sdk`` directory::
 
-         . poky_sdk/environment-setup-core2-64-poky-linux
+         $ . poky_sdk/environment-setup-core2-64-poky-linux
 
 #. *Ensure the Artifacts are in Place:* You need to be sure you have a
    pre-built kernel that will boot in QEMU. You also need the target
@@ -227,15 +227,15 @@ using an NFS server.
 
    -  To start the NFS share::
 
-         runqemu-export-rootfs start file-system-location
+         $ runqemu-export-rootfs start file-system-location
 
    -  To stop the NFS share::
 
-         runqemu-export-rootfs stop file-system-location
+         $ runqemu-export-rootfs stop file-system-location
 
    -  To restart the NFS share::
 
-         runqemu-export-rootfs restart file-system-location
+         $ runqemu-export-rootfs restart file-system-location
 
 QEMU CPU Compatibility Under KVM
 ================================

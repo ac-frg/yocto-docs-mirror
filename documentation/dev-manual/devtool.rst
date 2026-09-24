@@ -566,7 +566,7 @@ the two modes:
    -  To work on the source code of a recipe another instance of VSCode is
       started in the recipe's workspace. Example::
 
-         code build/workspace/sources/my-recipe
+         $ code build/workspace/sources/my-recipe
 
       This instance of VSCode uses plugins that are useful for the development
       of the application. ``devtool ide-sdk`` generates the necessary
@@ -738,9 +738,9 @@ the two modes:
    VSCode. First of all we need a folder containing a CMake project.
    For this example, let's create a CMake project and start VSCode::
 
-      mkdir kit-test
-      echo "project(foo VERSION 1.0)" > kit-test/CMakeLists.txt
-      code kit-test
+      $ mkdir kit-test
+      $ echo "project(foo VERSION 1.0)" > kit-test/CMakeLists.txt
+      $ code kit-test
 
    If there is a CMake project in the workspace, cross-compilation is
    supported:

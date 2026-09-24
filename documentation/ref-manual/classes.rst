@@ -366,7 +366,7 @@ To do so, create a recipe for your program, for example using
 make it inherit the :ref:`ref-classes-cargo` and
 :ref:`ref-classes-cargo-update-recipe-crates` and run::
 
-   bitbake -c update_crates recipe
+   $ bitbake -c update_crates recipe
 
 This creates a ``recipe-crates.inc`` file that you can include in your
 recipe::
@@ -1372,7 +1372,7 @@ The simplest example for building a FIT image is to add::
 
 to the machine :term:`configuration file` and to execute::
 
-   bitbake linux-yocto-fitimage
+   $ bitbake linux-yocto-fitimage
 
 This results in a ``fitImage`` file deployed to the :term:`DEPLOY_DIR_IMAGE`
 directory and a ``linux-yocto-fitimage`` package which can be installed.
@@ -1386,7 +1386,7 @@ lines to the machine configuration file::
 
 The FIT image, this time including the RT kernel, is built again by calling::
 
-   bitbake linux-yocto-fitimage
+   $ bitbake linux-yocto-fitimage
 
 For other kernels provided by other layers, the same approach would work.
 However, it is usually more intuitive to add a custom FIT image recipe next to
@@ -3864,7 +3864,7 @@ build.
 
 Example usage::
 
-   bitbake -c generate_vex openssl
+   $ bitbake -c generate_vex openssl
 
 .. _ref-classes-waf:
 

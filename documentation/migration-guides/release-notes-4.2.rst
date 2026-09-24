@@ -173,7 +173,7 @@ New Features / Enhancements in 4.2
       command, which allowed to spot and fix a regression in the
       ``quilt`` ptest::
 
-         yocto_testresults_query.py regression-report 4.2_M1 4.2_M2
+         $ yocto_testresults_query.py regression-report 4.2_M1 4.2_M2
 
       See this `blog post about regression detection
       <https://bootlin.com/blog/continuous-integration-in-yocto-improving-the-regressions-detection/>`__.

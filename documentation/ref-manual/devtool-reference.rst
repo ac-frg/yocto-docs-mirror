@@ -461,7 +461,6 @@ Here is an example that resets the workspace directory that contains the
    $ devtool reset mtr
    NOTE: Cleaning sysroot for recipe mtr...
    NOTE: Leaving source tree /home/scottrif/bitbake-builds/build/workspace/sources/mtr as-is; if you no longer need it then please delete it manually
-   $
 
 .. _devtool-finish-working-on-a-recipe:
 
@@ -634,7 +633,6 @@ to create and add the ``mtr_0.86.bb`` recipe to the ``workspace`` directory::
 
    $ devtool status
    mtr:/home/scottrif/bitbake-builds/build/workspace/sources/mtr (/home/scottrif/bitbake-builds/build/workspace/recipes/mtr/mtr_0.86.bb)
-   $
 
 .. _devtool-search-for-available-target-recipes:
 

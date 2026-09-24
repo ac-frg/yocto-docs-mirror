@@ -106,19 +106,19 @@ Here are some syntax examples:
  - Use this syntax to generate a recipe based on source. Once generated,
    the recipe resides in the existing source code layer::
 
-      recipetool create -o OUTFILE source
+      $ recipetool create -o OUTFILE source
 
  - Use this syntax to generate a recipe using code that
    you extract from source. The extracted code is placed in its own layer
    defined by :term:`EXTERNALSRC`::
 
-      recipetool create -o OUTFILE -x EXTERNALSRC source
+      $ recipetool create -o OUTFILE -x EXTERNALSRC source
 
  - Use this syntax to generate a recipe based on source. The options
    direct ``recipetool`` to generate debugging information. Once generated,
    the recipe resides in the existing source code layer::
 
-      recipetool create -d -o OUTFILE source
+      $ recipetool create -d -o OUTFILE source
 
 Locating and Using a Similar Recipe
 -----------------------------------

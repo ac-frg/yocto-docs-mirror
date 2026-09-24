@@ -326,7 +326,7 @@ You can start the tests automatically or manually:
    Next, build your image. If the image successfully builds, the
    tests run::
 
-      bitbake core-image-sato
+      $ bitbake core-image-sato
 
 -  *Manually running tests:* To manually run the tests, first globally
    inherit the :ref:`ref-classes-testimage` class by editing your
@@ -336,7 +336,7 @@ You can start the tests automatically or manually:
 
    Next, use BitBake to run the tests::
 
-      bitbake -c testimage image
+      $ bitbake -c testimage image
 
 All test files reside in ``meta/lib/oeqa/runtime/cases`` in
 :term:`OpenEmbedded-Core (OE-Core)`. A test name maps

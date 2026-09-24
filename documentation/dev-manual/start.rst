@@ -423,7 +423,7 @@ your Yocto Project build host:
       replace the PackageFamilyName and your user on the following path
       to find your VHDX file::
 
-         ls C:\Users\myuser\AppData\Local\Packages\CanonicalGroupLimited.UbuntuonWindows_79abcdefgh\LocalState\
+         C:\WINDOWS\system32> ls C:\Users\myuser\AppData\Local\Packages\CanonicalGroupLimited.UbuntuonWindows_79abcdefgh\LocalState
          Mode                 LastWriteTime         Length Name
          -a----         3/14/2020   9:52 PM    57418973184 ext4.vhdx
 

@@ -104,7 +104,7 @@ details.
 
    #.  Then, start a heavy-load build, for example::
 
-          bitbake virtual/kernel -c compile -f
+          $ bitbake virtual/kernel -c compile -f
 
        You can stop the build at anytime with Control + C.
 

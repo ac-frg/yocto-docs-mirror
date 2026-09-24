@@ -75,7 +75,6 @@ section:
       $ bitbake-layers create-layer ../layers/meta-mylayer
       NOTE: Starting bitbake server...
       Add your new layer with 'bitbake-layers add-layer ../layers/meta-mylayer'
-      $
 
    .. note::
 
@@ -98,7 +97,6 @@ section:
       $ cd bitbake-builds/build
       $ bitbake-layers add-layer ../../meta-mylayer
       NOTE: Starting bitbake server...
-      $
 
 #. *Build the Clean Image:* The final step in preparing to work on the
    kernel is to build an initial image using ``bitbake``::
@@ -194,7 +192,6 @@ section:
       $ cd bitbake-builds/build
       $ bitbake-layers add-layer ../../meta-mylayer
       NOTE: Starting bitbake server ...
-      $
 
 #. *Create a Local Copy of the Kernel Git Repository:* You can find Git
    repositories of supported Yocto Project kernels organized under

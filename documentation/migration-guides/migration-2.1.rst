@@ -46,8 +46,8 @@ not specify the final expand parameter to calls that do specify the
 parameter. You can run the following ``sed`` command at the base of a
 layer to make this change::
 
-   sed -e 's:\(\.getVar([^,()]*\)):\1, False):g' -i `grep -ril getVar *`
-   sed -e 's:\(\.getVarFlag([^,()]*,[^,()]*\)):\1, False):g' -i `grep -ril getVarFlag *`
+   $ sed -e 's:\(\.getVar([^,()]*\)):\1, False):g' -i `grep -ril getVar *`
+   $ sed -e 's:\(\.getVarFlag([^,()]*,[^,()]*\)):\1, False):g' -i `grep -ril getVarFlag *`
 
 .. note::
 
