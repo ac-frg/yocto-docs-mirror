@@ -2193,7 +2193,7 @@ accomplished using fakeroot.
    ``virtual/fakeroot-native:do_populate_sysroot``, giving the following::
 
       fakeroot do_mytask () {
-          ...
+          # ... steps to perform task here ...
       }
       do_mytask[depends] += "virtual/fakeroot-native:do_populate_sysroot"
 

@@ -681,9 +681,9 @@ the ":ref:`kernel-dev/common:getting ready to develop using ``devtool```" Sectio
              printk("*************************************\n");
 
              if (per_cpu(cpu_loops_per_jiffy, this_cpu)) {
-                   .
-                   .
-                   .
+                   /*
+                    * ... remaining code unchanged ...
+                    */
 
 #. *Build the Updated Kernel Source:* To build the updated kernel
    source, use ``devtool``::
@@ -817,9 +817,9 @@ Section.
              printk("*************************************\n");
 
              if (per_cpu(cpu_loops_per_jiffy, this_cpu)) {
-                   .
-                   .
-                   .
+                   /*
+                    * ... remaining code unchanged ...
+                    */
 
 #. *Stage and Commit Your Changes:* Use standard Git commands to stage
    and commit the changes you just made::
@@ -1598,7 +1598,7 @@ looks much like the one provided with the ``hello-mod`` template::
 
    modules_install:
         $(MAKE) -C $(KERNEL_SRC) M=$(SRC) modules_install
-   ...
+   # ... remaining rules ...
 
 The important point to note here is the :term:`KERNEL_SRC` variable. The
 :ref:`ref-classes-module` class sets this variable and the :term:`KERNEL_PATH`

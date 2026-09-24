@@ -561,9 +561,7 @@ statements from the Raspberry Pi ``conf/layer.conf`` file::
 
    # Additional license directories.
    LICENSE_PATH += "${LAYERDIR}/files/custom-licenses"
-   .
-   .
-   .
+   # ... and so on for the rest of the file ...
 
 This file simply makes :term:`BitBake` aware of the recipes and configuration
 directories. The file must exist so that the OpenEmbedded build system can
