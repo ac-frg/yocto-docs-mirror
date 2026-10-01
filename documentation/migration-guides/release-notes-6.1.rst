@@ -611,6 +611,7 @@ New Features / Enhancements in |yocto-ver|
    -  ``p11-kit``: ``systemd``, ``trust``
    -  ``pciutils``: ``dns``, ``shared``
    -  ``perf``: ``bpf-skel``, ``llvm``
+   -  ``python3-requests``: ``chardet``, ``charset-normalizer``
    -  ``seatd``: ``manpages``
    -  ``strace``: ``libdw``
    -  ``vim``: ``desktop``
@@ -729,6 +730,10 @@ New Features / Enhancements in |yocto-ver|
 
    -  :ref:`ref-classes-pypi`: Only set ``downloadprefix`` in :term:`SRC_URI` if needed
       (:oecore_rev:`be391d8a8b7d4898063ceae1fbd707bfd2218be3`)
+
+   -  ``sqlite3``: Squash ``sqlite3.inc`` into the recipe, since this is the only place
+      where it is used.
+      (:oecore_rev:`35db54823f0eebc8258f29f18bbd59b04dbca88d`)
 
 Known Issues in |yocto-ver|
 ---------------------------
