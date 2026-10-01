@@ -2048,12 +2048,14 @@ Thanks to the following people who contributed to this release:
 -  Adarsh Jagadish Kamini
 -  Aditya GS
 -  Adrian Freihofer
+-  Aksh Garg
 -  Alejandro Hernandez Samaniego
 -  Alejandro Mery
 -  Alessandro Zini
 -  Alexander Kanavin
 -  Alexander Stein
 -  Alex Kiernan
+-  Alper Ak
 -  Amaury Couderc
 -  Anders Heimer
 -  Andreas Mützel
@@ -2073,6 +2075,7 @@ Thanks to the following people who contributed to this release:
 -  Baban
 -  Babanpreet Singh
 -  Benjamin Robin
+-  Bhavikkumar Girishbhai Ronvelia
 -  Bin Cao
 -  Bruce Ashfield
 -  Changqing Li
@@ -2084,6 +2087,7 @@ Thanks to the following people who contributed to this release:
 -  Daniel Dragomir
 -  Daniel McGregor
 -  Daniel Turull
+-  Daniel Wagenknecht
 -  David Nyström
 -  David Reyna
 -  Dawid Bijak
@@ -2101,6 +2105,7 @@ Thanks to the following people who contributed to this release:
 -  Ernest Van Hoecke
 -  Esa Jaaskela
 -  Etienne Cordonnier
+-  Fabian Pfitzner
 -  Fabian Pflug
 -  Fabien Lehoussel
 -  Fabio Estevam
@@ -2140,6 +2145,7 @@ Thanks to the following people who contributed to this release:
 -  Jinwang Li
 -  Joao Marcos Costa
 -  João Marcos Costa
+-  Joerg Vehlow
 -  Johan Anderholm
 -  John Ripple
 -  Jonas Juffinger
@@ -2176,6 +2182,7 @@ Thanks to the following people who contributed to this release:
 -  Mathieu Dubois-Briand
 -  Matt Madison
 -  Mengshi Wu
+-  Metz, Josiah
 -  Michael Halstead
 -  Michael Opdenacker
 -  Michael Tretter
@@ -2207,6 +2214,7 @@ Thanks to the following people who contributed to this release:
 -  Quentin Schulz
 -  Rasmus Villemoes
 -  Ricardo Salveti
+-  Ricardo Simoes
 -  Richard Purdie
 -  Robert P. J. Day
 -  Robert Yang
@@ -2233,11 +2241,12 @@ Thanks to the following people who contributed to this release:
 -  Tan Siewert
 -  Taruntej Kanakamalla
 -  Tejas Kanfade
--  Theo Gaige (Schneider Electric)
+-  Theo Gaige
 -  Thomas Perrot
 -  Thorsten Schmelzer
 -  Thune Tran
 -  Tim Orling
+-  Tobias Pistora
 -  Trevor Gamblin
 -  Trevor Woerner
 -  T, Sai Sireesha
