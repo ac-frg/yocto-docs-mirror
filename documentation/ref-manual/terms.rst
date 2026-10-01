@@ -648,3 +648,9 @@ universal, the list includes them just in case:
       controlled by the maintainer of the source code. For example, in
       order for a developer to work on a particular piece of code, they
       need to first get a copy of it from an "upstream" source.
+
+   :term:`Wic`
+      Wic --- the OpenEmbedded Image Creator --- is a standalone utility
+      used in the OpenEmbedded and Yocto Project ecosystems to generate
+      partitioned, bootable images from existing build artifacts. For a
+      comprehensive introduction to Wic, see :doc:`/dev-manual/wic`.
