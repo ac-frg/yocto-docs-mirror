@@ -950,7 +950,7 @@ The following recipes have been upgraded:
      - 1.6.5
    * - ``at-spi2-core``
      - 2.60.0
-     - 2.60.6
+     - 2.62.0.1
    * - ``attr``
      - 2.5.2
      - 2.6.0
@@ -959,7 +959,7 @@ The following recipes have been upgraded:
      - 0.9~rc5
    * - ``barebox``
      - 2026.04.0
-     - 2026.08.0
+     - 2026.09.0
    * - ``barebox-tools``
      - 2026.04.0
      - 2026.08.0
@@ -968,7 +968,7 @@ The following recipes have been upgraded:
      - 2.18.0
    * - ``bind``
      - 9.20.26
-     - 9.20.27
+     - 9.20.29
    * - ``binutils``
      - 2.46.1
      - 2.47
@@ -1005,6 +1005,9 @@ The following recipes have been upgraded:
    * - ``ca-certificates``
      - 20260601
      - 20260816
+   * - ``cairo``
+     - 1.18.4
+     - 1.18.6
    * - ``cargo``
      - 1.94.1
      - 1.98.1
@@ -1103,7 +1106,7 @@ The following recipes have been upgraded:
      - 8.2.10
    * - ``ffmpeg``
      - 8.0.3
-     - 8.1.2
+     - 9.0.2
    * - ``file``
      - 5.47
      - 5.48
@@ -1245,6 +1248,9 @@ The following recipes have been upgraded:
    * - ``gtk4``
      - 4.22.2
      - 4.22.4
+   * - ``gzip``
+     - 1.14
+     - 1.15
    * - ``harfbuzz``
      - 12.3.2
      - 14.4.0
@@ -1370,19 +1376,25 @@ The following recipes have been upgraded:
      - 1.21.0
    * - ``librsvg``
      - 2.61.3
-     - 2.62.3
+     - 2.63.2
    * - ``libseccomp``
      - 2.6.0
      - 2.6.1
+   * - ``libsecret``
+     - 0.21.7
+     - 0.21.8.2
    * - ``libslirp``
      - 4.9.1
-     - 4.9.4
+     - 4.9.5
    * - ``libsolv``
      - 0.7.36
      - 0.7.39
    * - ``libstd-rs``
      - 1.94.1
      - 1.98.1
+   * - ``libtest-fatal-perl``
+     - 0.018
+     - 0.019
    * - ``libtool``
      - 2.5.4
      - 2.6.2
@@ -1421,7 +1433,7 @@ The following recipes have been upgraded:
      - 1.4.85
    * - ``linux-firmware``
      - 20260410
-     - 20260810
+     - 20260916
    * - ``linux-libc-headers``
      - 6.18
      - 7.2
@@ -1481,7 +1493,7 @@ The following recipes have been upgraded:
      - 6.19
    * - ``mesa``
      - 26.0.5
-     - 26.2.2
+     - 26.2.3
    * - ``mesa-demos``
      - 9.0.0
      - 9.0.0+git
@@ -1538,7 +1550,7 @@ The following recipes have been upgraded:
      - 10.5p1
    * - ``openssl``
      - 3.5.7
-     - 4.0.2
+     - 4.0.3
    * - ``opkg``
      - 0.9.0
      - 0.10.0
@@ -1556,7 +1568,7 @@ The following recipes have been upgraded:
      - 1.58.2
    * - ``parted``
      - 3.6
-     - 3.7
+     - 3.8
    * - ``patchelf``
      - 0.18.0+git
      - 0.19.1
@@ -1580,7 +1592,7 @@ The following recipes have been upgraded:
      - 2.16
    * - ``ppp``
      - 2.5.2
-     - 2.5.3
+     - 2.5.4
    * - ``procps``
      - 4.0.6
      - 4.0.7
@@ -1637,7 +1649,7 @@ The following recipes have been upgraded:
      - 6.167.0
    * - ``python3-idna``
      - 3.11
-     - 3.19
+     - 3.20
    * - ``python3-imagesize``
      - 2.0.0
      - 2.0.1
@@ -1662,6 +1674,9 @@ The following recipes have been upgraded:
    * - ``python3-meson-python``
      - 0.19.0
      - 0.20.0
+   * - ``python3-more-itertools``
+     - 10.6.0
+     - 10.8.0
    * - ``python3-numpy``
      - 2.4.3
      - 2.5.2
@@ -1701,6 +1716,9 @@ The following recipes have been upgraded:
    * - ``python3-pyopenssl``
      - 26.0.0
      - 26.4.0
+   * - ``python3-pyproject-hooks``
+     - 1.2.0
+     - 1.3.3
    * - ``python3-pyproject-metadata``
      - 0.11.0
      - 0.12.1
@@ -1709,7 +1727,7 @@ The following recipes have been upgraded:
      - 9.1.1
    * - ``python3-pytz``
      - 2026.1
-     - 2026.3
+     - 2026.3.post1
    * - ``python3-requests``
      - 2.32.5
      - 2.34.2
@@ -1757,7 +1775,7 @@ The following recipes have been upgraded:
      - 6.1.3
    * - ``python3-urllib3``
      - 2.6.3
-     - 2.7.0
+     - 2.8.0
    * - ``python3-uv-build``
      - 0.10.10
      - 0.12.9
@@ -1802,10 +1820,10 @@ The following recipes have been upgraded:
      - git (359ab169da6a…)
    * - ``rsync``
      - 3.4.1
-     - 3.5.0
+     - 3.5.1
    * - ``ruby``
      - 4.0.5
-     - 4.0.6
+     - 4.0.7
    * - ``rust``
      - 1.94.1
      - 1.98.1
@@ -1893,6 +1911,9 @@ The following recipes have been upgraded:
    * - ``ttyrun``
      - 2.41.0
      - 2.44.0
+   * - ``tzdata/tzcode-native``
+     - 2026c
+     - 2026d
    * - ``u-boot``
      - 2026.01
      - 2026.07
@@ -1904,7 +1925,7 @@ The following recipes have been upgraded:
      - 4.2.0
    * - ``util-linux``
      - 2.41.5
-     - 2.42.3
+     - 2.42.4
    * - ``util-linux-libuuid``
      - 2.41.5
      - 2.42.3
