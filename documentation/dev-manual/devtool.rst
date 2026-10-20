@@ -480,7 +480,14 @@ directly in the IDE, independently of ``devtool ide-sdk`` and without calling
 configuration that points the IDE directly at the build tool, the
 cross-toolchain and the debugger provided by the SDK. ``devtool ide-sdk``
 only needs to be re-run later on, e.g. if a recipe's dependencies or its
-build configuration change.
+build configuration change:
+
+.. figure:: figures/devtool-ide-sdk-workflow.*
+   :width: 100%
+   :align: center
+   :class: max-natural-size
+
+   Typical ``devtool ide-sdk`` use case
 
 Let's now take a closer look at how ``devtool ide-sdk`` and the generated IDE
 configuration make use of a regular ``bitbake`` environment as a SDK to
@@ -542,7 +549,14 @@ The same architecture also allows the IDE to be configured to use further
 tools beyond the build tool, cross-compiler and debugger, e.g.
 ``clang-tidy``: any such tool just needs to be added as a native tool in
 ``recipe-sysroot-native``, in the Yocto reproducible way, for
-``devtool ide-sdk`` to be able to point the IDE at it.
+``devtool ide-sdk`` to be able to point the IDE at it:
+
+.. figure:: figures/devtool-ide-sdk-architecture.*
+   :width: 100%
+   :align: center
+   :class: max-natural-size
+
+   Architecture of ``devtool ide-sdk``
 
 To summarize the design described above, for supported build systems
 modified mode brings two key benefits:
@@ -722,7 +736,14 @@ This changes the relationship between the SDK, the target device and the
 debug symbols compared to the architecture described above: instead of a
 separate ``rootfs`` booted by the target and a ``rootfs-dbg`` only
 consulted by the debugger on the host, both the target and the debugger
-now use the same NFS-exported ``rootfs-dbg``.
+now use the same NFS-exported ``rootfs-dbg``:
+
+.. figure:: figures/devtool-ide-sdk-nfs-architecture.*
+   :width: 100%
+   :align: center
+   :class: max-natural-size
+
+   Architecture of ``devtool ide-sdk --nfs=rootfs-dbg``
 
 Use ``--nfs-extract-dir=DIR`` to extract below ``DIR/<image-recipe>/``
 instead of the default location in the ``devtool`` workspace, for example when

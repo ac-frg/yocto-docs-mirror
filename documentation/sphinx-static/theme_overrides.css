@@ -96,6 +96,11 @@ em {
   color: #444;
 }
 
+/* Scale with the page, but never beyond the size the text is meant for */
+img.max-natural-size {
+    max-width: max-content;
+}
+
 [alt='Permalink'] { color: #eee; }
 [alt='Permalink']:hover { color: black; }
 
