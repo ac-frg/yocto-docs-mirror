@@ -24,8 +24,12 @@ with ``devtool add`` form different combinations. The following diagram
 shows common development flows you would use with the ``devtool add``
 command:
 
-.. image:: figures/devtool-add-flow.png
+.. figure:: figures/devtool-add-flow.*
    :width: 100%
+   :align: center
+   :class: max-natural-size
+
+   Common development flows of ``devtool add``
 
 #. *Generating the New Recipe*: The top part of the flow shows three
    scenarios by which you could use ``devtool add`` to generate a recipe
@@ -56,10 +60,30 @@ command:
       corresponding append file in the workspace. If you do not provide
       recipe, the command makes an attempt to determine the recipe name.
 
-   -  *Middle*: The middle scenario in the figure also represents a
-      situation where the source code does not exist locally. In this
-      case, the code is again upstream and needs to be extracted to some
-      local area --- this time outside of the default workspace.
+   -  *Middle*: The middle scenario in the figure represents a situation
+      where the ``srctree`` has been previously prepared outside of the
+      ``devtool`` workspace.
+
+      The following command provides a new recipe name and identifies
+      the existing source tree location::
+
+         $ devtool add recipe srctree
+
+      The command examines the source code and creates a recipe named
+      recipe for the code and places the recipe into the workspace.
+
+      Because the extracted source code already exists, ``devtool`` does
+      not try to relocate the source code into the workspace --- only the
+      new recipe is placed in the workspace.
+
+      Aside from a recipe folder, the command also creates an associated
+      append folder and places an initial ``*.bbappend`` file within.
+
+   -  *Right*: The right scenario in the figure represents a situation
+      where the source code does not exist locally, as in the left
+      scenario. In this case, the code is again upstream and needs to be
+      extracted to some local area --- this time outside of the default
+      workspace.
 
       .. note::
 
@@ -78,25 +102,6 @@ command:
 
       Within workspace, ``devtool`` creates a recipe named recipe along
       with an associated append file.
-
-   -  *Right*: The right scenario in the figure represents a situation
-      where the ``srctree`` has been previously prepared outside of the
-      ``devtool`` workspace.
-
-      The following command provides a new recipe name and identifies
-      the existing source tree location::
-
-         $ devtool add recipe srctree
-
-      The command examines the source code and creates a recipe named
-      recipe for the code and places the recipe into the workspace.
-
-      Because the extracted source code already exists, ``devtool`` does
-      not try to relocate the source code into the workspace --- only the
-      new recipe is placed in the workspace.
-
-      Aside from a recipe folder, the command also creates an associated
-      append folder and places an initial ``*.bbappend`` file within.
 
 #. *Edit the Recipe*: You can use ``devtool edit-recipe`` to open up the
    editor as defined by the ``$EDITOR`` environment variable and modify
@@ -209,8 +214,12 @@ with ``devtool modify`` form different combinations. The following
 diagram shows common development flows for the ``devtool modify``
 command:
 
-.. image:: figures/devtool-modify-flow.png
+.. figure:: figures/devtool-modify-flow.*
    :width: 100%
+   :align: center
+   :class: max-natural-size
+
+   Common development flows of ``devtool modify``
 
 #. *Preparing to Modify the Code*: The top part of the flow shows three
    scenarios by which you could use ``devtool modify`` to prepare to
@@ -227,7 +236,34 @@ command:
    that layer. Furthermore, their source code is readily available
    either upstream or locally.
 
-   -  *Left*: The left scenario in the figure represents a common
+   -  *Left*: The left scenario in the figure represents a situation
+      where the source tree (``srctree``) already exists locally as a
+      previously extracted Git structure outside of the ``devtool``
+      workspace. In this example, the recipe also exists elsewhere
+      locally in its own layer.
+
+      The following command tells ``devtool`` the recipe with which to
+      work, uses the "-n" option to indicate source does not need to be
+      extracted, and uses ``srctree`` to point to the previously extracted
+      source files::
+
+         $ devtool modify -n recipe srctree
+
+      For a recipe that sets ``S = "${UNPACKDIR}"``, non-patch local
+      files are expected to already be present directly in ``srctree``
+      at the same location as the upstream source. If they are missing
+      there and you run the ``devtool finish`` command, any non-patch
+      files that might exist next to the recipe are removed because it
+      appears to ``devtool`` that you have deleted those files. This
+      does not apply if :term:`S` is a subdirectory of
+      :term:`UNPACKDIR`, since in that case the local files never lived
+      in ``srctree`` to begin with.
+
+      Once the ``devtool modify`` command finishes, it creates only an
+      append file for the recipe in the ``devtool`` workspace. The
+      recipe and the source code remain in their original locations.
+
+   -  *Middle*: The middle scenario in the figure represents a common
       situation where the source code does not exist locally and it
       needs to be extracted from an upstream source. In this situation,
       the source is extracted into the default ``devtool`` workspace
@@ -274,7 +310,7 @@ command:
       recipe's real :term:`WORKDIR` on every subsequent build regardless
       of ``devtool modify``; edit them next to the recipe instead.
 
-   -  *Middle*: The middle scenario in the figure represents a situation
+   -  *Right*: The right scenario in the figure represents a situation
       where the source code also does not exist locally. In this case,
       the code is again upstream and needs to be extracted to some local
       area as a Git repository. The recipe, in this scenario, is again
@@ -304,33 +340,6 @@ command:
       Within workspace, ``devtool`` creates an append file for the
       recipe. The recipe remains in its original location but the source
       files are extracted to the location you provide with ``srctree``.
-
-   -  *Right*: The right scenario in the figure represents a situation
-      where the source tree (``srctree``) already exists locally as a
-      previously extracted Git structure outside of the ``devtool``
-      workspace. In this example, the recipe also exists elsewhere
-      locally in its own layer.
-
-      The following command tells ``devtool`` the recipe with which to
-      work, uses the "-n" option to indicate source does not need to be
-      extracted, and uses ``srctree`` to point to the previously extracted
-      source files::
-
-         $ devtool modify -n recipe srctree
-
-      For a recipe that sets ``S = "${UNPACKDIR}"``, non-patch local
-      files are expected to already be present directly in ``srctree``
-      at the same location as the upstream source. If they are missing
-      there and you run the ``devtool finish`` command, any non-patch
-      files that might exist next to the recipe are removed because it
-      appears to ``devtool`` that you have deleted those files. This
-      does not apply if :term:`S` is a subdirectory of
-      :term:`UNPACKDIR`, since in that case the local files never lived
-      in ``srctree`` to begin with.
-
-      Once the ``devtool modify`` command finishes, it creates only an
-      append file for the recipe in the ``devtool`` workspace. The
-      recipe and the source code remain in their original locations.
 
 #. *Edit the Source*: Once you have used the ``devtool modify`` command,
    you are free to make changes to the source files. You can use any
@@ -1171,8 +1180,12 @@ source file forms that the
 The following diagram shows the common development flow used with the
 ``devtool upgrade`` command:
 
-.. image:: figures/devtool-upgrade-flow.png
+.. figure:: figures/devtool-upgrade-flow.*
    :width: 100%
+   :align: center
+   :class: max-natural-size
+
+   Common development flow of ``devtool upgrade``
 
 #. *Initiate the Upgrade*: The top part of the flow shows the typical
    scenario by which you use the ``devtool upgrade`` command. The
