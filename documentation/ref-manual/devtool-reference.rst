@@ -679,6 +679,10 @@ of SDKs are generated:
 -  ``shared`` mode: this creates a cross-compiling toolchain and the
    corresponding shared sysroot directories of the supplied recipe(s).
 
+The ``--mode`` option can be repeated to combine both modes, for example
+``--mode=modified --mode=shared`` (see
+:ref:`dev-manual/devtool:combining modified and shared mode`).
+
 The ``--target`` option can be used to specify a ``username@hostname`` string
 and create a remote debugging configuration for the recipe. Similarly to
 ``devtool deploy-target``, it requires an SSH server running on the target.
