@@ -8223,6 +8223,30 @@ system and gives an overview of their function and contents.
       -  ``/dev/vd``: emulates a VirtIO drive.
       -  ``/dev/vdb``: emulates a block VirtIO drive.
 
+   :term:`QB_FSINFO`
+
+      The :term:`QB_FSINFO` variable provides additional filesystem metadata to
+      ``runqemu`` as a space-separated list of ``fstype:flag`` entries. For
+      example::
+
+         QB_FSINFO = "wic:no-kernel-in-fs tar:rootfs-dbg"
+
+      The currently supported ``fstype`` and ``flag`` entries are:
+
+      -  ``wic``:
+
+         -  ``no-kernel-in-fs``: Specifies that the kernel is not included in
+            the :term:`Wic` image. In this case, ``runqemu`` loads the kernel separately.
+
+         -  ``kernel-in-fs``: Specifies that the kernel is included in the
+            :term:`Wic` image. In this case, ``runqemu`` does not load a separate kernel.
+
+      -  ``tar``:
+
+         -  ``rootfs-dbg``: Makes ``runqemu`` use the debug root filesystem
+            image when extracting a tarball for NFS by appending ``-dbg`` to
+            :term:`IMAGE_LINK_NAME`.
+
    :term:`QB_GRAPHICS`
 
       When using ``runqemu``, the :term:`QB_GRAPHICS` variable controls the QEMU
