@@ -2282,3 +2282,61 @@ Thanks to the following people who contributed to this release:
 
 Repositories / Downloads for Yocto-|yocto-ver|
 ----------------------------------------------
+
+yocto-docs
+
+-  Repository Location: :yocto_git:`/yocto-docs`
+-  Branch: :yocto_git:`blacksail </yocto-docs/log/?h=blacksail>`
+-  Tag:  :yocto_git:`yocto-6.1 </yocto-docs/log/?h=yocto-6.1>`
+-  Git Revision: :yocto_git:`f26faba8568a3c8fc81d81d3650cc419847a4e17 </yocto-docs/commit/?id=f26faba8568a3c8fc81d81d3650cc419847a4e17>`
+-  Release Artefact: yocto-docs-f26faba8568a3c8fc81d81d3650cc419847a4e17
+-  sha: db04fa7ccbe99ab633f83329490a4af296328c749835559bcc840a3f8aaf9b51
+-  Download Locations:
+
+   https://downloads.yoctoproject.org/releases/yocto/yocto-6.1/yocto-docs-f26faba8568a3c8fc81d81d3650cc419847a4e17.tar.bz2
+
+   https://mirrors.edge.kernel.org/yocto/yocto/yocto-6.1/yocto-docs-f26faba8568a3c8fc81d81d3650cc419847a4e17.tar.bz2
+
+openembedded-core
+
+-  Repository Location: :oe_git:`/openembedded-core`
+-  Branch: :oe_git:`blacksail </openembedded-core/log/?h=blacksail>`
+-  Tag:  :oe_git:`yocto-6.1 </openembedded-core/log/?h=yocto-6.1>`
+-  Git Revision: :oe_git:`419c1b0f1ed0e3ce22b1022061f763d007883121 </openembedded-core/commit/?id=419c1b0f1ed0e3ce22b1022061f763d007883121>`
+-  Release Artefact: oecore-419c1b0f1ed0e3ce22b1022061f763d007883121
+-  sha: 2619d7b6104324debe382938dfddc6e3b23d8b258e09a3d22c440d0dcafb17be
+-  Download Locations:
+
+   https://downloads.yoctoproject.org/releases/yocto/yocto-6.1/oecore-419c1b0f1ed0e3ce22b1022061f763d007883121.tar.bz2
+
+   https://mirrors.edge.kernel.org/yocto/yocto/yocto-6.1/oecore-419c1b0f1ed0e3ce22b1022061f763d007883121.tar.bz2
+
+meta-yocto
+
+-  Repository Location: :yocto_git:`/meta-yocto`
+-  Branch: :yocto_git:`blacksail </meta-yocto/log/?h=blacksail>`
+-  Tag:  :yocto_git:`yocto-6.1 </meta-yocto/log/?h=yocto-6.1>`
+-  Git Revision: :yocto_git:`43946d08974e61361f6313ae348c5d87c12be934 </meta-yocto/commit/?id=43946d08974e61361f6313ae348c5d87c12be934>`
+-  Release Artefact: meta-yocto-43946d08974e61361f6313ae348c5d87c12be934
+-  sha: cc2c54afc85fce7cd429eb356ada6b3b921fe6065169a297c085adba16bead21
+-  Download Locations:
+
+   https://downloads.yoctoproject.org/releases/yocto/yocto-6.1/meta-yocto-43946d08974e61361f6313ae348c5d87c12be934.tar.bz2
+
+   https://mirrors.edge.kernel.org/yocto/yocto/yocto-6.1/meta-yocto-43946d08974e61361f6313ae348c5d87c12be934.tar.bz2
+
+bitbake
+
+-  Repository Location: :oe_git:`/bitbake`
+-  Branch: :oe_git:`2.20 </bitbake/log/?h=2.20>`
+-  Tag:  :oe_git:`yocto-6.1 </bitbake/log/?h=yocto-6.1>`
+-  Git Revision: :oe_git:`634f8dede6b9d71b5a6691499fd05a8678b46eae </bitbake/commit/?id=634f8dede6b9d71b5a6691499fd05a8678b46eae>`
+-  Release Artefact: bitbake-634f8dede6b9d71b5a6691499fd05a8678b46eae
+-  sha: bb9f71d0d6de0d8f456bfe35f6e3f9db518e39d15af3cd49b51a90f2c5488c58
+-  Download Locations:
+
+   https://downloads.yoctoproject.org/releases/yocto/yocto-6.1/bitbake-634f8dede6b9d71b5a6691499fd05a8678b46eae.tar.bz2
+
+   https://mirrors.edge.kernel.org/yocto/yocto/yocto-6.1/bitbake-634f8dede6b9d71b5a6691499fd05a8678b46eae.tar.bz2
+
+
