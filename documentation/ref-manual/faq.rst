@@ -88,6 +88,26 @@ Our automated testing includes it through the ``poky-altcfg`` :term:`DISTRO` and
 we don't really need it to be the default: it is tested, it works, and people
 can choose to use it.
 
+Why don't I get an email when my patch merges?
+----------------------------------------------
+
+Where the project uses mailing lists for patch submission, many of the components
+such as bitbake and OpenEmbedded-Core haven't found it appropriate to reply on the
+mailing list for each patch that merges for two main reasons. Firstly, it would
+generate a lot of email traffic with content that may only be useful to a small
+number of people and quite annoying for other uninterested people to filter through.
+That could be avoided by only sending emails direct to the submitters.
+
+Secondly, sending such emails accurately takes time and it wasn't felt to be the
+best use of limited maintainer time. We do track patch status to some level
+in `patchwork <https://patchwork.yoctoproject.org/.>`__ and there is automated
+tooling which could extend on top of that but it hasn't been possible to fit
+that into the projects workflows with enough accuracy at this time.
+
+It is very easy to check whether a patch has merged by looking at the repository, or
+pulling and rebasing.
+
+
 Building environment
 ====================
 
