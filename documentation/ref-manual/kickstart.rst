@@ -16,8 +16,11 @@ modifications to reflect Wic capabilities. You can see the original
 documentation for those commands at the following link:
 https://pykickstart.readthedocs.io/en/latest/kickstart-docs.html
 
+Kickstart Commands And Directives
+=================================
+
 Command: part
-=============
+-------------
 
 This command creates a partition on the system and uses the
 following syntax::
@@ -202,7 +205,7 @@ the ``part`` command:
    ``wic help kickstart``).
 
 Command: bootloader
-===================
+-------------------
 
 This command specifies how the bootloader should be configured and
 supports the following options:
@@ -232,7 +235,7 @@ supports the following options:
    bootloader times out and boots the default option.
 
 Directive: include
-==================
+------------------
 
 The ``include`` directive can be used to include a WKS file into another. The
 only argument to this command is the path to the file to include, relative to
