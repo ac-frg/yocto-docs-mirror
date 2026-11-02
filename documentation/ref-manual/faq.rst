@@ -108,6 +108,41 @@ It is very easy to check whether a patch has merged by looking at the repository
 pulling and rebasing.
 
 
+Why doesn't the project use GitHub?
+-----------------------------------
+
+This is not a simple question and there is no right answer to it but there is some
+background worth appreciating.
+
+Some components within the project do accept pull requests from GitHub, others don't.
+The README in the component in question should make the process clear for that
+component. GitHub itself is a commercial operation and there are concerns about what
+happens if they change direction or decide to discontinue it as there is precedent in
+the past for that kind of thing happening. Equally, there are open alternatives to it.
+
+The bigger issue is the model. Mailing lists allow for wide peer review. The people
+performing that review are extremely valuable with experience built up over decades.
+The GitHub model doesn't really lend itself to them being able to easily see or be
+aware of changes beyond the maintainer accepting the pull request. That model also
+tends to focus on the single maintainer with total authority, which for components
+like OE-Core, simply isn't how things operate for us. Moving to such a model would
+alienate our existing reviewers and our community consensus approach to changes.
+
+Another issue is that GitHub and similar forges use the Pull Request mechanism,
+heavily leaning into reviewing and testing the Pull Request as a whole (e.g. the
+automated testing (CI) only runs on the last commit of the Pull Request, and
+per-commit reviews are painful to write and follow-up on). Using GitHub or a
+similar forge would require the project to completely change its reviewing process
+(or have two wildly different processes which would be inconsistent and confusing).
+
+So yes, for a contributor wanting to make a quick submission, GitHub and similar models
+are attractive, but they would likely come at a cost to the project's long term health.
+They can work well for the single or limited number of maintainer model, and for components
+with the setup, but not for other areas which benefit from wide peer review. We live
+in hope that tools can catch up with that, we'd even love to develop them ourselves if
+we had time but sadly, we don't at this point.
+
+
 Building environment
 ====================
 
