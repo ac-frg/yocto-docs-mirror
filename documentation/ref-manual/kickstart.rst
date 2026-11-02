@@ -246,3 +246,9 @@ the current file. For example:
    include common.wks.inc
 
    bootloader --configfile="directdisk-bootloader-config.cfg"
+
+.. warning::
+
+   File inclusion is only supported for ``.wks`` files, not ``.wks.in``. See the
+   :ref:`ref-manual/kickstart:Kickstart Variable Expansion` section below for
+   more details on the differences between the two files.
