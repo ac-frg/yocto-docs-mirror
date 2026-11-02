@@ -9,12 +9,46 @@ OpenEmbedded Kickstart (``.wks``) Reference
 Introduction
 ============
 
-This chapter provides a reference on the available kickstart commands.
+This chapter provides a reference on the available kickstart commands and
+variable expansion in kickstart files (``.wks`` and ``.wks.in`` files).
 The information lists the commands, their syntax, and meanings.
 Kickstart commands are based on the Fedora kickstart versions but with
 modifications to reflect Wic capabilities. You can see the original
 documentation for those commands at the following link:
 https://pykickstart.readthedocs.io/en/latest/kickstart-docs.html
+
+Kickstart Files Location
+========================
+
+Within a :term:`layer`, a kickstart file should always be placed in the
+``files/wic`` directory. For example, as of writing, the
+:term:`OpenEmbedded-Core (OE-Core)` layer has the following files:
+
+.. code-block:: text
+
+   meta/files/wic
+   ├── common.wks.inc
+   ├── directdisk-bootloader-config.cfg
+   ├── directdisk-bootloader-config.wks
+   ├── directdisk-gpt.wks
+   ├── directdisk-multi-rootfs.wks
+   ├── directdisk.wks
+   ├── efi-bootdisk.wks.in
+   ├── efi-uki-bootdisk.wks.in
+   ├── mkefidisk.wks
+   ├── mkhybridiso.wks
+   ├── qemuloongarch.wks
+   ├── qemuriscv.wks
+   ├── qemux86-directdisk.wks
+   ├── sdimage-bootpart.wks
+   └── systemd-bootdisk.wks
+
+Kickstart files within this directory can end with ``.wks`` and ``.wks.in`` (see
+the :ref:`ref-manual/kickstart:Kickstart Variable Expansion` section for more
+details on the differences). Files ending with ``.inc`` are files included in
+kickstart files (see the :ref:`ref-manual/kickstart:Directive: include`
+section), and the ``.cfg`` is a configuration file used by the :ref:`bootloader
+<ref-manual/kickstart:Command: bootloader>` command.
 
 Kickstart Commands And Directives
 =================================
@@ -252,3 +286,92 @@ the current file. For example:
    File inclusion is only supported for ``.wks`` files, not ``.wks.in``. See the
    :ref:`ref-manual/kickstart:Kickstart Variable Expansion` section below for
    more details on the differences between the two files.
+
+Kickstart Variable Expansion
+============================
+
+Kickstart files support two different file extensions and each has a different
+variable expansion mechanism:
+
+-  ``.wks``: in this file format, only the variables listed in the
+   :term:`WICVARS` variable are expanded. These variables are expanded by the
+   :term:`wic` command-line utility, not :term:`BitBake`. However, the syntax to
+   reference these variables is the same. For example:
+
+   .. code-block:: text
+      :caption: Snippet from ``mkefidisk.wks``
+
+      bootloader --ptable gpt --timeout=5 --append="rootfstype=ext4 console=${KERNEL_CONSOLE} console=tty0"
+
+   Here, the :term:`KERNEL_CONSOLE` variable will be expanded, because it is in
+   :term:`WICVARS`.
+
+   For any referenced variable that is not listed in :term:`WICVARS`, a warning
+   is emitted (by the :term:`wic` command-line tool, not :term:`BitBake`), and
+   the ``${...}`` string is left as-is.
+
+   .. note::
+
+      The :term:`wic` command-line utility is a separate project (see
+      :yocto_git:`/wic`). It is for this reason that the :term:`wic` tool
+      supports expanding variables without :term:`BitBake`, using its own
+      mechanism.
+
+-  ``.wks.in``: in this file format, variables are expanded by :term:`BitBake`.
+   This means that the :term:`WICVARS` list has no effect anymore: those
+   variables are expanded by :term:`BitBake` directly. For example:
+
+   .. code-block:: text
+      :caption: Snippet from ``efi-uki-bootdisk.wks.in``
+
+      part /boot --source bootimg_efi --sourceparams="loader=${EFI_PROVIDER}" --label boot --active ...
+
+   Here, the :term:`EFI_PROVIDER` variable is expanded by :term:`BitBake`.
+
+   This also means that ``.wks.in`` files can contain inline Python expressions.
+   Here is a made up example:
+
+   .. code-block:: text
+
+      part / --source rootfs --fstype=ext4 --label root --align ${@4 * 1024} --size 5G
+
+   Here, since the ``${@4 * 1024}`` expression is evaluated by :term:`BitBake`,
+   it will be expanded to ``4096``.
+
+   For any referenced variable that is not defined in the environment, an empty
+   string replaces the reference.
+
+Here is a table that summarizes expansion results between ``.wks`` and ``.wks.in``:
+
+.. list-table::
+   :widths: 20 20 40 40
+   :header-rows: 1
+
+   * - Reference
+     - In :term:`WICVARS`?
+     - ``.wks`` (:term:`Wic` expansion)
+     - ``.wks.in`` (:term:`BitBake` expansion)
+   * - ``${IMAGE_ROOTFS}``
+     - yes
+     - ``/path/to/rootfs``
+     - ``/path/to/rootfs``
+   * - ``${TMPDIR}``
+     - no
+     - ``${TMPDIR}``
+     - ``/path/to/build/tmp``
+   * - ``${@1024*2}``
+     - n/a
+     - ``${@1024*2}``
+     - 2048
+   * - ``${NOWHERE_DEFINED}``
+     - no
+     - ``${NOWHERE_DEFINED}``
+     - (empty)
+
+Expansion in Included Files
+---------------------------
+
+For files that are included with the :ref:`include
+<ref-manual/kickstart:Directive: include>` directive presented above, variable
+expansion is *always* done by :term:`wic`'s own parser, using the
+:term:`WICVARS` variable.

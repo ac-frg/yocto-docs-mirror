@@ -12774,6 +12774,14 @@ system and gives an overview of their function and contents.
       ":ref:`dev-manual/wic:creating partitioned images using wic`" section in
       the Yocto Project Development Tasks Manual.
 
+   :term:`WICVARS`
+      Defined in the :ref:`image_types_wic <ref-classes-image_types>` class, the
+      :term:`WICVARS` variable contains a list of variable names that can be
+      used in :doc:`.wks </ref-manual/kickstart>` files. ``.wks`` files differ
+      from ``.wks.in`` files: for the latter, variables are expanded by
+      :term:`BitBake` instead. For more details, see the
+      :ref:`ref-manual/kickstart:Kickstart Variable Expansion` section.
+
    :term:`WIRELESS_DAEMON`
       For ``connman`` and ``packagegroup-base``, specifies the wireless
       daemon to use. The default is "wpa-supplicant" (note that the value
