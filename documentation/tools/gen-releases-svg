@@ -54,6 +54,16 @@ gantt
 with open(args.releases_json_path, "r") as f:
     releases_from_json = json.load(f)
 
+# Find the oldest active release release date to make it the start of our timeline.
+oldest_supported_release_date = datetime.datetime.now(datetime.timezone.utc)
+for release in releases_from_json:
+    if release["series"] == "previous":
+        continue
+    if not release["original_release_date"]:
+        continue
+    oldest_supported_release_date = min(oldest_supported_release_date, datetime.datetime.strptime(
+        release["original_release_date"], "%Y-%m-%dT%H:%M:%S%z"))
+
 with tempfile.TemporaryDirectory() as tmpdir:
     mmdpath = Path(tmpdir) / "diagram.mmd"
     with open(mmdpath, "w", encoding="utf-8") as mmd:
@@ -69,7 +79,7 @@ with tempfile.TemporaryDirectory() as tmpdir:
             if not release["original_release_date"]:
                 continue
             original_release_date = datetime.datetime.strptime(release["original_release_date"], "%Y-%m-%dT%H:%M:%S%z")
-            if original_release_date < datetime.datetime(2022, 4, 1, tzinfo=datetime.timezone.utc):
+            if original_release_date < oldest_supported_release_date:
                 continue
             original_release_date = original_release_date.date().isoformat()
             end_date = datetime.datetime.strptime(release["latest_release_date"], "%Y-%m-%dT%H:%M:%S%z")
