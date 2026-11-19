@@ -405,6 +405,42 @@ argument should be passed as part of the command::
 These machines are the ones present in your BSP layer, in the ``conf/machine/``
 directory.
 
+To run only some of the tests, for example to split a long check over
+several runs, pass them to the ``--run-tests`` argument as
+``<module>[.<class>[.<name>]]``: a module runs all its tests, a module and
+a class all the tests of that class, and a full name a single test. The
+modules are the files in the :oe_git:`scripts/lib/checklayer/cases
+</openembedded-core/tree/scripts/lib/checklayer/cases>` directory, each
+with one class:
+
+-  ``common``: ``CommonCheckLayer``, in :oe_git:`common.py
+   </openembedded-core/tree/scripts/lib/checklayer/cases/common.py>`.
+
+-  ``bsp``: ``BSPCheckLayer``, in :oe_git:`bsp.py
+   </openembedded-core/tree/scripts/lib/checklayer/cases/bsp.py>`.
+
+-  ``distro``: ``DistroCheckLayer``, in :oe_git:`distro.py
+   </openembedded-core/tree/scripts/lib/checklayer/cases/distro.py>`.
+
+For example, to run all the BSP tests::
+
+   $ source oe-init-build-env
+   $ yocto-check-layer --run-tests bsp --machines <machine1> <machine2> ... -- your_layer_directory
+
+Or to run only the ``test_world`` test listed below as
+``common.test_world``, and the ``test_machine_signatures`` one::
+
+   $ source oe-init-build-env
+   $ yocto-check-layer --run-tests common.CommonCheckLayer.test_world \
+         bsp.BSPCheckLayer.test_machine_signatures \
+         --machines <machine1> <machine2> ... -- your_layer_directory
+
+.. note::
+
+   A "PASS" from such a run only covers the tests and machines it ran. A
+   layer is Yocto Project Compatible only if a single run with all the
+   tests, and with all the machines of a BSP layer, passes.
+
 Entering the command causes the script to determine the type of layer
 and then to execute a set of specific tests against the layer.
 
