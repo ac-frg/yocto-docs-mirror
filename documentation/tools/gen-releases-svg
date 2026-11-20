@@ -89,7 +89,4 @@ with tempfile.TemporaryDirectory() as tmpdir:
             mmd.write(f"    {codename} {series_version}{" (LTS)" if lts else ""}"
                       f" :{status}, {original_release_date}, {end_date}\n")
 
-    result = subprocess.run(
-        ["mmdc", "--input", mmdpath, "--output", args.output],
-        check=True,
-    )
+    subprocess.check_call(["mmdc", "--input", mmdpath, "--output", args.output])
