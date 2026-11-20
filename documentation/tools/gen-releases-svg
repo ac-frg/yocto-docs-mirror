@@ -67,39 +67,39 @@ for release in releases_from_json:
     oldest_supported_release_date = min(oldest_supported_release_date, datetime.datetime.strptime(
         release["original_release_date"], "%Y-%m-%dT%H:%M:%S%z"))
 
-with tempfile.TemporaryDirectory() as tmpdir:
-    mmdpath = Path(tmpdir) / "diagram.mmd"
-    with open(mmdpath, "w", encoding="utf-8") as mmd:
-        mmd.write(MMD_HEADER)
+with tempfile.NamedTemporaryFile("w") as mmd:
+    mmd.write(MMD_HEADER)
 
-        first_active_rel_found = False
-        for release in releases_from_json:
-            codename = release["release_codename"]
-            series_version = release["series_version"]
-            if release["status"] == "Active Development":
-                mmd.write(f"    {codename} {series_version} :done, after current_rel, 6M\n")
-                continue
-            if not release["original_release_date"]:
-                continue
-            original_release_date = datetime.datetime.strptime(release["original_release_date"], "%Y-%m-%dT%H:%M:%S%z")
-            if original_release_date < oldest_supported_release_date:
-                continue
-            original_release_date = original_release_date.date().isoformat()
-            end_date = datetime.datetime.strptime(release["latest_release_date"], "%Y-%m-%dT%H:%M:%S%z")
-            end_date = end_date.date().isoformat()
-            lts = False
-            if "LTS until" in release["status"]:
-                lts = True
-            status = "done"
-            if release["series"] == "current":
-                status = "active"
-                if not first_active_rel_found:
-                    status += ", current_rel"
-                    first_active_rel_found = True
-                end_date = "6M"
-                if lts:
-                    end_date = "4y"
-            mmd.write(f"    {codename} {series_version}{" (LTS)" if lts else ""}"
-                      f" :{status}, {original_release_date}, {end_date}\n")
+    first_active_rel_found = False
+    for release in releases_from_json:
+        codename = release["release_codename"]
+        series_version = release["series_version"]
+        if release["status"] == "Active Development":
+            mmd.write(f"    {codename} {series_version} :done, after current_rel, 6M\n")
+            continue
+        if not release["original_release_date"]:
+            continue
+        original_release_date = datetime.datetime.strptime(release["original_release_date"], "%Y-%m-%dT%H:%M:%S%z")
+        if original_release_date < oldest_supported_release_date:
+            continue
+        original_release_date = original_release_date.date().isoformat()
+        end_date = datetime.datetime.strptime(release["latest_release_date"], "%Y-%m-%dT%H:%M:%S%z")
+        end_date = end_date.date().isoformat()
+        lts = False
+        if "LTS until" in release["status"]:
+            lts = True
+        status = "done"
+        if release["series"] == "current":
+            status = "active"
+            if not first_active_rel_found:
+                status += ", current_rel"
+                first_active_rel_found = True
+            end_date = "6M"
+            if lts:
+                end_date = "4y"
+        mmd.write(f"    {codename} {series_version}{" (LTS)" if lts else ""}"
+                  f" :{status}, {original_release_date}, {end_date}\n")
 
-    subprocess.check_call(["mmdc", "--input", mmdpath, "--output", args.output])
+    mmd.flush()
+
+    subprocess.check_call(["mmdc", "--input", mmd.name, "--output", args.output])
