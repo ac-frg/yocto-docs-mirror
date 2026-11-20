@@ -18,13 +18,16 @@ import tempfile
 
 from pathlib import Path
 
+# documentation/ directory in yocto-docs
+documentation_dir = Path(__file__).resolve().parent.parent
+
 parser = argparse.ArgumentParser(
     description="Parse releases.json and output a releases.svg file"
 )
 parser.add_argument("-i", help="Path to the releases.json file", dest="releases_json_path",
-                    default=Path(__file__).resolve().parent.parent / "releases.json")
+                    default=documentation_dir / "releases.json")
 parser.add_argument("-o", help="Path to the output SVG", dest="output",
-                    default=Path(__file__).resolve().parent.parent / "ref-manual/svg/releases.svg")
+                    default=documentation_dir / "ref-manual/svg/releases.svg")
 args = parser.parse_args()
 
 if not shutil.which("mmdc"):
